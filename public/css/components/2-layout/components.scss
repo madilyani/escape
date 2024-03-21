@@ -1,0 +1,166 @@
+h4 {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 43px;
+  &.uniq {
+    font-family: $balsamiq;
+  }
+}
+h5 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  &.cap {
+    text-transform: capitalize;
+  }
+  &.big {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #000000;
+  }
+}
+.button {
+  display: inline-block;
+  @include transition;
+  font-family: $mainFont;
+  box-sizing: border-box;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &.secondary {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: capitalize;
+    color: $primary;
+    padding: 17px 14px 14px 14px;
+    background: $white;
+    border-radius: 35px;
+  }
+  &.reserve {
+    padding: 18px 20px;
+    border-radius: 50px;
+    background: $secondary;
+    font-family: "Poppins";
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1;
+    color: #000000;
+  }
+}
+.note {
+  &__inner {
+    background: $primary;
+    border-radius: 50px;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h5 {
+      text-align: center;
+      color: $white;
+      width: calc(100% - 540px);
+    }
+    .button {
+      width: 520px;
+    }
+  }
+}
+@mixin note-xxxlg-xxxxlg {
+  .note {
+    &__inner {
+      .button {
+        width: 450px;
+      }
+      h5 {
+        width: calc(100% - 470px);
+      }
+    }
+  }
+}
+@mixin note-xxlg-xxxlg {
+  .note {
+    &__inner {
+      .button {
+        width: 340px;
+      }
+      h5 {
+        width: calc(100% - 360px);
+      }
+    }
+  }
+}
+@mixin note-lg-xlg {
+  .note {
+    &__inner {
+      border-radius: 10px;
+      padding-left: 16px;
+      h5 {
+        margin-right: 16px;
+        width: unset;
+        text-align: left;
+      }
+      .button {
+        width: unset;
+        white-space: nowrap;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+@mixin note-xsm-sm {
+  .note {
+    &__inner {
+      h5 {
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+        max-width: 165px;
+      }
+      .button {
+        font-size: 12px;
+        line-height: 24px;
+        border-radius: 8px;
+        padding: 4px 8px;
+      }
+    }
+  }
+}
+.rate {
+  &__range {
+    position: relative;
+    width: 104px;
+    height: 16px;
+    background: url(../images/icons/starEmpty.png);
+    background-repeat: no-repeat;
+    background-size: 104px;
+    background-position: left;
+    &-progress {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0;
+      @include transformY;
+      height: 16px;
+      background: url(../images/icons/star.png);
+      background-repeat: no-repeat;
+      background-size: 104px;
+      background-position: left;
+    }
+  }
+}
+.popWrap {
+  &.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba($color: $black, $alpha: 0.1);
+  }
+}
