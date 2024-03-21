@@ -25,9 +25,10 @@ export default function FiilterMob({
       {
         breakpoint: 540,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
+          variableWidth: true,
+          arrows: true,
         },
       },
     ],
@@ -47,23 +48,6 @@ export default function FiilterMob({
           >
             Filtra per Stelle {chevronTop}
           </div>
-          <AnimatePresence>
-            {mobDrop === "rating" && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, height: 0 }}
-                className="filterMobDrop__pop"
-              >
-                <Rating
-                  title="Filtra per Stelle"
-                  mobile={true}
-                  closePop={closePop}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
         <div className="filterMobDrop">
           <div
@@ -77,24 +61,6 @@ export default function FiilterMob({
           >
             servizi {chevronTop}
           </div>
-          <AnimatePresence>
-            {mobDrop === "services" && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, height: 0 }}
-                className="filterMobDrop__pop"
-              >
-                <Cats
-                  modul={services}
-                  title="servizi"
-                  mobile={true}
-                  closePop={closePop}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
         <div className="filterMobDrop">
           <div
@@ -108,24 +74,6 @@ export default function FiilterMob({
           >
             località {chevronTop}
           </div>
-          <AnimatePresence>
-            {mobDrop === "location" && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, height: 0 }}
-                className="filterMobDrop__pop"
-              >
-                <Cats
-                  modul={locations}
-                  title="località"
-                  mobile={true}
-                  closePop={closePop}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
         <div className="filterMobDrop">
           <div
@@ -140,24 +88,6 @@ export default function FiilterMob({
           >
             Trattamento {chevronTop}
           </div>
-          <AnimatePresence>
-            {mobDrop === "treatments" && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, height: 0 }}
-                className="filterMobDrop__pop"
-              >
-                <Cats
-                  modul={treatments}
-                  title="Trattamento"
-                  mobile={true}
-                  closePop={closePop}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
         <div className="filterMobDrop">
           <div
@@ -171,26 +101,89 @@ export default function FiilterMob({
           >
             In Evidenza {chevronTop}
           </div>
-          <AnimatePresence>
-            {mobDrop === "evis" && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                transition={{ duration: 0.2 }}
-                exit={{ opacity: 0, height: 0 }}
-                className="filterMobDrop__pop"
-              >
-                <Evi
-                  modul={treatments}
-                  title="In Evidenza"
-                  mobile={true}
-                  closePop={closePop}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </Slider>
+      <AnimatePresence>
+        {mobDrop === "rating" && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, height: 0 }}
+            className="filterMobDrop__pop"
+          >
+            <Rating
+              title="Filtra per Stelle"
+              mobile={true}
+              closePop={closePop}
+            />
+          </motion.div>
+        )}
+        {mobDrop === "services" && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, height: 0 }}
+            className="filterMobDrop__pop"
+          >
+            <Cats
+              modul={services}
+              title="servizi"
+              mobile={true}
+              closePop={closePop}
+            />
+          </motion.div>
+        )}
+        {mobDrop === "location" && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, height: 0 }}
+            className="filterMobDrop__pop"
+          >
+            <Cats
+              modul={locations}
+              title="località"
+              mobile={true}
+              closePop={closePop}
+            />
+          </motion.div>
+        )}
+        {mobDrop === "treatments" && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, height: 0 }}
+            className="filterMobDrop__pop"
+          >
+            <Cats
+              modul={treatments}
+              title="Trattamento"
+              mobile={true}
+              closePop={closePop}
+            />
+          </motion.div>
+        )}
+        {mobDrop === "evis" && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, height: 0 }}
+            className="filterMobDrop__pop"
+          >
+            <Evi
+              modul={treatments}
+              title="In Evidenza"
+              mobile={true}
+              closePop={closePop}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

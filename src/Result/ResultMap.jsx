@@ -4,6 +4,7 @@ import Filter from "../Base/Filter/Filter";
 import { arrowLong, calendarIcon, locationIcon, starIcon } from "../Base/SVG";
 import { Link } from "react-router-dom";
 import Slider from "react-slick/lib/slider";
+import Search from "../Base/Search/Search";
 const mapCardList = [
   {
     id: "1",
@@ -78,6 +79,7 @@ export default function Result() {
   };
   return (
     <>
+      <Search />
       <Note />
       <div className="result">
         <div className="auto__container">
@@ -93,6 +95,17 @@ export default function Result() {
                 </div>
               </div> */}
               <Filter />
+            </div>
+            <div className="note mob">
+              <h6>42 Hotel trovati a Ischia, italia</h6>
+              <div className="note__inner">
+                <h5 className="cap">
+                  Registrati Adesso per Accedere a sconti esclusivi
+                </h5>
+                <Link to="" className="button secondary">
+                  Accedi / Iscriviti
+                </Link>
+              </div>
             </div>
             <div className="resultMap">
               <div className="resultMap__bg">

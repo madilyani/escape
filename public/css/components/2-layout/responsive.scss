@@ -135,7 +135,24 @@
     font-size: 28px;
     line-height: 36px;
   }
+  .filter {
+    &Map {
+      width: calc(100% + 40px);
+      margin: 0 -20px;
+      &__image {
+        padding-bottom: 56%;
+        border-radius: 0;
+        a {
+          right: unset;
+          left: 50%;
+          bottom: 13px;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
   // base end
+  @include filter-xsm-sm;
   // result start
   @include card-xsm-sm;
   @include result-xsm-sm;

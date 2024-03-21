@@ -216,6 +216,9 @@ h6 {
   }
 }
 .note {
+  &.mob {
+    display: none;
+  }
   &__inner {
     background: $primary;
     border-radius: 50px;
@@ -231,6 +234,14 @@ h6 {
     .button {
       width: 520px;
     }
+  }
+  h6 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: $primary;
+    margin-bottom: 13px;
   }
 }
 @mixin note-xxxlg-xxxxlg {
@@ -277,6 +288,12 @@ h6 {
 }
 @mixin note-xsm-sm {
   .note {
+    display: none;
+    &.mob {
+      width: 100%;
+      display: block;
+      margin-bottom: 15px;
+    }
     &__inner {
       h5 {
         font-size: 12px;
