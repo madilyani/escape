@@ -4,7 +4,7 @@ import Filter from "../Base/Filter/Filter";
 import Card from "../Base/Card";
 import { hotelList } from "../Base/hotelList";
 
-export default function Result() {
+export default function ResultMap() {
   return (
     <>
       <Note />

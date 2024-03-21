@@ -27,10 +27,20 @@
       font-size: 16px;
       line-height: 22px;
     }
+    &.primary {
+      padding: 15px 30px;
+      font-size: 14px;
+    }
   }
   .auto__container {
     max-width: 1200px;
   }
+  .mapCard {
+    // margin: 6px;
+    // width: calc(33.3% - 12px);
+  }
+  @include header-xxxlg-xxxxlg;
+  @include nav-xxxlg-xxxxlg;
   @include filter-xxxlg-xxxxlg;
   @include note-xxxlg-xxxxlg;
   // base end
@@ -56,6 +66,13 @@
   .auto__container {
     max-width: 1040px;
   }
+  .mapCard {
+    // width: calc(50% - 12px);
+    // max-width: unset;
+    // &:last-child {
+    //   display: none;
+    // }
+  }
   @include note-xxlg-xxxlg;
   @include card-xxlg-xxxlg;
   //   base end
@@ -66,15 +83,19 @@
 }
 // 1120px
 @include xlg-xxlg {
+  @include header-xlg-xxlg;
+  //   base end
   // result start
   @include result-xlg-xxlg;
   @include card-xlg-xxlg;
   @include filter-xlg-xxlg;
   // result end
 }
-// -1024px
+// 1024px
 @include lg-xlg {
   // base start
+  @include header-lg-xlg;
+  @include nav-lg-xlg;
   @include footer-lg-xlg;
   @include note-lg-xlg;
   // base end
@@ -87,6 +108,14 @@
 }
 // 700px
 @include sm-md {
+  .mapCard {
+    // width: 100%;
+    // max-width: 400px;
+    // margin: 0 auto;
+    // &:first-child {
+    //   display: none;
+    // }
+  }
   // base start
   @include footer-sm-md;
   // base end
@@ -95,6 +124,8 @@
 
 @include xsm-sm {
   // base start
+  @include header-xsm-sm;
+  @include nav-xsm-sm;
   @include footer-xsm-sm;
   @include note-xsm-sm;
   .auto__container {
@@ -107,6 +138,7 @@
   // base end
   // result start
   @include card-xsm-sm;
+  @include result-xsm-sm;
 
   // result end
 }

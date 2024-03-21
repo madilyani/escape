@@ -1,8 +1,11 @@
 .result {
   padding: 40px 0;
   overflow: hidden;
+  position: relative;
   &__inner {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
   }
   &Side {
     width: 400px;
@@ -59,6 +62,56 @@
       opacity: 0.8;
     }
   }
+  &Map {
+    width: calc(100% - 400px);
+    box-sizing: border-box;
+    position: relative;
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include fullImage;
+        border-radius: 9px;
+      }
+    }
+    &__inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 885px;
+      padding: 26px 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -10px;
+      }
+      .slick {
+        &-track {
+          display: flex !important;
+        }
+        &-slide {
+          height: unset !important;
+          margin: 0 10px;
+        }
+        &-list {
+          overflow: visible !important;
+        }
+      }
+    }
+  }
 }
 @mixin result-xxxlg-xxxxlg {
   .result {
@@ -77,6 +130,20 @@
     &Main {
       width: calc(100% - 340px);
     }
+    &Map {
+      width: calc(100% - 340px);
+      &__inner {
+        min-height: 770px;
+        &-row {
+          margin: 0 -8px;
+        }
+        .slick {
+          &-slide {
+            margin: 0 8px;
+          }
+        }
+      }
+    }
   }
 }
 @mixin result-xxlg-xxxlg {
@@ -86,6 +153,13 @@
     }
     &Main {
       width: calc(100% - 300px);
+    }
+    &Map {
+      width: calc(100% - 300px);
+      &__inner {
+        min-height: 660px;
+        padding: 20px 16px;
+      }
     }
   }
 }
@@ -104,8 +178,25 @@
         padding-left: 0;
       }
     }
+    &Map {
+      width: 100%;
+      &__inner {
+        min-height: 500px;
+      }
+    }
     &__inner {
       flex-direction: column;
+    }
+  }
+}
+@mixin result-xsm-sm {
+  .result {
+    &Map {
+      width: 100%;
+      &__inner {
+        min-height: 360px;
+        padding: 20px 15px;
+      }
     }
   }
 }

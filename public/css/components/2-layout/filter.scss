@@ -9,6 +9,9 @@
       padding-bottom: 73%;
       border-radius: 10px;
       overflow: hidden;
+      &.sm {
+        padding-bottom: 49%;
+      }
       a {
         position: absolute;
         display: inline-block;
@@ -543,7 +546,7 @@
           padding: 5px 11px;
           box-sizing: border-box;
           border-radius: 12px;
-
+          white-space: nowrap;
           background: $white;
           position: relative;
           border: 1px solid #d1d1d1;
