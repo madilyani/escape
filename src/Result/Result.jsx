@@ -3,10 +3,12 @@ import Note from "../Base/Note";
 import Filter from "../Base/Filter/Filter";
 import Card from "../Base/Card";
 import { hotelList } from "../Base/hotelList";
+import Search from "../Base/Search/Search";
 
 export default function Result() {
   return (
     <>
+      <Search />
       <Note />
       <div className="result">
         <div className="auto__container">
