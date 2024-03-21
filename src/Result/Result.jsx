@@ -5,7 +5,7 @@ import Card from "../Base/Card";
 import { hotelList } from "../Base/hotelList";
 import Search from "../Base/Search/Search";
 
-export default function Result() {
+export default function ResultMap() {
   return (
     <>
       <Search />
