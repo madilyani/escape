@@ -1157,6 +1157,9 @@ h6 {
   margin-bottom: 5px;
 }
 
+.note.mob {
+  display: none;
+}
 .note__inner {
   background: #26529c;
   border-radius: 50px;
@@ -1178,6 +1181,14 @@ h6 {
 }
 .note__inner .button {
   width: 520px;
+}
+.note h6 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #26529c;
+  margin-bottom: 13px;
 }
 
 .rate__range {
@@ -3045,7 +3056,6 @@ h6 {
 
 .result {
   padding: 40px 0;
-  overflow: hidden;
   position: relative;
 }
 .result__inner {
@@ -3129,6 +3139,10 @@ h6 {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
+  position: sticky;
+  top: 0;
+  right: 0;
+  height: 100vh;
 }
 .resultMap__bg {
   position: absolute;
@@ -3139,9 +3153,9 @@ h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3154,8 +3168,8 @@ h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
   -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 9px;
 }
 .resultMap__inner {
@@ -3170,8 +3184,8 @@ h6 {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-height: 885px;
   padding: 26px 20px;
+  height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
@@ -3476,6 +3490,7 @@ h6 {
   }
   .resultMap {
     width: 100%;
+    height: unset;
   }
   .resultMap__inner {
     min-height: 500px;
@@ -3572,7 +3587,7 @@ h6 {
     display: none;
   }
   .filterMob {
-    padding: 15px 0;
+    padding: 0;
     margin: 0 -7px;
     position: relative;
     z-index: 2;
@@ -3585,10 +3600,48 @@ h6 {
   }
   .filterMob .slick-list {
     position: relative;
-    overflow: visible;
+    padding: 20px 0;
   }
   .filterMob .slick-slide {
     margin: 0 7px;
+  }
+  .filterMob .slick-arrow {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: #26529c !important;
+    z-index: 3;
+  }
+  .filterMob .slick-arrow:hover {
+    opacity: 0.8;
+  }
+  .filterMob .slick-arrow:focus {
+    opacity: 0.8;
+  }
+  .filterMob .slick-arrow::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    content: "";
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    -webkit-transform: translate(-40%, -50%) rotate(-135deg);
+            transform: translate(-40%, -50%) rotate(-135deg);
+  }
+  .filterMob .slick-prev {
+    left: 0;
+  }
+  .filterMob .slick-prev.slick-disabled {
+    opacity: 0;
+  }
+  .filterMob .slick-next {
+    right: 0;
+  }
+  .filterMob .slick-next::before {
+    -webkit-transform: translate(-60%, -50%) rotate(45deg);
+            transform: translate(-60%, -50%) rotate(45deg);
   }
   .filterMobDrop {
     z-index: 2;
@@ -3606,7 +3659,7 @@ h6 {
     padding: 5px 11px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 16px;
     white-space: nowrap;
     background: #fff;
     position: relative;
@@ -3640,7 +3693,7 @@ h6 {
   }
   .filterMobDrop__pop {
     position: absolute;
-    top: calc(100% + 24px);
+    top: calc(100% + 0);
     left: 0;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -4116,6 +4169,14 @@ h6 {
     margin-bottom: 8px;
   }
 
+  .note {
+    display: none;
+  }
+  .note.mob {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+  }
   .note__inner h5 {
     font-size: 12px;
     line-height: 14px;
@@ -4136,6 +4197,34 @@ h6 {
   h4 {
     font-size: 28px;
     line-height: 36px;
+  }
+
+  .filterMap {
+    width: calc(100% + 40px);
+    margin: 0 -20px;
+  }
+  .filterMap__image {
+    padding-bottom: 56%;
+    border-radius: 0;
+  }
+  .filterMap__image a {
+    right: unset;
+    left: 50%;
+    bottom: 13px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .filterMobDrop__btn {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #31353b;
+  }
+  .filterMobDrop__btn svg {
+    margin-left: 5px;
+    min-width: 16px;
   }
 
   .card {
@@ -4336,6 +4425,9 @@ h6 {
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
 
+  .result {
+    padding: 8px 0 16px;
+  }
   .resultMap {
     width: 100%;
   }

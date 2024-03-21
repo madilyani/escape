@@ -4,6 +4,7 @@ import Filter from "../Base/Filter/Filter";
 import Card from "../Base/Card";
 import { hotelList } from "../Base/hotelList";
 import Search from "../Base/Search/Search";
+import { Link } from "react-router-dom";
 
 export default function ResultMap() {
   return (
@@ -15,6 +16,17 @@ export default function ResultMap() {
           <div className="result__inner">
             <div className="resultSide">
               <Filter />
+            </div>
+            <div className="note mob">
+              <h6>42 Hotel trovati a Ischia, italia</h6>
+              <div className="note__inner">
+                <h5 className="cap">
+                  Registrati Adesso per Accedere a sconti esclusivi
+                </h5>
+                <Link to="" className="button secondary">
+                  Accedi / Iscriviti
+                </Link>
+              </div>
             </div>
             <div className="resultMain">
               <div className="resultMain__head">
