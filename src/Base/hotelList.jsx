@@ -26,6 +26,7 @@ export const hotelList = [
     location: "Veneto, Cortina d’Ampezzo",
     list: [
       {
+        icon: "/images/icons/date2.png",
         text: (
           <>
             Sconto Prenota Prima: <span> 15%</span>
@@ -33,9 +34,11 @@ export const hotelList = [
         ),
       },
       {
+        icon: "/images/icons/igress.png",
         text: "Picco di Prenotazioni nelle ultime 24 ore",
       },
       {
+        icon: "/images/icons/dateC.png",
         text: "Cancellazione Gratuita",
       },
     ],
@@ -173,6 +176,7 @@ export const hotelList = [
         text: "Cancellazione Gratuita",
       },
     ],
+
     categories: [
       {
         icon: spaCat,

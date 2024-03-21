@@ -216,6 +216,9 @@
       margin-bottom: 5px;
     }
   }
+  .mobileList {
+    display: none;
+  }
   &Cat {
     margin: 0 4px;
     &s {
@@ -269,7 +272,6 @@
         content: "";
         clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
       }
-  
     }
     &:hover {
       span {
@@ -488,7 +490,7 @@
       border-radius: 10px;
       padding: 12px 0 12px 12px;
       z-index: 3;
-   
+
       &::before {
         position: absolute;
         width: 30px;
@@ -532,11 +534,36 @@
       }
     }
   }
-
 }
 @mixin card-xsm-sm {
   .card {
     margin-bottom: 16px;
+    .mobileList {
+      display: block;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $border-color;
+      margin-bottom: 5px;
+      li {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: #000000;
+        margin-bottom: 4px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        span {
+          color: $primary;
+        }
+        img {
+          width: 16px;
+          margin-right: 4px;
+        }
+      }
+    }
     &:last-child {
       margin-bottom: 0;
     }
@@ -544,53 +571,47 @@
       padding: 7px 7px 16px 7px;
     }
     &__foot {
+      align-items: stretch;
+      box-sizing: border-box;
+      padding: 8px 6px 6px 6px;
+      margin-top: 8px;
+      border-top: 1px solid $border-color;
+      &-info {
+        width: calc(100% - 100px);
+      }
       &-note {
         display: none;
       }
       &-btns {
-        display: flex;
-        width: unset;
-      }
-      &-loc {
-        width: 32px;
-        height: 32px;
-        box-sizing: border-box;
-        border: 2px solid $primary;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: $white;
-        border-radius: 50%;
-        color: $primary;
-        svg {
-          width: 18px;
-          height: 18px;
-        }
+        width: 92px;
       }
       .button {
-        padding: 6px 8px;
         width: unset;
         display: inline-block;
-        font-weight: 500;
         font-size: 12px;
+        margin: 0;
+        width: 100%;
         line-height: 20px;
-        color: #ffffff;
-        background: $primary;
         margin-left: 6px;
+        padding: 10px 2px;
+        box-sizing: border-box;
+        height: 100%;
       }
     }
     &Cats {
       border: unset;
     }
     &Dis {
-      display: none;
+      font-size: 20px;
+      line-height: 24px;
     }
     &Price {
-      font-size: 12px;
-      line-height: 16px;
+      font-size: 16px;
+      margin-bottom: 0;
+      line-height: 18px;
       span {
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 30px;
+        line-height: 36px;
       }
       strong {
         font-style: 20px;
@@ -601,11 +622,6 @@
     &More {
       padding: 0;
       border: unset;
-      &__item {
-        &:last-child {
-          display: none;
-        }
-      }
     }
     &Info {
       display: flex;

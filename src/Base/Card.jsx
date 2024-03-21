@@ -267,6 +267,16 @@ export default function Card(props) {
               );
             })}
           </div>
+          <ul className="mobileList">
+            {props.list.map((item, index) => {
+              return (
+                <li key={index}>
+                  <img src={process.env.PUBLIC_URL + item.icon} alt="image" />
+                  {item.text}
+                </li>
+              );
+            })}
+          </ul>
           <div className="cardMore">
             <div className="cardMore__item">
               {calendarIcon}
@@ -286,9 +296,6 @@ export default function Card(props) {
               <div className="cardDis">con viaggio +150€</div>
             </div>
             <div className="card__foot-btns">
-              <Link to="map-detail" className="card__foot-loc">
-                {locationIcon}
-              </Link>
               <button type="button" className="button reserve">
                 Vedi Dettagli
               </button>

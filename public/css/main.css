@@ -2310,6 +2310,9 @@ h6 {
 .cardInfo h5 {
   margin-bottom: 5px;
 }
+.card .mobileList {
+  display: none;
+}
 .cardCat {
   margin: 0 4px;
   width: 35px;
@@ -3119,8 +3122,9 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .searchMob__btn-room span {
   display: -webkit-box;
@@ -4995,68 +4999,89 @@ h6 {
   .card {
     margin-bottom: 16px;
   }
+  .card .mobileList {
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #d4d4d4;
+    margin-bottom: 5px;
+  }
+  .card .mobileList li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #000000;
+    margin-bottom: 4px;
+  }
+  .card .mobileList li:last-child {
+    margin-bottom: 0;
+  }
+  .card .mobileList li span {
+    color: #26529c;
+  }
+  .card .mobileList li img {
+    width: 16px;
+    margin-right: 4px;
+  }
   .card:last-child {
     margin-bottom: 0;
   }
   .card__inner {
     padding: 7px 7px 16px 7px;
   }
+  .card__foot {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 8px 6px 6px 6px;
+    margin-top: 8px;
+    border-top: 1px solid #d4d4d4;
+  }
+  .card__foot-info {
+    width: calc(100% - 100px);
+  }
   .card__foot-note {
     display: none;
   }
   .card__foot-btns {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: unset;
-  }
-  .card__foot-loc {
-    width: 32px;
-    height: 32px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border: 2px solid #26529c;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    background: #fff;
-    border-radius: 50%;
-    color: #26529c;
-  }
-  .card__foot-loc svg {
-    width: 18px;
-    height: 18px;
+    width: 92px;
   }
   .card__foot .button {
-    padding: 6px 8px;
     width: unset;
     display: inline-block;
-    font-weight: 500;
     font-size: 12px;
+    margin: 0;
+    width: 100%;
     line-height: 20px;
-    color: #ffffff;
-    background: #26529c;
     margin-left: 6px;
+    padding: 10px 2px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    height: 100%;
   }
   .cardCats {
     border: unset;
   }
   .cardDis {
-    display: none;
-  }
-  .cardPrice {
-    font-size: 12px;
-    line-height: 16px;
-  }
-  .cardPrice span {
     font-size: 20px;
     line-height: 24px;
+  }
+  .cardPrice {
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: 18px;
+  }
+  .cardPrice span {
+    font-size: 30px;
+    line-height: 36px;
   }
   .cardPrice strong {
     font-style: 20px;
@@ -5066,9 +5091,6 @@ h6 {
   .cardMore {
     padding: 0;
     border: unset;
-  }
-  .cardMore__item:last-child {
-    display: none;
   }
   .cardInfo {
     display: -webkit-box;

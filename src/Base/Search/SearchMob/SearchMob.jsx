@@ -43,12 +43,6 @@ export default function SearchMob() {
                     </p>
                   </div>
                 </div>
-
-                <div className="searchMob__btn-room">
-                  <span>{adultIcon} 2 adulti</span>
-                  <span>{babyIcon} 1 Bambino</span>
-                  <span>{bedIcon} 1 Stanza</span>
-                </div>
               </div>
               <div className="searchMob__filter">
                 {filterIcon}
@@ -57,6 +51,11 @@ export default function SearchMob() {
                 </span>
               </div>
             </div>
+          </div>
+          <div className="searchMob__btn-room">
+            <span>{adultIcon} 2 adulti</span>
+            <span>{babyIcon} 1 Bambino</span>
+            <span>{bedIcon} 1 Stanza</span>
           </div>
         </div>
       </div>
