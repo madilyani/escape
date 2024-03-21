@@ -524,6 +524,9 @@
       margin: 0 -7px;
       position: relative;
       z-index: 2;
+      &.active {
+        z-index: 4;
+      }
       .slick {
         &-track {
           display: flex !important;
@@ -543,10 +546,10 @@
           background-color: $primary !important;
           z-index: 3;
           &:hover {
-            opacity: .8;
+            opacity: 0.8;
           }
           &:focus {
-            opacity: .8;
+            opacity: 0.8;
           }
           &::before {
             position: absolute;
@@ -611,7 +614,7 @@
         }
         &__pop {
           position: absolute;
-          top: calc(100% + 0);
+          top: 100%;
           left: 0;
           box-sizing: border-box;
           border-radius: 20px;

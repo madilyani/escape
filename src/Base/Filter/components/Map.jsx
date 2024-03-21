@@ -9,7 +9,7 @@ export default function Map() {
           src={process.env.PUBLIC_URL + "/images/minimap.jpg"}
           alt="minimap"
         />
-        <Link to="">Vedi Mappa</Link>
+        <Link to="/map">Vedi Mappa</Link>
       </div>
     </div>
   );

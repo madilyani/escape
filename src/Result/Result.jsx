@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Note from "../Base/Note";
 import Filter from "../Base/Filter/Filter";
 import Card from "../Base/Card";
 import { hotelList } from "../Base/hotelList";
 import Search from "../Base/Search/Search";
 import { Link } from "react-router-dom";
+import SearchMob from "../Base/Search/SearchMob/SearchMob";
 
 export default function ResultMap() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 840) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 840) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    });
+  }, []);
   return (
     <>
-      <Search />
+      {mobile ? <SearchMob /> : <Search />}
       <Note />
       <div className="result">
         <div className="auto__container">

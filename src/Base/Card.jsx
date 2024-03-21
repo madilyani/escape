@@ -190,7 +190,6 @@ export default function Card(props) {
                 })}
               </Slider>
             </div>
-
             <div className="cardInfo">
               <div className="cardInfo__tags">
                 <div className="cardInfo__tag">Luxury</div>

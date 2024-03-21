@@ -7,8 +7,9 @@ import Evi from "./components/Evi";
 import Cats from "./components/Cats";
 import { locations, services, treatments } from "./components/modul";
 import FiilterMob from "./components/FiilterMob";
+import { Link } from "react-router-dom";
 
-export default function Filter() {
+export default function Filter({ mapPlace }) {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 1120) {
@@ -35,7 +36,20 @@ export default function Filter() {
   };
   return (
     <div className="filter">
-      <Map />
+      {mapPlace ? (
+        <div className="filterMap">
+          <div className="filterMap__image sm">
+            <img
+              src={process.env.PUBLIC_URL + "/images/placehoder.png"}
+              alt="minimap"
+            />
+            <Link to="/">Torna all’elenco</Link>
+          </div>
+        </div>
+      ) : (
+        <Map />
+      )}
+
       {mobile && (
         <FiilterMob
           closePop={closePop}

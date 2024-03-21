@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Where from "./Where";
 import Room from "./Room";
 import { searchIcon2 } from "../SVG";
@@ -20,12 +20,31 @@ export default function Search() {
     startDate: null,
     endDate: null,
   });
-  console.log("form", form);
+
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      // If scrolling up and it's below a certain threshold (e.g., not at the very top), make it sticky
+      if (scrollTop < lastScrollTop && scrollTop > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+
+      setLastScrollTop(scrollTop);
+    };
+    window.addEventListener("scroll", handleScroll);
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollTop]);
   return (
-    <div className="search">
+    <div className={"search " + (isSticky ? "sticky" : "")}>
       <div className="search__inner">
         <div className="search__items">
           <Where

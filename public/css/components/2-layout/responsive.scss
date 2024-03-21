@@ -102,8 +102,13 @@
 }
 // 840px
 @include md-lg {
+  main {
+    padding-top: 90.18px;
+  }
   // result start
   @include card-md-lg;
+  @include header-md-lg;
+  @include calendar-md-lg;
   // result end
 }
 // 700px
@@ -134,6 +139,9 @@
   h4 {
     font-size: 28px;
     line-height: 36px;
+  }
+  .main {
+    padding-top: 70.38px;
   }
   .filter {
     &Map {

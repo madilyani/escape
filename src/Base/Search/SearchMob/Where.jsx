@@ -7,7 +7,7 @@ import {
   locationIcon2,
   locationIcon3,
   searchIcon,
-} from "../SVG";
+} from "../../SVG";
 
 const list = [
   {

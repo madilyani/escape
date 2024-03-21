@@ -34,7 +34,7 @@ export default function FiilterMob({
     ],
   };
   return (
-    <div className="filterMob">
+    <div className={"filterMob " + (popWrap ? "active" : "")}>
       <Slider {...settings} className="filterMob__slider">
         <div className="filterMobDrop">
           <div

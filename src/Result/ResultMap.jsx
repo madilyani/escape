@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Note from "../Base/Note";
 import Filter from "../Base/Filter/Filter";
 import { arrowLong, calendarIcon, locationIcon, starIcon } from "../Base/SVG";
 import { Link } from "react-router-dom";
 import Slider from "react-slick/lib/slider";
 import Search from "../Base/Search/Search";
+import SearchMob from "../Base/Search/SearchMob/SearchMob";
 const mapCardList = [
   {
     id: "1",
@@ -49,7 +50,7 @@ const mapCardList = [
     btn: "Join Us",
   },
 ];
-export default function Result() {
+export default function ResultMap() {
   const settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -77,24 +78,31 @@ export default function Result() {
       },
     ],
   };
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 840) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 840) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    });
+  }, []);
   return (
     <>
-      <Search />
+      {mobile ? <SearchMob /> : <Search />}
+
       <Note />
       <div className="result">
         <div className="auto__container">
           <div className="result__inner">
             <div className="resultSide">
-              {/* <div className="filterMap">
-                <div className="filterMap__image sm">
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/placehoder.png"}
-                    alt="minimap"
-                  />
-                  <Link to="">Torna all’elenco</Link>
-                </div>
-              </div> */}
-              <Filter />
+              <Filter mapPlace={true} />
             </div>
             <div className="note mob">
               <h6>42 Hotel trovati a Ischia, italia</h6>

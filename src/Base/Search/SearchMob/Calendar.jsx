@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { cancel } from "../SVG";
+import { cancel } from "../../SVG";
 import DatePicker from "react-datepicker";
+import { motion } from "framer-motion";
+
 import "react-datepicker/dist/react-datepicker.css";
 import Flexible from "./Flexible";
 export default function Calendar({
@@ -18,7 +20,13 @@ export default function Calendar({
     }
   };
   return (
-    <div className="calendar">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="calendar"
+    >
       <div className="calendar__inner">
         <div className="calendar__head">
           <div className="calendar__head-title">
@@ -61,13 +69,13 @@ export default function Calendar({
                 endDate={form.endDate}
                 selectsRange
                 inline
-                monthsShown={2}
+                monthsShown={1}
               />
             </div>
           )}
           {tab === "flexible" && <Flexible />}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
