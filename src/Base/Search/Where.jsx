@@ -43,7 +43,7 @@ const list = [
   },
 ];
 
-export default function Where({ form, updateForm }) {
+export default function Where({ form, updateForm, showCalendar }) {
   const [searchValue, setSearchValue] = useState("");
   const [autoCompleteList, setAutoCompleteList] = useState(list);
   const wrapper = useRef(null);
@@ -88,8 +88,10 @@ export default function Where({ form, updateForm }) {
           value={searchValue}
           onChange={handleChange}
           onFocus={() => {
-            setActive(true);
-            setAutoCompleteList(list);
+            if (!showCalendar) {
+              setActive(true);
+              setAutoCompleteList(list);
+            }
           }}
         />
         {form?.where !== "" && (

@@ -1,0 +1,206 @@
+.calendar {
+  position: absolute;
+  width: 652px;
+  z-index: 5;
+  background: $white;
+  top: calc(100% + 4px);
+  left: 50%;
+  @include transformX;
+  box-shadow: 0px 10px 55px rgba(42, 45, 131, 0.13);
+  border-radius: 12px;
+  &__inner {
+    padding: 11px 24px 20px 24px;
+    box-sizing: border-box;
+  }
+  &__head {
+    box-sizing: border-box;
+    border-bottom: 1px solid #f3f4f5;
+    position: relative;
+    padding-bottom: 13px;
+    margin-bottom: 20px;
+    &-title {
+      h6 {
+        font-family: $mainFont;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $black;
+        margin-bottom: 4px;
+      }
+      p {
+        font-family: $mainFont;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #6c707a;
+      }
+    }
+    &-close {
+      cursor: pointer;
+      @include transition;
+      &:hover {
+        opacity: 0.8;
+      }
+      position: absolute;
+      top: 4px;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 10px;
+        height: 10px;
+        color: $black;
+      }
+    }
+  }
+  &__tabs {
+    max-width: 292px;
+    border-radius: 100px;
+    background: #f5f5f5;
+    box-shadow: 0px 4px 40.4px rgba(47, 45, 123, 0.06);
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  &__tab {
+    cursor: pointer;
+    width: 50%;
+    background: none;
+    border-radius: 100px;
+    font-family: $mainFont;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    &.active {
+      background: $white;
+    }
+  }
+//   .react-datepicker {
+//     font-family: $mainFont;
+//     border: 0;
+//     box-shadow: 0px 3px 6px rgba($color: $black, $alpha: 0.1);
+//     border-radius: 16px;
+//     z-index: 3;
+//     // &__triangle {
+//     //   margin-left: -16px !important;
+//     //   border: 0;
+//     //   width: 16px !important;
+//     //   border: 0 !important;
+//     //   height: 16px;
+//     //   transform: rotate(45deg) !important;
+//     //   top: -8px !important;
+//     //   background: $gradient;
+//     //   left: 32px !important;
+//     //   margin: 0 !important;
+//     //   &::before {
+//     //     display: none !important;
+//     //   }
+//     //   &::after {
+//     //     display: none !important;
+//     //   }
+//     // }
+//     &__input-container {
+//       input {
+//         font-family: $mainFont;
+//         font-weight: 400;
+//         font-size: 16px;
+//         width: 100%;
+//         box-sizing: border-box;
+//         line-height: 150%;
+//         letter-spacing: -0.02em;
+//         color: $black;
+//         width: 100%;
+//         box-sizing: border-box;
+//         padding: 20px 16px;
+//         background: $white;
+//         border: 1px solid $black;
+//         border-radius: 8px;
+//         resize: none;
+//         &::placeholder {
+//           color: #acacac;
+//         }
+//       }
+//     }
+//     &__header {
+//       background: none;
+//       padding: 10px 0;
+//       border-radius: 16px 16px 0 0;
+//     }
+//     &__navigation {
+//       top: 6px;
+//       &-icon {
+//         &::before {
+//           border-color: $white;
+//         }
+//       }
+//     }
+//     &__month-container {
+//       background-color: $white;
+//       color: #969eac;
+//       font-size: 0.8rem;
+//       font-family: $mainFont;
+//     }
+//     &__month {
+//       padding: 10px 0;
+//     }
+//     &__current {
+//       &-month {
+//         color: $white;
+//         font-weight: 700;
+//         border-radius: 0 0 16px 16px;
+//       }
+//     }
+//     &__day {
+//       font-size: 12px;
+//       border-radius: 50%;
+//       width: 2rem;
+//       line-height: 2rem;
+//       margin: 0 !important;
+//       &--selected {
+//         background: #26529c;
+//       }
+//       &--keyboard-selected {
+//         color: $white;
+//         background: #26529c;
+//       }
+//       &--in-range {
+//         background: #26529c;
+//       }
+//       &--selecting-range-start {
+//         background: #26529c;
+//       }
+//       &--in-selecting-range {
+//         background: #e8f5fb;
+//         // opacity: 0.9;
+//       }
+//       &-names {
+//         margin-top: 12px;
+//       }
+//       &-name {
+//         color: $black;
+//       }
+//     }
+//     &-time {
+//       &__header {
+//         color: $white;
+//       }
+//     }
+
+//     // react-datepicker__day
+//     //   react-datepicker__day--006
+//     //   react-datepicker__day--keyboard-selected
+//     //   react-datepicker__day--in-selecting-range
+//     //   react-datepicker__day--selecting-range-start
+//   }
+}

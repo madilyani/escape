@@ -4,6 +4,8 @@
 @import "./components/1-main/variables.scss";
 @import "./components/1-main/mixin.scss";
 @import "./components/1-main/nulifier.scss";
+@import "./components/datepicker/datepicker.scss";
+
 // 2-layout components
 @import "./components/2-layout/components.scss";
 @import "./components/2-layout/footer.scss";
@@ -11,7 +13,8 @@
 @import "./components/2-layout/nav.scss";
 @import "./components/2-layout/filter.scss";
 @import "./components/2-layout/card.scss";
-@import "./components/2-layout/search.scss"; 
+@import "./components/2-layout/search.scss";
+@import "./components/2-layout/calendar.scss";
 
 // 3-pages components
 @import "./components/3-pages/result.scss";
