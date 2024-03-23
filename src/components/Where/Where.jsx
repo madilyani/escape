@@ -44,10 +44,17 @@ const list = [
   },
 ];
 
-export default function Where({ form, updateForm, showCalendar }) {
+export default function Where({
+  form,
+  updateForm,
+  setShowCalendar,
+  setActiveInput,
+}) {
   const [searchValue, setSearchValue] = useState("");
   const [autoCompleteList, setAutoCompleteList] = useState(list);
   const wrapper = useRef(null);
+  const dropdownRef = useRef(null);
+  const inputRef = useRef(null);
   const [active, setActive] = useState(false);
   const delAll = () => {
     updateForm({ where: "" });
@@ -78,8 +85,17 @@ export default function Where({ form, updateForm, showCalendar }) {
     return () => window.removeEventListener("click", windowClick);
   }, [active]);
 
+  const clickHandler = (e) => {
+    if (!dropdownRef?.current?.contains(e.target)) {
+      inputRef?.current?.focus();
+    }
+  };
   return (
-    <div className={"searchItem " + (active ? "active" : "")} ref={wrapper}>
+    <div
+      className={"searchItem " + (active ? "active" : "")}
+      ref={wrapper}
+      onClick={clickHandler}
+    >
       <div className="searchItem__title">Dove vuo i andare?</div>
       <div className="searchItem__input">
         <input
@@ -88,16 +104,15 @@ export default function Where({ form, updateForm, showCalendar }) {
           type="text"
           value={searchValue}
           onChange={handleChange}
+          ref={inputRef}
           onFocus={() => {
-            if (!showCalendar) {
-              setActive(true);
-              setAutoCompleteList(list);
-            }
+            setActive(true);
+            setAutoCompleteList(list);
+            setShowCalendar(false);
+            setActiveInput(null);
           }}
         />
-        <div className="searchItem__input-icon mobile">
-          {searchIcon}
-        </div>
+        <div className="searchItem__input-icon mobile">{searchIcon}</div>
         {form?.where !== "" && (
           <>
             <button type="button" onClick={delAll}>
@@ -114,6 +129,7 @@ export default function Where({ form, updateForm, showCalendar }) {
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0, y: 10 }}
             className={`searchItem__popular  ${active ? "active" : ""} `}
+            ref={dropdownRef}
           >
             <div className="searchItem__popular-title">
               Popular Destinations

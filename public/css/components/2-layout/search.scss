@@ -218,13 +218,6 @@
       box-shadow: 0px 10px 55px rgba(42, 45, 131, 0.13);
       z-index: 5;
       width: 356px;
-      opacity: 0;
-      visibility: hidden;
-      @include transition;
-      &.active {
-        opacity: 1;
-        visibility: visible;
-      }
       &-head {
         display: flex;
         align-items: center;

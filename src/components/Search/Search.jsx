@@ -51,6 +51,7 @@ export default function Search() {
             form={form}
             updateForm={updateForm}
             setShowCalendar={setShowCalendar}
+            setActiveInput={setActiveInput}
           />
           <div
             className={
@@ -67,7 +68,9 @@ export default function Search() {
                 placeholder="Select Date"
                 type="text"
                 readOnly
-                value={form?.startDate && form?.startDate.toLocaleDateString()}
+                value={
+                  form?.startDate ? form?.startDate.toLocaleDateString() : ""
+                }
               />
             </div>
           </div>
@@ -79,6 +82,9 @@ export default function Search() {
               if (form?.startDate) {
                 setShowCalendar(true);
                 setActiveInput("checkOut");
+              } else {
+                setShowCalendar(true);
+                setActiveInput("checkIn");
               }
             }}
           >
@@ -88,7 +94,7 @@ export default function Search() {
                 placeholder="Select Date"
                 type="text"
                 readOnly
-                value={form?.endDate && form?.endDate.toLocaleDateString()}
+                value={form?.endDate ? form?.endDate.toLocaleDateString() : ""}
               />
             </div>
           </div>
@@ -96,6 +102,7 @@ export default function Search() {
             form={form}
             updateForm={updateForm}
             setShowCalendar={setShowCalendar}
+            setActiveInput={setActiveInput}
           />
         </div>
         <button type="button" className="search__btn">
