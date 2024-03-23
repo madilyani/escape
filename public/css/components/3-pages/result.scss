@@ -176,7 +176,7 @@
 }
 @mixin result-xlg-xxlg {
   .result {
-    padding: 16px 0;
+    padding: 20px 0;
     &Side {
       width: 100%;
     }
@@ -203,7 +203,7 @@
 }
 @mixin result-xsm-sm {
   .result {
-    padding: 8px 0 16px;
+    padding: 20px 0 16px;
     &Map {
       width: 100%;
       &__inner {

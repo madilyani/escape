@@ -108,6 +108,11 @@
   main {
     padding-top: 90.18px;
   }
+  .result {
+    &.noPt {
+      padding-top: 20px;
+    }
+  }
   .search {
     &Item {
       width: 100% !important;
@@ -175,6 +180,14 @@
           display: flex;
           flex-direction: column;
         }
+        svg {
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          top: 50%;
+          left: 18px;
+          transform: translateY(-50%);
+        }
       }
       &Acts {
         height: 100%;
@@ -186,7 +199,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          z-index: 2;
+          z-index: 4;
         }
       }
     }
@@ -303,6 +316,11 @@
         padding: 4px 10px 10px 40px;
         &__content {
           justify-content: center;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+          left: 10px;
         }
       }
       &Acts {
