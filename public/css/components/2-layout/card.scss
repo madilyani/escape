@@ -185,6 +185,7 @@
         min-width: 20px;
         height: 20px;
         margin-right: 4px;
+        color: $primary;
       }
       span {
         @include ellipsis(1);
@@ -284,6 +285,8 @@
     }
   }
   &More {
+    width: 100%;
+    box-sizing: border-box;
     padding: 15px 0;
     border-bottom: 1px solid $border-color;
     &__item {

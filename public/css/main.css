@@ -452,7 +452,7 @@ input {
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
   list-style: none;
   margin: 0;
-  height: calc(195px + 1.7rem / 2);
+  height: calc(195px + (1.7rem / 2));
   overflow-y: scroll;
   padding-right: 0;
   padding-left: 0;
@@ -623,7 +623,7 @@ input {
 .react-datepicker__year-text--keyboard-selected {
   border-radius: 0.3rem;
   background-color: #bad9f1;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 .react-datepicker__day--keyboard-selected:hover,
 .react-datepicker__month-text--keyboard-selected:hover,
@@ -866,8 +866,8 @@ input {
 }
 @media (max-width: 400px), (max-height: 550px) {
   .react-datepicker__portal .react-datepicker__day-name,
-  .react-datepicker__portal .react-datepicker__day,
-  .react-datepicker__portal .react-datepicker__time-name {
+.react-datepicker__portal .react-datepicker__day,
+.react-datepicker__portal .react-datepicker__time-name {
     width: 2rem;
     line-height: 2rem;
   }
@@ -2273,6 +2273,7 @@ h6 {
   min-width: 20px;
   height: 20px;
   margin-right: 4px;
+  color: #26529c;
 }
 .cardInfo__location span {
   display: -webkit-box;
@@ -2393,6 +2394,9 @@ h6 {
   height: 24px;
 }
 .cardMore {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 15px 0;
   border-bottom: 1px solid #d4d4d4;
 }
@@ -2553,8 +2557,8 @@ h6 {
 }
 .searchItem.active {
   background: #fff;
-  -webkit-box-shadow: 0 0 5px 5px hsla(210, 8%, 62%, 0.035);
-          box-shadow: 0 0 5px 5px hsla(210, 8%, 62%, 0.035);
+  -webkit-box-shadow: 0 0 5px 5px rgba(150, 158, 166, 0.035);
+          box-shadow: 0 0 5px 5px rgba(150, 158, 166, 0.035);
 }
 .searchItem__title {
   font-family: "Poppins", sans-serif;
@@ -3859,7 +3863,8 @@ h6 {
   opacity: 0.8;
 }
 .resultMap {
-  width: calc(100% - 400px);
+  width: calc(100% - 350px);
+  margin-right: -50px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
@@ -3945,6 +3950,7 @@ h6 {
   h4.uniq {
     font-family: "Balsamiq Sans";
   }
+
   h5 {
     line-height: 28px;
     font-size: 20px;
@@ -3953,6 +3959,7 @@ h6 {
     font-size: 22px;
     line-height: 28px;
   }
+
   .button.secondary {
     font-size: 20px;
     line-height: 28px;
@@ -3966,15 +3973,18 @@ h6 {
     padding: 15px 30px;
     font-size: 14px;
   }
+
   .auto__container {
     max-width: 1200px;
   }
+
   .header__inner {
     padding: 20px 0;
   }
   .header__inner .logo {
     width: 220px;
   }
+
   .nav__inner li {
     margin-right: 20px;
   }
@@ -3990,6 +4000,7 @@ h6 {
     height: 18px;
     margin-left: 3px;
   }
+
   .filterSearch {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4048,12 +4059,14 @@ h6 {
     font-size: 16px;
     line-height: 22px;
   }
+
   .note__inner .button {
     width: 450px;
   }
   .note__inner h5 {
     width: calc(100% - 470px);
   }
+
   .resultMain__head {
     padding: 16px;
   }
@@ -4068,7 +4081,8 @@ h6 {
     width: calc(100% - 340px);
   }
   .resultMap {
-    width: calc(100% - 340px);
+    width: calc(100% - 270px);
+    margin-right: -70px;
   }
   .resultMap__inner {
     min-height: 770px;
@@ -4079,6 +4093,7 @@ h6 {
   .resultMap__inner .slick-slide {
     margin: 0 8px;
   }
+
   .card__foot-note {
     font-size: 14px;
     line-height: 20px;
@@ -4120,38 +4135,45 @@ h6 {
     line-height: 26px;
     font-size: 16px;
   }
+
   .button.secondary {
     font-size: 16px;
     line-height: 26px;
   }
+
   .auto__container {
     max-width: 1040px;
   }
+
   .note__inner .button {
     width: 340px;
   }
   .note__inner h5 {
     width: calc(100% - 360px);
   }
+
   .card {
     padding-left: 300px;
   }
   .cardSlider {
     width: 300px;
   }
+
   .resultSide {
     width: 300px;
   }
   .resultMain {
-    width: calc(100% - 300px);
+    width: calc(100% - 250px);
   }
   .resultMap {
-    width: calc(100% - 300px);
+    width: calc(100% - 220px);
+    margin-right: -30px;
   }
   .resultMap__inner {
     min-height: 660px;
     padding: 20px 16px;
   }
+
   .filterMap {
     padding: 12px;
   }
@@ -4181,6 +4203,7 @@ h6 {
   .header__inner .logo {
     width: 170px;
   }
+
   .result {
     padding: 16px 0;
   }
@@ -4209,6 +4232,7 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+
   .card {
     background: #ffffff;
     -webkit-box-shadow: 0px 0px 36.3px rgba(44, 50, 104, 0.17);
@@ -4218,6 +4242,7 @@ h6 {
   .card__inner {
     border: unset;
   }
+
   .filter {
     border: unset;
   }
@@ -4443,12 +4468,15 @@ h6 {
     height: 100%;
     color: #26529c;
   }
+
   .upHeader {
     display: none;
   }
+
   body.active {
     overflow: hidden;
   }
+
   .nav {
     position: fixed;
     top: 0;
@@ -4580,6 +4608,7 @@ h6 {
     background-color: #fff;
     color: #26529c;
   }
+
   .burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -4604,6 +4633,7 @@ h6 {
     height: 100%;
     color: #26529c;
   }
+
   .footer__inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -4619,6 +4649,7 @@ h6 {
   .footer__bg {
     height: 350px;
   }
+
   .note__inner {
     border-radius: 10px;
     padding-left: 16px;
@@ -4638,6 +4669,7 @@ h6 {
   main {
     padding-top: 90.18px;
   }
+
   .card {
     padding-left: 0;
     overflow: unset;
@@ -4720,7 +4752,8 @@ h6 {
     font-size: 10px;
     line-height: 20px;
     text-align: center;
-    text-decoration-line: underline;
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
     color: #ffffff;
     display: block;
   }
@@ -4782,6 +4815,7 @@ h6 {
     text-align: right;
     padding-right: 12px;
   }
+
   .header {
     position: fixed;
     top: 0;
@@ -4790,6 +4824,7 @@ h6 {
     background: #fff;
     z-index: 10;
   }
+
   .calendar {
     position: fixed;
     bottom: 0;
@@ -4826,13 +4861,13 @@ h6 {
     margin: 0;
   }
   .calendar .react-datepicker__day-name,
-  .calendar .react-datepicker__day,
-  .calendar .react-datepicker__time-name {
+.calendar .react-datepicker__day,
+.calendar .react-datepicker__time-name {
     margin: 0;
   }
   .calendar .react-datepicker__day-name,
-  .calendar .react-datepicker__day,
-  .calendar .react-datepicker__time-name {
+.calendar .react-datepicker__day,
+.calendar .react-datepicker__time-name {
     font-size: 13px;
     color: #000;
     font-weight: 400 !important;
@@ -4881,9 +4916,11 @@ h6 {
   .header__inner .logo {
     width: 130px;
   }
+
   .nav__inner {
     padding: 20px;
   }
+
   .footerCopy {
     padding: 16px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -4940,6 +4977,7 @@ h6 {
     line-height: 24px;
     margin-bottom: 8px;
   }
+
   .note {
     display: none;
   }
@@ -4960,16 +4998,20 @@ h6 {
     border-radius: 8px;
     padding: 4px 8px;
   }
+
   .auto__container {
     padding: 0 20px;
   }
+
   h4 {
     font-size: 28px;
     line-height: 36px;
   }
+
   .main {
     padding-top: 70.38px;
   }
+
   .filterMap {
     width: calc(100% + 40px);
     margin: 0 -20px;
@@ -4985,6 +5027,7 @@ h6 {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
+
   .filterMobDrop__btn {
     font-weight: 400;
     font-size: 14px;
@@ -4996,6 +5039,7 @@ h6 {
     margin-left: 5px;
     min-width: 16px;
   }
+
   .card {
     margin-bottom: 16px;
   }
@@ -5156,7 +5200,8 @@ h6 {
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
-    text-decoration-line: underline;
+    -webkit-text-decoration-line: underline;
+            text-decoration-line: underline;
     text-transform: capitalize;
     color: #000000;
   }
@@ -5210,6 +5255,7 @@ h6 {
     -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
+
   .result {
     padding: 8px 0 16px;
   }

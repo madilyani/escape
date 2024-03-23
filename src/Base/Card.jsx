@@ -280,7 +280,7 @@ export default function Card(props) {
           <div className="cardMore">
             <div className="cardMore__item">
               {calendarIcon}
-              dal: <strong> {props.date_start} </strong> Al:{" "}
+              Dal: <strong> {props.date_start} </strong> Al:{" "}
               <strong> {props.date_end}</strong>
             </div>{" "}
             <div className="cardMore__item">
