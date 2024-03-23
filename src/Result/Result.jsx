@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Note from "../Base/Note";
-import Filter from "../Base/Filter/Filter";
-import Card from "../Base/Card";
-import { hotelList } from "../Base/hotelList";
-import Search from "../Base/Search/Search";
+import Note from "components/Note";
+import Filter from "components/Filter";
+import Card from "components/Card";
+import { hotelList } from "Base/hotelList";
+import Search from "components/Search";
 import { Link } from "react-router-dom";
-import SearchMob from "../Base/Search/SearchMob/SearchMob";
+import SearchMobile from "components/SearchMobile";
 
-export default function ResultMap() {
+export default function Result() {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 840) {
@@ -25,7 +25,7 @@ export default function ResultMap() {
   }, []);
   return (
     <>
-      {mobile ? <SearchMob /> : <Search />}
+      {mobile ? <SearchMobile /> : <Search />}
       <Note />
       <div className="result">
         <div className="auto__container">

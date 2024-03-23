@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import Footer from "Base/Footer";
+import Header from "Base/Header";
+import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Header from "./Base/Header";
-import Footer from "./Base/Footer";
-import Result from "./Result/Result";
-import ResultMap from "./Result/ResultMap";
+import Result from "Result";
+import ResultMap from "ResultMap";
 
 export default function App() {
   const { pathname } = useLocation();
