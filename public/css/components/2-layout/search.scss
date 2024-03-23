@@ -420,7 +420,12 @@
     }
   }
   &Mob {
-    padding-bottom: 8px;
+    border-radius: 20px;
+    border: 1px solid #e8e8e8;
+    padding: 0;
+    &__outer {
+      padding-top: 2px;
+    }
     &__inner {
       display: flex;
       align-items: center;
@@ -518,6 +523,44 @@
             margin-right: 4px;
           }
         }
+      }
+    }
+    &__row {
+      display: flex;
+      h6 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #26529c;
+      }
+      input {
+        font-family: $mainFont;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        color: #000000;
+        background-color: transparent;
+      }
+      svg {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 50%;
+        left: 18px;
+        transform: translateY(-50%);
+      }
+    }
+    &__room {
+      width: 53%;
+      padding: 14px 20px 14px 70px;
+      position: relative;
+      box-sizing: border-box;
+      cursor: pointer;
+
+      & > svg {
+        width: 27px;
+        height: 20px;
+        left: 24px;
       }
     }
   }

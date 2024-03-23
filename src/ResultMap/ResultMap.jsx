@@ -97,8 +97,7 @@ export default function ResultMap() {
     <>
       {mobile ? <SearchMobile /> : <Search />}
 
-      <Note />
-      <div className="result">
+      <div className="result noPt">
         <div className="auto__container">
           <div className="result__inner">
             <div className="resultSide">

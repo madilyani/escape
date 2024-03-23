@@ -1,3 +1,4 @@
+import { bedIcon, calendarIcon } from "Base/SVG";
 import CalendarMobile from "components/CalendarMobile";
 import RoomMobile from "components/RoomMobile";
 import WhereMobile from "components/WhereMobile";
@@ -29,20 +30,40 @@ export default function SearchMobile() {
         <div className="auto__container">
           <div className="searchMob">
             <WhereMobile form={form} updateForm={updateForm} />
-
-            <div
-              className="searchPopDates"
-              onClick={() => {
-                setShowCalendar(true);
-              }}
-            >
-              check in
+            <div className="searchMob__row">
+              <div
+                className="searchPopDates"
+                onClick={() => {
+                  setShowCalendar(true);
+                }}
+              >
+                {calendarIcon}
+                <div className="searchPopDates__content">
+                  <h6>Check-in/out</h6>
+                  <input
+                    placeholder="Select Date"
+                    type="text"
+                    readOnly
+                    value={form?.endDate && form?.endDate.toLocaleDateString()}
+                  />
+                </div>
+              </div>
+              <div className="searchMob__room">
+                <RoomMobile
+                  form={form}
+                  updateForm={updateForm}
+                  showCalendar={showCalendar}
+                />
+                <h6>Stanze e Ospiti</h6>
+                <input
+                  placeholder="Select Room"
+                  type="text"
+                  readOnly
+                  value="2 St. 3 ad. 5 bimbi"
+                />
+                {bedIcon}
+              </div>
             </div>
-            <RoomMobile
-              form={form}
-              updateForm={updateForm}
-              showCalendar={showCalendar}
-            />
           </div>
         </div>
       </div>

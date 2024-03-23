@@ -108,6 +108,89 @@
   main {
     padding-top: 90.18px;
   }
+  .search {
+    &Item {
+      width: 100% !important;
+      padding: 22px 20px 22px 60px !important;
+      border-bottom: 1px solid #e8e8e8;
+      border-radius: 0;
+      &__title {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: #26529c;
+        margin-bottom: 5px;
+      }
+      &__input {
+        position: static;
+        &-icon {
+          position: absolute;
+          top: 50%;
+          left: 18px;
+          width: 25px;
+          height: 25px;
+          transform: translateY(-50%);
+          &.mobile {
+            display: flex;
+          }
+        }
+        input {
+          font-weight: 600;
+          font-size: 22px;
+          line-height: 28px;
+          text-transform: capitalize;
+          color: #000000;
+        }
+      }
+      &__popular {
+        width: 100%;
+      }
+      &__room {
+        left: unset;
+        right: 0;
+        &-spinbox-opr {
+          svg {
+            position: static;
+            transform: translate(0);
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+    }
+    &Pop {
+      &Dates {
+        cursor: pointer;
+        width: 47%;
+        background-color: unset;
+        padding: 14px 10px 14px 60px;
+        position: relative;
+        margin: 0;
+        border-right: 1px solid #e8e8e8;
+        border-radius: 0;
+        box-sizing: border-box;
+        &__content {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+      &Acts {
+        height: 100%;
+        opacity: 0;
+
+        &__outer {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+        }
+      }
+    }
+  }
   // result start
   @include card-md-lg;
   @include header-md-lg;
@@ -159,6 +242,71 @@
           left: 50%;
           bottom: 13px;
           transform: translateX(-50%);
+        }
+      }
+    }
+  }
+  .search {
+    &Item {
+      padding: 14px 10px 14px 40px !important;
+      &__title {
+        font-size: 10px;
+        line-height: 18px;
+        margin-bottom: 0px;
+      }
+      &__input {
+        &-icon {
+          left: 10px;
+          width: 20px;
+          height: 20px;
+        }
+        input {
+          font-size: 16px;
+          line-height: 18px;
+        }
+      }
+      &__room {
+        width: 330px;
+      }
+    }
+    &Mob {
+      &__row {
+        h6 {
+          font-size: 10px;
+          line-height: 18px;
+          margin: 0;
+        }
+        input {
+          font-size: 12px;
+          line-height: 18px;
+        }
+        svg {
+          width: 20px;
+          height: 20px;
+          left: 10px;
+        }
+      }
+      &__room {
+        padding: 4px 10px 10px 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        svg {
+          width: 21px;
+          height: 15px;
+          left: 18px;
+        }
+      }
+    }
+    &Pop {
+      &Dates {
+        padding: 4px 10px 10px 40px;
+        &__content {
+          justify-content: center;
+        }
+      }
+      &Acts {
+        &__outer {
         }
       }
     }
