@@ -2231,6 +2231,9 @@ h6 {
   padding-bottom: 12px;
   border-bottom: 1px solid #d4d4d4;
   width: 100%;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .cardInfo ul li {
   display: -webkit-box;
@@ -3185,15 +3188,6 @@ h6 {
   line-height: 22px;
   color: #000000;
   background-color: transparent;
-}
-.searchMob__row svg {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 50%;
-  left: 18px;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 .searchMob__room {
   width: 53%;
@@ -4314,7 +4308,7 @@ h6 {
   }
 
   .result {
-    padding: 16px 0;
+    padding: 20px 0;
   }
   .resultSide {
     width: 100%;
@@ -4779,6 +4773,10 @@ h6 {
     padding-top: 90.18px;
   }
 
+  .result.noPt {
+    padding-top: 20px;
+  }
+
   .searchItem {
     width: 100% !important;
     padding: 22px 20px 22px 60px !important;
@@ -4853,6 +4851,15 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .searchPopDates svg {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
   .searchPopActs {
     height: 100%;
     opacity: 0;
@@ -4863,7 +4870,7 @@ h6 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 4;
   }
 
   .card {
@@ -5010,6 +5017,15 @@ h6 {
     color: #000;
     text-align: right;
     padding-right: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .cardMob__title-text {
+    cursor: pointer;
   }
 
   .header {
@@ -5285,6 +5301,11 @@ h6 {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .searchPopDates svg {
+    width: 20px;
+    height: 20px;
+    left: 10px;
+  }
   .filterMobDrop__btn {
     font-weight: 400;
     font-size: 14px;
@@ -5551,7 +5572,7 @@ h6 {
   }
 
   .result {
-    padding: 8px 0 16px;
+    padding: 20px 0 16px;
   }
   .resultMap {
     width: 100%;
