@@ -4815,6 +4815,9 @@ h6 {
     text-transform: capitalize;
     color: #000000;
   }
+  .searchItem__input button {
+    right: 15px;
+  }
   .searchItem__popular {
     width: 100%;
   }
@@ -4862,15 +4865,27 @@ h6 {
   }
   .searchPopActs {
     height: 100%;
-    opacity: 0;
+    background-color: unset;
+    border-radius: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .searchPopActs > svg {
+    width: 27px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
   .searchPopActs__outer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 4;
+    position: static;
   }
 
   .card {
@@ -5301,11 +5316,12 @@ h6 {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .searchPopDates svg {
-    width: 20px;
-    height: 20px;
-    left: 10px;
+  .searchPopActs > svg {
+    width: 21px;
+    height: 15px;
+    left: 18px;
   }
+
   .filterMobDrop__btn {
     font-weight: 400;
     font-size: 14px;

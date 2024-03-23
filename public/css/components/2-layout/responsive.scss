@@ -147,6 +147,9 @@
           text-transform: capitalize;
           color: #000000;
         }
+        button {
+          right: 15px;
+        }
       }
       &__popular {
         width: 100%;
@@ -191,15 +194,20 @@
       }
       &Acts {
         height: 100%;
-        opacity: 0;
-
-        &__outer {
+        background-color: unset;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        & > svg {
+          width: 27px;
+          height: 20px;
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 4;
+          top: 50%;
+          left: 24px;
+          transform: translateY(-50%);
+        }
+        &__outer {
+          position: static;
         }
       }
     }
@@ -317,14 +325,12 @@
         &__content {
           justify-content: center;
         }
-        svg {
-          width: 20px;
-          height: 20px;
-          left: 10px;
-        }
       }
       &Acts {
-        &__outer {
+        & > svg {
+          width: 21px;
+          height: 15px;
+          left: 18px;
         }
       }
     }
