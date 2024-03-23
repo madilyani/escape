@@ -26,7 +26,7 @@ export default function Room({
           ? `${form?.rooms.length} Stanza`
           : `${form?.rooms.length} Stanze`
         : ``) +
-      (totalAdults > 0 ? `, ${totalAdults} Ad` : ``) +
+      (totalAdults > 0 ? `, ${totalAdults} Ad.` : ``) +
       (totalChildren > 0
         ? totalChildren === 1
           ? `, ${totalChildren} bambino`

@@ -43,8 +43,13 @@ export default function FilterMobile({
               "filterMobDrop__btn " + (mobDrop === "rating" ? " active" : "")
             }
             onClick={() => {
-              setMobDrop("rating");
-              setPopWrap(true);
+              if (mobDrop === "rating") {
+                setMobDrop(null);
+                setPopWrap(false);
+              } else {
+                setMobDrop("rating");
+                setPopWrap(true);
+              }
             }}
           >
             Filtra per Stelle {chevronTop}
@@ -56,8 +61,13 @@ export default function FilterMobile({
               "filterMobDrop__btn " + (mobDrop === "services" ? " active" : "")
             }
             onClick={() => {
-              setMobDrop("services");
-              setPopWrap(true);
+              if (mobDrop === "services") {
+                setMobDrop(null);
+                setPopWrap(false);
+              } else {
+                setMobDrop("services");
+                setPopWrap(true);
+              }
             }}
           >
             servizi {chevronTop}
@@ -69,8 +79,13 @@ export default function FilterMobile({
               "filterMobDrop__btn " + (mobDrop === "location" ? " active" : "")
             }
             onClick={() => {
-              setMobDrop("location");
-              setPopWrap(true);
+              if (mobDrop === "location") {
+                setMobDrop(null);
+                setPopWrap(false);
+              } else {
+                setMobDrop("location");
+                setPopWrap(true);
+              }
             }}
           >
             località {chevronTop}
@@ -83,8 +98,13 @@ export default function FilterMobile({
               (mobDrop === "treatments" ? " active" : "")
             }
             onClick={() => {
-              setMobDrop("treatments");
-              setPopWrap(true);
+              if (mobDrop === "treatments") {
+                setMobDrop(null);
+                setPopWrap(false);
+              } else {
+                setMobDrop("treatments");
+                setPopWrap(true);
+              }
             }}
           >
             Trattamento {chevronTop}
@@ -96,8 +116,13 @@ export default function FilterMobile({
               "filterMobDrop__btn " + (mobDrop === "evis" ? " active" : "")
             }
             onClick={() => {
-              setMobDrop("evis");
-              setPopWrap(true);
+              if (mobDrop === "evis") {
+                setMobDrop(null);
+                setPopWrap(false);
+              } else {
+                setMobDrop("evis");
+                setPopWrap(true);
+              }
             }}
           >
             In Evidenza {chevronTop}

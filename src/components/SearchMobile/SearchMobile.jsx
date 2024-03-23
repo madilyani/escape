@@ -2,11 +2,11 @@ import { bedIcon, calendarIcon } from "Base/SVG";
 import CalendarMobile from "components/CalendarMobile";
 import RoomMobile from "components/RoomMobile";
 import WhereMobile from "components/WhereMobile";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 
 export default function SearchMobile() {
   const [showCalendar, setShowCalendar] = useState(false);
-  const [activeInput, setActiveInput] = useState(null);
 
   const [form, setForm] = useState({
     where: "",
@@ -44,7 +44,15 @@ export default function SearchMobile() {
                     placeholder="Select Date"
                     type="text"
                     readOnly
-                    value={form?.endDate && form?.endDate.toLocaleDateString()}
+                    value={
+                      (form?.startDate
+                        ? moment(form?.startDate).format("DD MMM")
+                        : "") +
+                      " - " +
+                      (form?.endDate
+                        ? moment(form?.endDate).format("DD MMM")
+                        : "")
+                    }
                   />
                 </div>
               </div>
@@ -52,16 +60,8 @@ export default function SearchMobile() {
                 <RoomMobile
                   form={form}
                   updateForm={updateForm}
-                  showCalendar={showCalendar}
+                  setShowCalendar={setShowCalendar}
                 />
-                <h6>Stanze e Ospiti</h6>
-                <input
-                  placeholder="Select Room"
-                  type="text"
-                  readOnly
-                  value="2 St. 3 ad. 5 bimbi"
-                />
-                {bedIcon}
               </div>
             </div>
           </div>
@@ -71,7 +71,6 @@ export default function SearchMobile() {
         <CalendarMobile
           form={form}
           updateForm={updateForm}
-          setActiveInput={setActiveInput}
           setShowCalendar={setShowCalendar}
         />
       )}

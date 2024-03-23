@@ -5,18 +5,14 @@ import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import FlexibleMobile from "components/FlexibleMobile";
 import { cancel } from "Base/SVG";
-export default function CalendarMobile({
-  form,
-  updateForm,
-  setActiveInput,
-  setShowCalendar,
-}) {
+export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
   const [tab, setTab] = useState("dates");
   const onChange = (dates) => {
     const [start, end] = dates;
-    updateForm({ startDate: start, endDate: end });
-    if (start && !end) {
-      setActiveInput("checkOut");
+    if (new Date(start).toISOString() === new Date(end).toISOString()) {
+      updateForm({ startDate: start, endDate: null });
+    } else {
+      updateForm({ startDate: start, endDate: end });
     }
   };
   return (
@@ -37,7 +33,6 @@ export default function CalendarMobile({
             className="calendar__head-close"
             onClick={() => {
               setShowCalendar(false);
-              setActiveInput(null);
             }}
           >
             {cancel}

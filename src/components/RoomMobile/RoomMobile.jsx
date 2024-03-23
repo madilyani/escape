@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { cancel, minusIcon, plusIcon } from "Base/SVG";
+import React, { useEffect, useRef, useState } from "react";
+import { bedIcon, cancel, minusIcon, plusIcon } from "Base/SVG";
 
-export default function RoomMobile({ form, updateForm }) {
+export default function RoomMobile({ form, updateForm, setShowCalendar }) {
+  const wrapper = useRef(null);
+  const dropdownRef = useRef(null);
   const [active, setActive] = useState(false);
   const [text, setText] = useState("");
   useEffect(() => {
@@ -12,39 +14,41 @@ export default function RoomMobile({ form, updateForm }) {
       totalAdults = totalAdults + element.adults;
       totalChildren = totalChildren + element.children;
     });
+
     let text =
-      `${form?.rooms.length} Stanze` +
-      (totalAdults > 0 ? `, ${totalAdults} Adulti` : ``) +
-      (totalAdults > 0 ? `, ${totalAdults} bambini` : ``);
+      (form?.rooms.length > 0 ? `${form?.rooms.length} St.` : ``) +
+      (totalAdults > 0 ? ` ${totalAdults} Ad.` : ``) +
+      (totalChildren > 0
+        ? totalChildren === 1
+          ? ` ${totalChildren} bimbo`
+          : ` ${totalChildren} bimbi`
+        : ``);
+
     setText(text);
   }, [form?.rooms]);
+  useEffect(() => {
+    const windowClick = ({ target }) => {
+      if (!wrapper.current.contains(target)) {
+        setActive(false);
+      }
+    };
+    if (active) window.addEventListener("click", windowClick);
+    else window.removeEventListener("click", windowClick);
 
+    return () => window.removeEventListener("click", windowClick);
+  }, [active]);
+  const clickHandler = (e) => {
+    if (!dropdownRef?.current?.contains(e.target)) {
+      setActive(true);
+      setShowCalendar(false);
+    }
+  };
   return (
-    <div className="searchPopActs__outer">
-      <div
-        className={"searchPopActs " + (active ? "active" : "")}
-        onClick={() => {
-          setActive(!active);
-        }}
-      >
-        <div className="searchPopAct">
-          <div className="searchPopDate__title">Adults</div>
-          <div className="searchPopDate__input">
-            <input placeholder="0" type="text" readOnly />
-          </div>
-        </div>
-        <div className="searchPopAct">
-          <div className="searchPopDate__title">Children</div>
-          <div className="searchPopDate__input">
-            <input placeholder="0" type="text" readOnly />
-          </div>
-        </div>
-        <div className="searchPopAct">
-          <div className="searchPopDate__title">Room</div>
-          <div className="searchPopDate__input">
-            <input placeholder="0" type="text" readOnly />
-          </div>
-        </div>
+    <div className="searchPopActs__outer" ref={wrapper} onClick={clickHandler}>
+      <div className={"searchPopActs " + (active ? "active" : "")}>
+        <h6>Stanze e Ospiti</h6>
+        <input placeholder="Select Room" type="text" readOnly value={text} />
+        {bedIcon}
       </div>
 
       <AnimatePresence>
@@ -55,6 +59,7 @@ export default function RoomMobile({ form, updateForm }) {
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0, y: 10 }}
             className={`searchItem__room  ${active ? "active" : ""} `}
+            ref={dropdownRef}
           >
             <div className="searchItem__room-head">
               <button
@@ -103,10 +108,13 @@ export default function RoomMobile({ form, updateForm }) {
                   <div className="searchItem__room-item" key={index}>
                     <div className="searchItem__room-item-title">
                       Room {index + 1}{" "}
-                      {form?.rooms?.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => {
+                      <button
+                        type="button"
+                        style={{
+                          display: form?.rooms?.length > 1 ? "block" : "none",
+                        }}
+                        onClick={() => {
+                          setTimeout(() => {
                             let arr = [
                               ...form?.rooms.filter(
                                 (filterItem) => filterItem?.id !== item?.id
@@ -115,11 +123,11 @@ export default function RoomMobile({ form, updateForm }) {
                             updateForm({
                               rooms: arr,
                             });
-                          }}
-                        >
-                          {cancel}
-                        </button>
-                      )}
+                          }, 50);
+                        }}
+                      >
+                        {cancel}
+                      </button>
                     </div>
                     <div className="searchItem__room-item-content">
                       <div className="searchItem__room-item-row">
@@ -152,19 +160,24 @@ export default function RoomMobile({ form, updateForm }) {
                             {item?.adults}
                           </div>
                           <div
-                            className="searchItem__room-spinbox-opr"
+                            className={
+                              "searchItem__room-spinbox-opr " +
+                              (item?.adults + 1 <= 9 ? "" : "disabled")
+                            }
                             onClick={() => {
-                              let arr = [...form?.rooms];
-                              const index = arr
-                                ?.map((item2) => item2.id)
-                                .indexOf(item.id);
-                              arr[index] = {
-                                ...arr[index],
-                                adults: item?.adults + 1,
-                              };
-                              updateForm({
-                                rooms: arr,
-                              });
+                              if (item?.adults + 1 <= 9) {
+                                let arr = [...form?.rooms];
+                                const index = arr
+                                  ?.map((item2) => item2.id)
+                                  .indexOf(item.id);
+                                arr[index] = {
+                                  ...arr[index],
+                                  adults: item?.adults + 1,
+                                };
+                                updateForm({
+                                  rooms: arr,
+                                });
+                              }
                             }}
                           >
                             {plusIcon}
