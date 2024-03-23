@@ -12,23 +12,23 @@ export default function Rating({ mobile, title, closePop }) {
       )}
       <div className="filterRate">
         <div className="filterRate__item">
-          <input type="radio" name="rating" />
+          <input type="checkbox" />
           <label htmlFor="">{starIcon} 1</label>
         </div>
         <div className="filterRate__item">
-          <input type="radio" name="rating" />
+          <input type="checkbox" />
           <label htmlFor="">{starIcon} 2</label>
         </div>
         <div className="filterRate__item">
-          <input type="radio" name="rating" />
+          <input type="checkbox" />
           <label htmlFor="">{starIcon} 3</label>
         </div>
         <div className="filterRate__item">
-          <input type="radio" name="rating" />
+          <input type="checkbox" />
           <label htmlFor="">{starIcon} 4</label>
         </div>
         <div className="filterRate__item">
-          <input type="radio" name="rating" />
+          <input type="checkbox" />
           <label htmlFor="">{starIcon} 5</label>
         </div>
       </div>

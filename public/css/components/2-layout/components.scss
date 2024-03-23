@@ -286,7 +286,7 @@ h6 {
     }
   }
 }
-@mixin note-xsm-sm {
+@mixin note-md-lg {
   .note {
     display: none;
     &.mob {
@@ -294,6 +294,14 @@ h6 {
       display: block;
       margin-bottom: 15px;
     }
+    &__inner {
+ 
+    }
+  }
+}
+@mixin note-xsm-sm {
+  .note {
+
     &__inner {
       h5 {
         font-size: 12px;

@@ -25,6 +25,7 @@ export default function FilterMobile({
       {
         breakpoint: 540,
         settings: {
+          infinite: true,
           slidesToShow: 1,
           slidesToScroll: 1,
           variableWidth: true,

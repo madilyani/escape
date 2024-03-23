@@ -83,6 +83,9 @@
 }
 // 1120px
 @include xlg-xxlg {
+  .main {
+    overflow: hidden;
+  }
   @include header-xlg-xxlg;
   //   base end
   // result start
@@ -109,6 +112,7 @@
   @include card-md-lg;
   @include header-md-lg;
   @include calendar-md-lg;
+  @include note-md-lg;
   // result end
 }
 // 700px

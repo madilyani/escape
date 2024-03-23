@@ -94,6 +94,37 @@
       justify-content: flex-start;
     }
   }
+  &__foot {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -4px;
+    padding-top: 10px;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 4px;
+      border-radius: 100px;
+      border: 1px solid #dbdde1;
+      background-color: $white;
+      color: $black;
+      font-family: $mainFont;
+      padding: 12px 24px;
+      font-size: 14px;
+      line-height: 100%;
+      font-weight: 700;
+      cursor: pointer;
+      &.active {
+        border-color: #26529c;
+      }
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        color: $black;
+      }
+    }
+  }
   .react-datepicker {
     border: unset !important;
     display: flex;
@@ -172,7 +203,7 @@
   }
   .react-datepicker__day--keyboard-selected {
     font-weight: 400 !important;
-    background-color: #26529C !important;
+    background-color: #26529c !important;
     border-radius: 50% !important;
   }
 

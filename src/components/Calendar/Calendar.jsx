@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Flexible from "components/Flexible";
-import { cancel } from "Base/SVG";
+import { cancel, plusMinus } from "Base/SVG";
 export default function Calendar({
   form,
   updateForm,
@@ -63,8 +63,18 @@ export default function Calendar({
                 inline
                 monthsShown={2}
               />
+              <div className="calendar__foot">
+                <button type="button" className="active">
+                  Exact dates
+                </button>
+                <button type="button">{plusMinus}1 day</button>
+                <button type="button">{plusMinus}2 day</button>
+                <button type="button">{plusMinus}3 day</button>
+                <button type="button">{plusMinus}7 day</button>
+              </div>
             </div>
           )}
+
           {tab === "flexible" && <Flexible />}
         </div>
       </div>
