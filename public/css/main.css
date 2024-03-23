@@ -2172,7 +2172,7 @@ h6 {
   -o-object-fit: cover;
 }
 .card__inner {
-  padding: 20px;
+  padding: 20px 0 20px 20px;
   border: 1px solid #d4d4d4;
   border-left: 1px solid transparent;
   border-radius: 0 10px 10px 0;
@@ -2202,6 +2202,9 @@ h6 {
           justify-content: space-between;
   padding-top: 15px;
   width: 100%;
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .card__foot-loc {
   display: none;
@@ -2347,7 +2350,16 @@ h6 {
   display: -ms-flexbox;
   display: flex;
   padding: 10px 0;
-  border-bottom: 1px solid #d4d4d4;
+  position: relative;
+}
+.cardCats::before {
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  width: calc(100% - 8px);
+  content: "";
+  height: 1px;
+  background-color: #d4d4d4;
 }
 .cardCat:hover {
   -webkit-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.75);
@@ -2426,6 +2438,7 @@ h6 {
   width: 16px;
   height: 16px;
   margin-right: 4px;
+  margin-bottom: -1px;
 }
 .cardMore__item strong {
   font-weight: 700;
@@ -3734,6 +3747,8 @@ h6 {
 }
 .calendar .react-datepicker__day--keyboard-selected {
   font-weight: 400 !important;
+  background-color: #26529C !important;
+  border-radius: 50% !important;
 }
 .calendar .react-datepicker__day {
   margin: 0 !important;
@@ -4433,7 +4448,7 @@ h6 {
             box-sizing: border-box;
     border-radius: 20px;
     width: 100%;
-    max-width: calc(100vw - 40px);
+    max-width: unset;
     background: #fff;
     box-sizing: border-box;
     padding: 13px;
@@ -4728,9 +4743,9 @@ h6 {
     top: 10px;
     background: transparent;
     left: 10px;
-    width: 17px;
+    width: 22px;
     z-index: 1;
-    height: 17px;
+    height: 22px;
   }
   .cardImage button svg {
     width: 100%;
@@ -5044,10 +5059,23 @@ h6 {
     margin-bottom: 16px;
   }
   .card .mobileList {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     display: block;
     padding-bottom: 5px;
-    border-bottom: 1px solid #d4d4d4;
     margin-bottom: 5px;
+    position: relative;
+    padding-left: 5px;
+  }
+  .card .mobileList::before {
+    position: absolute;
+    bottom: 0;
+    left: -7px;
+    width: calc(100% + 14px);
+    content: "";
+    height: 1px;
+    background-color: #d4d4d4;
   }
   .card .mobileList li {
     display: -webkit-box;
@@ -5080,14 +5108,23 @@ h6 {
     padding: 7px 7px 16px 7px;
   }
   .card__foot {
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 8px 6px 6px 6px;
+    padding: 12px 1px 0 5px;
     margin-top: 8px;
-    border-top: 1px solid #d4d4d4;
+    position: relative;
+  }
+  .card__foot::before {
+    position: absolute;
+    top: 0;
+    left: -7px;
+    width: calc(100% + 14px);
+    content: "";
+    height: 1px;
+    background-color: #d4d4d4;
   }
   .card__foot-info {
     width: calc(100% - 100px);
@@ -5105,18 +5142,28 @@ h6 {
     margin: 0;
     width: 100%;
     line-height: 20px;
-    margin-left: 6px;
-    padding: 10px 2px;
+    padding: 14px 2px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     height: 100%;
   }
   .cardCats {
     border: unset;
+    padding-left: 5px;
+  }
+  .cardCats::before {
+    display: none;
   }
   .cardDis {
     font-size: 20px;
     line-height: 24px;
+  }
+  .cardImage::before {
+    height: 35%;
+    opacity: 0.9;
+  }
+  .cardImage span {
+    bottom: 3px;
   }
   .cardPrice {
     font-size: 16px;
@@ -5124,7 +5171,7 @@ h6 {
     line-height: 18px;
   }
   .cardPrice span {
-    font-size: 30px;
+    font-size: 36px;
     line-height: 36px;
   }
   .cardPrice strong {
@@ -5133,7 +5180,7 @@ h6 {
     font-weight: 500;
   }
   .cardMore {
-    padding: 0;
+    padding: 0 0 0 5px;
     border: unset;
   }
   .cardInfo {
@@ -5162,17 +5209,22 @@ h6 {
   .cardInfo__location span {
     font-size: 12px;
     line-height: 14px;
-    color: #000;
+    color: #27529c;
   }
   .cardInfo__location svg {
     width: 12px;
     height: 12px;
-    color: #cbd329;
+    min-width: 12px;
+    color: #27529c;
   }
-  .cardInfo .rate {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+  .cardInfo .rate__range {
+    width: 70px;
+    height: 10px;
+    background-size: 70px;
+  }
+  .cardInfo .rate__range-progress {
+    height: 10px;
+    background-size: 70px;
   }
   .cardInfo__tag {
     font-size: 10px;

@@ -619,7 +619,7 @@
           box-sizing: border-box;
           border-radius: 20px;
           width: 100%;
-          max-width: calc(100vw - 40px);
+          max-width: unset;
           background: $white;
           box-sizing: border-box;
           padding: 13px;
