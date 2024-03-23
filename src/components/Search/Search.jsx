@@ -50,7 +50,7 @@ export default function Search() {
           <Where
             form={form}
             updateForm={updateForm}
-            showCalendar={showCalendar}
+            setShowCalendar={setShowCalendar}
           />
           <div
             className={
@@ -95,7 +95,7 @@ export default function Search() {
           <Room
             form={form}
             updateForm={updateForm}
-            showCalendar={showCalendar}
+            setShowCalendar={setShowCalendar}
           />
         </div>
         <button type="button" className="search__btn">

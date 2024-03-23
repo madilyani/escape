@@ -2,8 +2,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { cancel, minusIcon, plusIcon } from "Base/SVG";
 
-export default function Room({ form, updateForm, showCalendar }) {
+export default function Room({ form, updateForm, setShowCalendar }) {
   const wrapper = useRef(null);
+  const dropdownRef = useRef(null);
   const [active, setActive] = useState(false);
   const [text, setText] = useState("");
   useEffect(() => {
@@ -28,9 +29,18 @@ export default function Room({ form, updateForm, showCalendar }) {
 
     return () => window.removeEventListener("click", windowClick);
   }, [active]);
-
+  const clickHandler = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setActive(true);
+      setShowCalendar(false);
+    }
+  };
   return (
-    <div className={"searchItem " + (active ? "active" : "")} ref={wrapper}>
+    <div
+      className={"searchItem " + (active ? "active" : "")}
+      ref={wrapper}
+      onClick={clickHandler}
+    >
       <div className="searchItem__title">Stanze</div>
       <div className="searchItem__input">
         <input
@@ -38,11 +48,10 @@ export default function Room({ form, updateForm, showCalendar }) {
           type="text"
           readOnly
           value={text}
-          onFocus={() => {
-            if (!showCalendar) {
-              setActive(true);
-            }
-          }}
+          // onFocus={() => {
+          //   setActive(true);
+          //   setShowCalendar(false);
+          // }}
         />
       </div>
       <AnimatePresence>
@@ -53,6 +62,7 @@ export default function Room({ form, updateForm, showCalendar }) {
             transition={{ duration: 0.2 }}
             exit={{ opacity: 0, y: 10 }}
             className={`searchItem__room  ${active ? "active" : ""} `}
+            ref={dropdownRef}
           >
             <div className="searchItem__room-head">
               <button
