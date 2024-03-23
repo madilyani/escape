@@ -82,6 +82,9 @@ export default function Search() {
               if (form?.startDate) {
                 setShowCalendar(true);
                 setActiveInput("checkOut");
+              } else {
+                setShowCalendar(true);
+                setActiveInput("checkIn");
               }
             }}
           >

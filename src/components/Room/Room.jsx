@@ -181,19 +181,24 @@ export default function Room({
                             {item?.adults}
                           </div>
                           <div
-                            className="searchItem__room-spinbox-opr"
+                            className={
+                              "searchItem__room-spinbox-opr " +
+                              (item?.adults + 1 <= 9 ? "" : "disabled")
+                            }
                             onClick={() => {
-                              let arr = [...form?.rooms];
-                              const index = arr
-                                ?.map((item2) => item2.id)
-                                .indexOf(item.id);
-                              arr[index] = {
-                                ...arr[index],
-                                adults: item?.adults + 1,
-                              };
-                              updateForm({
-                                rooms: arr,
-                              });
+                              if (item?.adults + 1 <= 9) {
+                                let arr = [...form?.rooms];
+                                const index = arr
+                                  ?.map((item2) => item2.id)
+                                  .indexOf(item.id);
+                                arr[index] = {
+                                  ...arr[index],
+                                  adults: item?.adults + 1,
+                                };
+                                updateForm({
+                                  rooms: arr,
+                                });
+                              }
                             }}
                           >
                             {plusIcon}

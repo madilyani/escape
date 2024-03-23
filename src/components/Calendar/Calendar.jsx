@@ -12,7 +12,11 @@ export default function Calendar({
   const [tab, setTab] = useState("dates");
   const onChange = (dates) => {
     const [start, end] = dates;
-    updateForm({ startDate: start, endDate: end });
+    if (new Date(start).toISOString() === new Date(end).toISOString()) {
+      updateForm({ startDate: start, endDate: null });
+    } else {
+      updateForm({ startDate: start, endDate: end });
+    }
     if (start && !end) {
       setActiveInput("checkOut");
     }
