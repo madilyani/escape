@@ -137,7 +137,17 @@ export default function Card(props) {
                     exit={{ opacity: 0, y: 10 }}
                     className="cardMob"
                   >
-                    <div className="cardMob__title">Chiudi</div>
+                    <div className="cardMob__title">
+                      <div
+                        className="cardMob__title-text"
+                        onClick={() => {
+                          setActiveSlider(!activeSlider);
+                          setPopWrap(!popWrap);
+                        }}
+                      >
+                        Chiudi
+                      </div>
+                    </div>
                     <Slider {...settings3} className="cardMob__slider">
                       {props.gallery.map((item, index) => {
                         return (
