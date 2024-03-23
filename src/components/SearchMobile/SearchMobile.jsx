@@ -46,9 +46,8 @@ export default function SearchMobile() {
                     readOnly
                     value={
                       (form?.startDate
-                        ? moment(form?.startDate).format("DD MMM")
+                        ? moment(form?.startDate).format("DD MMM") + " - "
                         : "") +
-                      " - " +
                       (form?.endDate
                         ? moment(form?.endDate).format("DD MMM")
                         : "")
