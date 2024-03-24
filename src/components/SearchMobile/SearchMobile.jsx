@@ -55,13 +55,11 @@ export default function SearchMobile() {
                   />
                 </div>
               </div>
-              <div className="searchMob__room">
                 <RoomMobile
                   form={form}
                   updateForm={updateForm}
                   setShowCalendar={setShowCalendar}
                 />
-              </div>
             </div>
           </div>
         </div>

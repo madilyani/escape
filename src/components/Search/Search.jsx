@@ -26,6 +26,7 @@ export default function Search() {
   };
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [isSticky, setIsSticky] = useState(false);
+  const [addClass, setAddClass] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
@@ -36,7 +37,11 @@ export default function Search() {
       } else {
         setIsSticky(false);
       }
-
+      if (scrollTop > 100) {
+        setAddClass(true);
+      } else {
+        setAddClass(false);
+      }
       setLastScrollTop(scrollTop);
     };
     window.addEventListener("scroll", handleScroll);
@@ -44,7 +49,11 @@ export default function Search() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollTop]);
   return (
-    <div className={"search " + (isSticky ? "sticky" : "")}>
+    <div
+      className={
+        "search " + (isSticky ? "sticky " : "") + (addClass ? "addClass" : "")
+      }
+    >
       <div className="search__inner">
         <div className="search__items">
           <Where
