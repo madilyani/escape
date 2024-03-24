@@ -27,6 +27,20 @@ export default function Result() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const elm = document.getElementById("cont");
+      window.onscroll = function (ev) {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+          console.log("bottom");
+        }
+      };
+    };
+    window.addEventListener("scroll", handleScroll);
+    // Clean up the event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       {mobile ? <SearchMobile /> : <Search />}
@@ -57,7 +71,7 @@ export default function Result() {
                   <option value="2">Option 3</option>
                 </select>
               </div>
-              <div className="resultMain__inner">
+              <div className="resultMain__inner" id="cont">
                 {modul.map((item, index) => {
                   return <Card {...item} key={index} />;
                 })}

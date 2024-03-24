@@ -106,13 +106,15 @@ export default function WhereMobile({ form, updateForm }) {
           }}
         />
         <div className="searchItem__input-icon mobile">{searchIcon}</div>
-        {form?.where !== "" && (
-          <>
-            <button type="button" onClick={delAll}>
-              {cancel}
-            </button>
-          </>
-        )}
+        <>
+          <button
+            type="button"
+            onClick={delAll}
+            style={{ display: form?.where !== "" ? "flex" : "none" }}
+          >
+            {cancel}
+          </button>
+        </>
       </div>
       <AnimatePresence>
         {active === true && (
