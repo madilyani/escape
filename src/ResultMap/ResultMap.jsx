@@ -103,17 +103,6 @@ export default function ResultMap() {
             <div className="resultSide">
               <Filter mapPlace={true} />
             </div>
-            <div className="note mob">
-              <h6>42 Hotel trovati a Ischia, italia</h6>
-              <div className="note__inner">
-                <h5 className="cap">
-                  Registrati Adesso per Accedere a sconti esclusivi
-                </h5>
-                <Link to="" className="button secondary">
-                  Accedi / Iscriviti
-                </Link>
-              </div>
-            </div>
             <div className="resultMap">
               <div className="resultMap__bg">
                 <img src="/images/map.png" alt="" />

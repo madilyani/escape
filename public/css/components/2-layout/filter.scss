@@ -515,6 +515,11 @@
       margin-bottom: 12px;
       border: unset;
       padding: 0;
+      &__image {
+        &.sm {
+          padding-bottom: 40%;
+        }
+      }
     }
     &Drops {
       display: none;

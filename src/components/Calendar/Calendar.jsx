@@ -68,13 +68,25 @@ export default function Calendar({
                 monthsShown={2}
               />
               <div className="calendar__foot">
-                <button type="button" className="active">
+                <button type="button" className="calendar__foot-tag">
                   Exact dates
                 </button>
-                <button type="button">{plusMinus}1 day</button>
-                <button type="button">{plusMinus}2 day</button>
-                <button type="button">{plusMinus}3 day</button>
-                <button type="button">{plusMinus}7 day</button>
+                <button type="button">
+                  <input type="radio" name="exactDates" />
+                  <span>{plusMinus} 1 day</span>
+                </button>
+                <button type="button">
+                  <input type="radio" name="exactDates" />
+                  <span>{plusMinus} 2 day</span>
+                </button>
+                <button type="button">
+                  <input type="radio" name="exactDates" />
+                  <span>{plusMinus} 3 day</span>
+                </button>
+                <button type="button">
+                  <input type="radio" name="exactDates" />
+                  <span>{plusMinus} 7 day</span>
+                </button>
               </div>
             </div>
           )}

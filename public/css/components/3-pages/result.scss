@@ -205,9 +205,10 @@
   .result {
     padding: 20px 0 16px;
     &Map {
-      width: 100%;
+      width: calc(100% + 32px);
+      margin: 0 -16px;
       &__inner {
-        min-height: 360px;
+        min-height: calc(100vh - 142px);
         padding: 20px 15px;
       }
     }
