@@ -3763,14 +3763,10 @@ h6 {
   height: 100%;
   opacity: 0;
   z-index: 2;
+  cursor: pointer;
 }
 .calendar__foot button input:checked ~ span {
-  background-color: #26529c;
   border-color: #26529c;
-  color: #fff;
-}
-.calendar__foot button input:checked ~ span svg {
-  color: #fff;
 }
 .calendar__foot button span {
   border: 1px solid #dbdde1;

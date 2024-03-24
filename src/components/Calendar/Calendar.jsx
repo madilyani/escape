@@ -68,8 +68,9 @@ export default function Calendar({
                 monthsShown={2}
               />
               <div className="calendar__foot">
-                <button type="button" className="calendar__foot-tag">
-                  Exact dates
+                <button type="button">
+                  <input type="radio"  name="exactDates" />
+                  <span> Exact dates</span>
                 </button>
                 <button type="button">
                   <input type="radio" name="exactDates" />
