@@ -307,6 +307,7 @@
       align-items: center;
       justify-content: flex-start;
       @include ellipsis(1);
+      text-align: left;
       font-family: "Poppins";
       font-weight: 400;
       font-size: 20px;
