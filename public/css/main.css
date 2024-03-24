@@ -3921,6 +3921,11 @@ h6 {
 .calendar .react-datepicker__day--range-start.react-datepicker__day--range-end.react-datepicker__day--selected {
   border-radius: 50% !important;
 }
+.calendar .react-datepicker__day.react-datepicker__day--range-end {
+  border-radius: 0 100px 100px 0 !important;
+  background-color: #26529c !important;
+  color: #fff !important;
+}
 
 .result {
   padding: 40px 0;
