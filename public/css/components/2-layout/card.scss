@@ -306,14 +306,16 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      @include ellipsis(1);
       text-align: left;
       font-family: "Poppins";
       font-weight: 400;
       width: 100%;
       font-size: 20px;
       line-height: 24px;
-      color: #000000; 
+      color: #000000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       margin-bottom: 4px;
       &:last-child {
         margin-bottom: 0;
