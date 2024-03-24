@@ -69,7 +69,7 @@ export default function Calendar({
               />
               <div className="calendar__foot">
                 <button type="button">
-                  <input type="radio"  name="exactDates" />
+                  <input type="radio" name="exactDates" />
                   <span> Exact dates</span>
                 </button>
                 <button type="button">
