@@ -10,7 +10,8 @@ import Placeholder from "components/Placeholder";
 import { motion } from "framer-motion";
 
 export default function Result() {
-  const [modul, setModul] = useState(hotelList.slice(0, 5));
+  const [position, setPosition] = useState(150);
+  const [modul, setModul] = useState([...hotelList.slice(0, 5)]);
   const [isLoading, setIsLoading] = useState(false);
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
@@ -21,26 +22,32 @@ export default function Result() {
     }
     window.addEventListener("resize", () => {
       if (window.innerWidth < 840) {
+        setPosition(300);
         setMobile(true);
       } else {
+        setPosition(150);
         setMobile(false);
       }
     });
   }, []);
-
   useEffect(() => {
     const handleScroll = () => {
-      const elm = document.getElementById("cont");
-      window.onscroll = function (ev) {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          console.log("bottom");
+      if (modul?.length !== hotelList?.length) {
+        const elm = document.getElementById("cont");
+        if (window.scrollY >= elm.offsetHeight + elm.offsetTop - position) {
+          setIsLoading(true);
+          setTimeout(() => {
+            setModul([...hotelList.slice(0, modul.length + 5)]);
+            setIsLoading(false);
+          }, 2000);
         }
-      };
+      }
     };
+
     window.addEventListener("scroll", handleScroll);
     // Clean up the event listener on component unmount
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [modul]);
   return (
     <>
       {mobile ? <SearchMobile /> : <Search />}
@@ -87,19 +94,19 @@ export default function Result() {
                     })}
                   </motion.div>
                 )}
-                <button
+                {/* <button
                   type="button"
                   className="resultLoad"
-                  onClick={() => {
-                    setIsLoading(true);
-                    setTimeout(() => {
-                      setModul(hotelList);
-                      setIsLoading(false);
-                    }, 2000);
-                  }}
+                  // onClick={() => {
+                  //   setIsLoading(true);
+                  //   setTimeout(() => {
+                  //     setModul(hotelList);
+                  //     setIsLoading(false);
+                  //   }, 2000);
+                  // }}
                 >
                   Carica Altri 25 Hotel
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
