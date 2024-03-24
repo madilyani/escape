@@ -305,12 +305,13 @@
     &__item {
       display: flex;
       align-items: center;
+      justify-content: flex-start;
       @include ellipsis(1);
       font-family: "Poppins";
       font-weight: 400;
       font-size: 20px;
       line-height: 24px;
-      color: #000000;
+      color: #000000; 
       margin-bottom: 4px;
       &:last-child {
         margin-bottom: 0;
