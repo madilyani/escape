@@ -37,7 +37,7 @@ export default function Search() {
       } else {
         setIsSticky(false);
       }
-      if (scrollTop > 100) {
+      if (scrollTop > 200) {
         setAddClass(true);
       } else {
         setAddClass(false);

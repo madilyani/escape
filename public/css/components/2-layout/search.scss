@@ -21,14 +21,21 @@
     animation: 0.5s linear stickyOp;
     z-index: 2;
   }
-  &.sticky {
+  &.addClass {
     .search__inner {
       position: fixed;
       left: 50%;
       @include transformX;
       width: 100%;
       margin: 0;
-      animation: 0.3s linear sticky;
+      @include transition;
+      top: -150px;
+      animation-delay: 1s;
+    }
+  }
+  &.sticky {
+    .search__inner {
+      top: 20px;
     }
   }
   @keyframes stickyOp {
