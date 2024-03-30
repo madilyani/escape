@@ -66,6 +66,7 @@ export const hotelList = [
     ],
     date_start: "26 giugno 2024",
     date_end: "29 giugno 2024",
+    camera: "Camera konfort Ceranda",
 
     food: "Pensione Completa con Bevande",
     price: 2.232,
@@ -142,6 +143,8 @@ export const hotelList = [
     ],
     date_start: "26 giugno 2024",
     date_end: "29 giugno 2024",
+    camera: "Camera konfort Ceranda",
+
     food: "Pensione Completa con Bevande",
     price: 1.132,
     discount: 150,
@@ -209,6 +212,8 @@ export const hotelList = [
     ],
     date_start: "26 giugno 2024",
     date_end: "29 giugno 2024",
+    camera: "Camera konfort Ceranda",
+
     food: "Pensione Completa con Bevande",
     price: 5.132,
     discount: 150,
@@ -284,6 +289,8 @@ export const hotelList = [
     ],
     date_start: "26 giugno 2024",
     date_end: "29 giugno 2024",
+    camera: "Camera konfort Ceranda",
+
     food: "Pensione Completa con Bevande",
     price: 1.132,
     discount: 150,
