@@ -8,6 +8,7 @@ import {
   locationIcon,
 } from "Base/SVG";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Card(props) {
   const slider1 = useRef(null);
@@ -311,9 +312,9 @@ export default function Card(props) {
               <div className="cardDis">con viaggio +150€</div>
             </div>
             <div className="card__foot-btns">
-              <button type="button" className="button reserve">
+              <Link to={`/detail/${props.id}`} className="button reserve">
                 Vedi Dettagli
-              </button>
+              </Link>
               <div className="card__foot-note">3 stanze rimaste</div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import Footer from "Base/Footer";
 import Header from "Base/Header";
+import Detail from "Detail";
 import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Result from "Result";
@@ -16,6 +17,7 @@ export default function App() {
       <main className="main">
         <Routes>
           <Route path="" element={<Result />} />
+          <Route path="/detail/:id" element={<Detail />} />
           <Route path="/map" element={<ResultMap />} />
         </Routes>
       </main>
