@@ -30,6 +30,185 @@
 .gallery {
   &__inner {
     margin: 0 -10px;
-    
+    padding-right: 50%;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &Item {
+    width: calc(50% - 20px);
+    margin: 10px;
+    position: relative;
+
+    &__btns {
+      position: absolute;
+      top: 26px;
+      right: 26px;
+      display: flex;
+      z-index: 1;
+      align-items: center;
+      button {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        background: transparent;
+      }
+    }
+    &__share {
+      width: 28px !important;
+      height: 28px !important;
+      margin-left: 10px;
+    }
+    &__like {
+      &.active {
+        color: red;
+        svg {
+          transform: scale(1.3);
+        }
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        @include transition;
+      }
+    }
+    &__over {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: $white;
+      background: rgba($color: $black, $alpha: 0.4);
+      border-radius: 12px;
+      font-family: "Poppins";
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 28px;
+      text-decoration-line: underline;
+    }
+    &:nth-child(1) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: calc(50% - 30px);
+      height: calc(100% - 20px);
+      box-sizing: border-box;
+      margin: 10px;
+      .galleryItem__inner {
+        position: static;
+      }
+    }
+    &__inner {
+      position: relative;
+      padding-bottom: 60.1%;
+    }
+    &__image {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      left: 0;
+      img {
+        @include fullImage;
+      }
+    }
+  }
+}
+.navigation {
+  border-bottom: 1px solid #d1d1d1;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-links {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 420px);
+      max-width: 800px;
+      a {
+        padding: 25px 0;
+        position: relative;
+        display: block;
+        font-family: "Poppins";
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #b8b8b8;
+        &:last-child {
+          margin-right: 0;
+        }
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 5px;
+          background: $primary;
+        }
+        &.active {
+          color: $primary;
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  &Info {
+    display: flex;
+    align-items: center;
+    width: 400px;
+    justify-content: space-between;
+    button {
+      box-sizing: border-box;
+      border-radius: 50px;
+      border: 2px solid $primary;
+      padding: 15px 10px;
+      width: 150px;
+      background: $white;
+      font-family: "Poppins";
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      color: $primary;
+      &.active {
+        background: $primary;
+        color: $white;
+      }
+    }
+    &__price {
+      font-weight: 700;
+      font-size: 38px;
+      line-height: 23px;
+      color: $primary;
+      span {
+        font-size: 20px;
+        line-height: 23px;
+      }
+      &s {
+        margin-right: 16px;
+      }
+    }
+    &__extra {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 23px;
+      color: #faaf05;
+    }
   }
 }

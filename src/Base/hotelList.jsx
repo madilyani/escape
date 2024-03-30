@@ -20,7 +20,6 @@ export const hotelList = [
       {
         text: "Bloging",
       },
-
     ],
     title: "AV Isola Verde Hotel Thermal Spa",
     location: "Veneto, Cortina d’Ampezzo",
@@ -70,6 +69,7 @@ export const hotelList = [
     food: "Pensione Completa con Bevande",
     price: 2.232,
     discount: 150,
+    selection: false,
   },
   {
     id: "2",
@@ -145,6 +145,7 @@ export const hotelList = [
     food: "Pensione Completa con Bevande",
     price: 1.132,
     discount: 150,
+    selection: true,
   },
   {
     id: "3",
