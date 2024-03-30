@@ -1,5 +1,6 @@
 import { hotelList } from "Base/hotelList";
 import Gallery from "components/Gallery";
+import Navigation from "components/Navigation";
 import Similar from "components/Similar";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -29,9 +30,11 @@ export default function Detail() {
         </div>
       </div>
       <Gallery card={card} />
+      <Navigation card={card} />
       <div className="detail">
         <div className="auto__container"></div>
       </div>
+
       <Similar card={card} />
     </>
   );
