@@ -17,7 +17,7 @@ export default function App() {
       <main className="main">
         <Routes>
           <Route path="" element={<Result />} />
-          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/detail/:cardId" element={<Detail />} />
           <Route path="/map" element={<ResultMap />} />
         </Routes>
       </main>

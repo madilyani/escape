@@ -1,4 +1,5 @@
 import { hotelList } from "Base/hotelList";
+import Gallery from "components/Gallery";
 import Similar from "components/Similar";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -27,6 +28,7 @@ export default function Detail() {
           </ul>
         </div>
       </div>
+      <Gallery card={card} />
       <div className="detail">
         <div className="auto__container"></div>
       </div>
