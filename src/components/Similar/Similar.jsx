@@ -22,19 +22,10 @@ export default function Similar({ card }) {
         },
       },
       {
-        breakpoint: 840,
+        breakpoint: 800,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
           slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-      {
-        breakpoint: 430,
-        settings: {
-          slidesToShow: 1.5,
-          slidesToScroll: 1,
-          arrows: false,
         },
       },
     ],
@@ -42,13 +33,13 @@ export default function Similar({ card }) {
 
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
-    if (window.innerWidth < 840) {
+    if (window.innerWidth < 541) {
       setMobile(true);
     } else {
       setMobile(false);
     }
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 840) {
+      if (window.innerWidth < 541) {
         setMobile(true);
       } else {
         setMobile(false);
@@ -56,38 +47,41 @@ export default function Similar({ card }) {
     });
   }, []);
   return (
-    <>
-      <div className="similar">
-        <div className="auto__container">
-          <div className="similar__inner">
-            <div className="similar__inner-stars">
-              {starIcon}
-              {starIcon}
-              {starIcon}
-            </div>
-            <div className="similar__inner-title">
-              <h4>Hotel simili</h4>
-            </div>
-            {mobile ? (
-              <>
-                <Slider {...settings} className="similar__inner-slider">
-                  {hotelList.map((item, index) => {
-                    return <Card {...item} key={index} />;
-                  })}
-                </Slider>
-              </>
-            ) : (
-              <>
-                <Slider {...settings} className="similar__inner-slider">
-                  {hotelList.map((item, index) => {
-                    return <Card2 {...item} key={index} />;
-                  })}
-                </Slider>
-              </>
-            )}
+    <section className="similar">
+      <div className="auto__container">
+        <div className="similar__inner">
+          <div className="similar__inner-stars">
+            {starIcon}
+            {starIcon}
+            {starIcon}
+          </div>
+          <div className="similar__inner-title">
+            <h4>Hotel simili</h4>
+          </div>
+          {mobile ? (
+            <>
+              <Slider {...settings} className="similar__inner-slider">
+                {hotelList.map((item, index) => {
+                  return <Card {...item} key={index} />;
+                })}
+              </Slider>
+            </>
+          ) : (
+            <>
+              <Slider {...settings} className="similar__inner-slider">
+                {hotelList.map((item, index) => {
+                  return <Card2 {...item} key={index} />;
+                })}
+              </Slider>
+            </>
+          )}
+          <div className="similar__inner-foot">
+            <a href="#" className="button primary">
+              torna a tutti gli hotel
+            </a>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }

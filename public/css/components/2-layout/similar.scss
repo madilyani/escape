@@ -1,5 +1,5 @@
 .similar {
-  padding: 30px 0;
+  padding: 30px 0 50px;
   &__inner {
     &-stars {
       display: flex;
@@ -27,6 +27,9 @@
       padding-bottom: 90px;
       position: relative;
     }
+    &-foot {
+      display: none;
+    }
     .slick {
       &-track {
         display: flex !important;
@@ -41,7 +44,7 @@
         position: absolute;
         top: unset;
         bottom: 0;
-        left: 0;
+        left: 10px;
         border-radius: 50%;
         z-index: 3;
         background-color: $white;
@@ -77,10 +80,72 @@
         }
       }
       &-next {
-        left: 80px;
+        left: 90px;
         &::before {
           transform: translate(-60%, -50%) rotate(45deg);
         }
+      }
+    }
+  }
+}
+@mixin similar-xxxlg-xxxxlg {
+  .similar {
+  }
+}
+@mixin similar-xxlg-xxxlg {
+  .similar {
+  }
+}
+@mixin similar-xlg-xxlg {
+  .similar {
+  }
+}
+@mixin similar-xsm-sm {
+  .similar {
+    padding: 10px 0 28px;
+    &__inner {
+      &-stars {
+        display: none;
+      }
+      &-title {
+        margin-bottom: 15px;
+        text-align: center;
+        h4 {
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+      &-slider {
+        padding-bottom: 58px;
+      }
+      &-foot {
+        display: flex;
+        justify-content: center;
+        padding-top: 36px;
+        .button {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .slick {
+        &-list {
+          overflow: visible !important;
+        }
+        &-arrow {
+          width: 42px;
+          height: 42px;
+          &::before {
+            width: 7px;
+            height: 7px;
+          }
+        }
+        &-next {
+          left: 66px;
+        }
+      }
+      .card {
+        margin: 0;
       }
     }
   }

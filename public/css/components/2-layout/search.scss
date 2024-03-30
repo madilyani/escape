@@ -876,4 +876,120 @@
       }
     }
   }
+  &Dates {
+    &__wrapper {
+      background-color: #f5fbfb;
+      padding: 40px 0;
+    }
+    &__head {
+      display: flex;
+      align-items: center;
+      background: $white;
+      border-radius: 5px;
+      padding: 22px 50px 22px 20px;
+      position: relative;
+      &.active {
+        &::before {
+          transform: translateY(-60%) rotate(-45deg);
+        }
+      }
+      &::before {
+        position: absolute;
+        top: 50%;
+        right: 24px;
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid $black;
+        border-right: 2px solid $black;
+        transform: translateY(-60%) rotate(135deg);
+        transition: 0.3s ease;
+      }
+      &-icon {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 12px;
+        background-color: #f5fbfb;
+        border-radius: 50%;
+        svg {
+          width: 24px;
+          height: 24px;
+          color: $primary;
+        }
+      }
+      &-text {
+        width: calc(100% - 68px);
+        display: flex;
+        flex-direction: column;
+        h5 {
+          margin-bottom: 8px;
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 22px;
+          color: #000000;
+        }
+        p {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 30px;
+      transition: 0.3s ease;
+    }
+    &__item {
+      background: $white;
+      border: 1px solid #c0cad5;
+      border-radius: 5px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      width: calc(33.3% - 8px);
+      max-width: 433px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &-col {
+        display: flex;
+        flex-direction: column;
+        &:last-child {
+          text-align: end;
+        }
+      }
+      h6 {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+        margin-bottom: 8px;
+      }
+      h5 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 14px;
+        color: $primary;
+        margin-bottom: 8px;
+      }
+      p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: rgba(0, 0, 0, 0.6);
+        &.green {
+          color: #00aa00;
+        }
+        b {
+          font-size: 14px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
 }

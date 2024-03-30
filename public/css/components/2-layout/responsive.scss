@@ -80,6 +80,7 @@
   @include result-xxlg-xxxlg;
   @include filter-xxlg-xxxlg;
   //   result end
+  @include services-xxlg-xxxlg;
 }
 // 1120px
 @include xlg-xxlg {
@@ -102,6 +103,7 @@
   @include footer-lg-xlg;
   @include note-lg-xlg;
   // base end
+  @include services-lg-xlg;
 }
 // 840px
 @include md-lg {
@@ -213,6 +215,32 @@
       }
     }
   }
+  .flexible {
+    &Dates {
+      &__wrapper {
+        padding: 30px 0;
+      }
+      &__body {
+        padding-top: 20px;
+      }
+      &__item {
+        width: calc(33.3% - 4px);
+        padding: 8px 10px;
+        h6 {
+          font-size: 12px;
+        }
+        h5 {
+          font-size: 18px;
+        }
+        p {
+          font-size: 10px;
+          b {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
   // result start
   @include card-md-lg;
   @include header-md-lg;
@@ -223,6 +251,47 @@
 }
 // 700px
 @include sm-md {
+  .flexible {
+    &Dates {
+      &__wrapper {
+        padding: 20px 0;
+      }
+      &__head {
+        &-text {
+          h5 {
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 6px;
+          }
+        }
+      }
+      &__body {
+        flex-direction: column;
+        padding-top: 15px;
+      }
+      &__item {
+        width: 100%;
+        max-width: unset;
+        padding: 12px 20px;
+        margin-bottom: 10px;
+        &:last-child {
+          margin: 0;
+        }
+        h6 {
+          font-size: 14px;
+        }
+        h5 {
+          font-size: 20px;
+        }
+        p {
+          font-size: 12px;
+          b {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
   .mapCard {
     // width: 100%;
     // max-width: 400px;
@@ -337,6 +406,19 @@
       }
     }
   }
+  .flexible {
+    &Dates {
+      &__wrapper {
+        padding: 14px 0 20px;
+      }
+      &__head {
+        padding: 22px 40px 22px 10px;
+        &::before {
+          right: 20px;
+        }
+      }
+    }
+  }
   // base end
   @include filter-xsm-sm;
   // result start
@@ -344,4 +426,11 @@
   @include result-xsm-sm;
 
   // result end
+  // detail start
+  @include services-xsm-sm;
+  @include hotelInfo-xsm-sm;
+  @include mapDetail-xsm-sm;
+  @include similar-xsm-sm;
+
+  // detail end
 }

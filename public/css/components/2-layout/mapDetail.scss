@@ -1,0 +1,59 @@
+.mapDetail {
+  padding: 60px 0 30px;
+  &__inner {
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #d4d4d4;
+      margin-bottom: 30px;
+      h4 {
+        font-weight: 600;
+      }
+      p {
+        text-align: end;
+        color: $primary;
+        b {
+          font-weight: 600;
+          display: block;
+        }
+      }
+    }
+    &-image {
+      width: 100%;
+      padding-bottom: 35%;
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      min-height: 360px;
+      box-sizing: border-box;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include fullImage;
+        object-position: 40% 50%;
+      }
+    }
+  }
+}
+@mixin mapDetail-xsm-sm {
+  .mapDetail {
+    padding: 20px 0 15px;
+    &__inner {
+      &-title {
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+        p {
+          font-size: 12px;
+          line-height: 23px;
+        }
+        h4 {
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}

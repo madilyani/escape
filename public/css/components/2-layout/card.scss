@@ -362,6 +362,12 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    color: $black;
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
     &__image {
       width: 100%;
       padding-bottom: 68%;
@@ -374,6 +380,7 @@
         top: 0;
         left: 0;
         @include fullImage;
+        transition: .3s ease;
       }
     }
     &__type {

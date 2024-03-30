@@ -1,0 +1,62 @@
+.hotelInfo {
+  padding: 28px 0 60px;
+  &__inner {
+    &-title {
+      margin-bottom: 50px;
+      h4 {
+        font-weight: 600;
+      }
+    }
+    &-article {
+      color: $black;
+      h5 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        text-transform: capitalize;
+        color: $primary;
+        margin-bottom: 12px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+      p {
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        b {
+          font-weight: 700;
+        }
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+@mixin hotelInfo-xsm-sm {
+  .hotelInfo {
+    padding: 10px 0 50px;
+    &__inner {
+      &-title {
+        margin-bottom: 24px;
+        h4 {
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+      &-article {
+        h5 {
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 28px;
+          margin-bottom: 10px;
+        }
+        p {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
