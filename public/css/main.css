@@ -4214,6 +4214,10 @@ h6 {
   content: "/";
 }
 
+.gallery__inner {
+  margin: 0 -10px;
+}
+
 @media (max-width: 1430px) {
   h4 {
     font-weight: 400;
