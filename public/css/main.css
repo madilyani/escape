@@ -452,7 +452,7 @@ input {
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
   list-style: none;
   margin: 0;
-  height: calc(195px + (1.7rem / 2));
+  height: calc(195px + 1.7rem / 2);
   overflow-y: scroll;
   padding-right: 0;
   padding-left: 0;
@@ -623,7 +623,7 @@ input {
 .react-datepicker__year-text--keyboard-selected {
   border-radius: 0.3rem;
   background-color: #bad9f1;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 .react-datepicker__day--keyboard-selected:hover,
 .react-datepicker__month-text--keyboard-selected:hover,
@@ -866,8 +866,8 @@ input {
 }
 @media (max-width: 400px), (max-height: 550px) {
   .react-datepicker__portal .react-datepicker__day-name,
-.react-datepicker__portal .react-datepicker__day,
-.react-datepicker__portal .react-datepicker__time-name {
+  .react-datepicker__portal .react-datepicker__day,
+  .react-datepicker__portal .react-datepicker__time-name {
     width: 2rem;
     line-height: 2rem;
   }
@@ -2798,8 +2798,8 @@ h6 {
 }
 .searchItem.active {
   background: #fff;
-  -webkit-box-shadow: 0 0 5px 5px rgba(150, 158, 166, 0.035);
-          box-shadow: 0 0 5px 5px rgba(150, 158, 166, 0.035);
+  -webkit-box-shadow: 0 0 5px 5px hsla(210, 8%, 62%, 0.035);
+          box-shadow: 0 0 5px 5px hsla(210, 8%, 62%, 0.035);
 }
 .searchItem__title {
   font-family: "Poppins", sans-serif;
@@ -6376,8 +6376,7 @@ h6 {
   font-weight: 600;
   font-size: 30px;
   line-height: 28px;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  text-decoration-line: underline;
 }
 .galleryItem:nth-child(1) {
   position: absolute;
@@ -6762,7 +6761,6 @@ h6 {
   h4.uniq {
     font-family: "Balsamiq Sans";
   }
-
   h5 {
     line-height: 28px;
     font-size: 20px;
@@ -6771,7 +6769,6 @@ h6 {
     font-size: 22px;
     line-height: 28px;
   }
-
   .button.secondary {
     font-size: 20px;
     line-height: 28px;
@@ -6785,18 +6782,15 @@ h6 {
     padding: 15px 30px;
     font-size: 14px;
   }
-
   .auto__container {
     max-width: 1200px;
   }
-
   .header__inner {
     padding: 20px 0;
   }
   .header__inner .logo {
     width: 220px;
   }
-
   .nav__inner li {
     margin-right: 20px;
   }
@@ -6812,7 +6806,6 @@ h6 {
     height: 18px;
     margin-left: 3px;
   }
-
   .filterSearch {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -6871,14 +6864,12 @@ h6 {
     font-size: 16px;
     line-height: 22px;
   }
-
   .note__inner .button {
     width: 450px;
   }
   .note__inner h5 {
     width: calc(100% - 470px);
   }
-
   .resultMain__head {
     padding: 16px;
   }
@@ -6905,7 +6896,6 @@ h6 {
   .resultMap__inner .slick-slide {
     margin: 0 8px;
   }
-
   .card__foot-note {
     font-size: 14px;
     line-height: 20px;
@@ -6947,7 +6937,6 @@ h6 {
     line-height: 26px;
     font-size: 16px;
   }
-
   .button.secondary {
     font-size: 16px;
     line-height: 26px;
@@ -6955,25 +6944,21 @@ h6 {
   .button.solid {
     padding: 8px 24px;
   }
-
   .auto__container {
     max-width: 1040px;
   }
-
   .note__inner .button {
     width: 340px;
   }
   .note__inner h5 {
     width: calc(100% - 360px);
   }
-
   .card {
     padding-left: 300px;
   }
   .cardSlider {
     width: 300px;
   }
-
   .resultSide {
     width: 300px;
   }
@@ -6988,7 +6973,6 @@ h6 {
     min-height: 660px;
     padding: 20px 16px;
   }
-
   .filterMap {
     padding: 12px;
   }
@@ -7013,7 +6997,6 @@ h6 {
   .filterRate__item label {
     padding: 8px;
   }
-
   .servicesItem {
     margin-bottom: 24px;
   }
@@ -7026,7 +7009,6 @@ h6 {
     height: 12px;
     margin-right: 5px;
   }
-
   .roomItem__main {
     width: 255px;
   }
@@ -7038,11 +7020,9 @@ h6 {
   .main {
     overflow: hidden;
   }
-
   .header__inner .logo {
     width: 170px;
   }
-
   .result {
     padding: 20px 0;
   }
@@ -7071,7 +7051,6 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-
   .card {
     background: #ffffff;
     -webkit-box-shadow: 0px 0px 36.3px rgba(44, 50, 104, 0.17);
@@ -7081,7 +7060,6 @@ h6 {
   .card__inner {
     border: unset;
   }
-
   .filter {
     border: unset;
   }
@@ -7310,15 +7288,12 @@ h6 {
     height: 100%;
     color: #26529c;
   }
-
   .upHeader {
     display: none;
   }
-
   body.active {
     overflow: hidden;
   }
-
   .nav {
     position: fixed;
     top: 0;
@@ -7450,7 +7425,6 @@ h6 {
     background-color: #fff;
     color: #26529c;
   }
-
   .burger {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -7475,7 +7449,6 @@ h6 {
     height: 100%;
     color: #26529c;
   }
-
   .footer__inner {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -7491,7 +7464,6 @@ h6 {
   .footer__bg {
     height: 350px;
   }
-
   .note__inner {
     border-radius: 10px;
     padding-left: 16px;
@@ -7506,7 +7478,6 @@ h6 {
     white-space: nowrap;
     border-radius: 10px;
   }
-
   .reason {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
@@ -7609,7 +7580,6 @@ h6 {
   .reasonService > button {
     display: none;
   }
-
   .transportItem__body {
     padding-top: 14px;
   }
@@ -7619,13 +7589,11 @@ h6 {
   .transportSelect__outer.xsm {
     width: 110px;
   }
-
   .services__inner-col {
     width: calc(50% - 10px);
     margin-bottom: 30px;
     max-width: 340px;
   }
-
   .roomItem {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -7648,11 +7616,9 @@ h6 {
   main {
     padding-top: 90.18px;
   }
-
   .result.noPt {
     padding-top: 20px;
   }
-
   .searchItem {
     width: 100% !important;
     padding: 22px 20px 22px 60px !important;
@@ -7764,7 +7730,6 @@ h6 {
   .searchPopActs__outer {
     position: static;
   }
-
   .flexibleDates__wrapper {
     padding: 30px 0;
   }
@@ -7787,7 +7752,6 @@ h6 {
   .flexibleDates__item p b {
     font-size: 12px;
   }
-
   .card {
     padding-left: 0;
     overflow: unset;
@@ -7870,8 +7834,7 @@ h6 {
     font-size: 10px;
     line-height: 20px;
     text-align: center;
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
+    text-decoration-line: underline;
     color: #ffffff;
     display: block;
   }
@@ -7942,7 +7905,6 @@ h6 {
   .cardMob__title-text {
     cursor: pointer;
   }
-
   .header {
     position: fixed;
     top: 0;
@@ -7951,7 +7913,6 @@ h6 {
     background: #fff;
     z-index: 10;
   }
-
   .calendar {
     position: fixed;
     bottom: 0;
@@ -7998,13 +7959,13 @@ h6 {
     margin: 0;
   }
   .calendar .react-datepicker__day-name,
-.calendar .react-datepicker__day,
-.calendar .react-datepicker__time-name {
+  .calendar .react-datepicker__day,
+  .calendar .react-datepicker__time-name {
     margin: 0;
   }
   .calendar .react-datepicker__day-name,
-.calendar .react-datepicker__day,
-.calendar .react-datepicker__time-name {
+  .calendar .react-datepicker__day,
+  .calendar .react-datepicker__time-name {
     font-size: 13px;
     color: #000;
     font-weight: 400 !important;
@@ -8022,7 +7983,6 @@ h6 {
     text-transform: capitalize;
     color: #000000;
   }
-
   .note {
     display: none;
   }
@@ -8034,7 +7994,6 @@ h6 {
   .placeholder.cardImage {
     display: block;
   }
-
   .galleryModal {
     padding: 56px 15px;
   }
@@ -8108,7 +8067,6 @@ h6 {
   .flexibleDates__item p b {
     font-size: 14px;
   }
-
   .footerInfo__logo {
     width: 240px;
     margin-bottom: 24px;
@@ -8129,7 +8087,6 @@ h6 {
   .footerNav__links {
     max-width: unset;
   }
-
   .room__inner-col h4 {
     margin-bottom: 15px;
     font-weight: 600;
@@ -8142,11 +8099,9 @@ h6 {
   .header__inner .logo {
     width: 130px;
   }
-
   .nav__inner {
     padding: 20px;
   }
-
   .footerCopy {
     padding: 16px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -8203,7 +8158,6 @@ h6 {
     line-height: 24px;
     margin-bottom: 8px;
   }
-
   .note__inner h5 {
     font-size: 12px;
     line-height: 14px;
@@ -8216,16 +8170,13 @@ h6 {
     border-radius: 8px;
     padding: 4px 8px;
   }
-
   .auto__container {
     padding: 0 20px;
   }
-
   h4 {
     font-size: 28px;
     line-height: 36px;
   }
-
   .main {
     padding-top: 70.38px;
   }
@@ -8238,7 +8189,6 @@ h6 {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-
   .filterMap {
     width: calc(100% + 40px);
     margin: 0 -20px;
@@ -8254,7 +8204,6 @@ h6 {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
   }
-
   .searchItem {
     padding: 14px 10px 14px 40px !important;
   }
@@ -8320,7 +8269,6 @@ h6 {
     height: 15px;
     left: 18px;
   }
-
   .flexibleDates__wrapper {
     padding: 14px 0 20px;
   }
@@ -8330,7 +8278,6 @@ h6 {
   .flexibleDates__head::before {
     right: 20px;
   }
-
   .filterMobDrop__btn {
     font-weight: 400;
     font-size: 14px;
@@ -8342,7 +8289,6 @@ h6 {
     margin-left: 5px;
     min-width: 16px;
   }
-
   .card {
     margin-bottom: 16px;
   }
@@ -8540,8 +8486,7 @@ h6 {
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
-    -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
+    text-decoration-line: underline;
     text-transform: capitalize;
     color: #000000;
   }
@@ -8595,7 +8540,6 @@ h6 {
     -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
-
   .result {
     padding: 20px 0 16px;
   }
@@ -8607,7 +8551,6 @@ h6 {
     min-height: calc(100vh - 142px);
     padding: 20px 15px;
   }
-
   .roomHead {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -8649,11 +8592,9 @@ h6 {
     height: 16px;
     left: 8px;
   }
-
   .reasonHead {
     display: none;
   }
-
   .transport {
     padding: 36px 0;
   }
@@ -8719,7 +8660,6 @@ h6 {
     width: calc(50% - 11px);
     margin: 0;
   }
-
   .services {
     display: none;
   }
@@ -8776,7 +8716,6 @@ h6 {
     color: #26529c;
     margin-left: 10px;
   }
-
   .hotelInfo {
     padding: 10px 0 50px;
   }
@@ -8796,7 +8735,6 @@ h6 {
   .hotelInfo__inner-article p {
     margin-bottom: 24px;
   }
-
   .mapDetail {
     padding: 20px 0 15px;
   }
@@ -8812,7 +8750,6 @@ h6 {
     font-size: 16px;
     line-height: 28px;
   }
-
   .similar {
     padding: 10px 0 28px;
   }
