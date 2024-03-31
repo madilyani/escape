@@ -4,8 +4,11 @@ import Gallery from "components/Gallery";
 import HotelInfo from "components/HotelInfo";
 import MapDetail from "components/MapDetail";
 import Navigation from "components/Navigation";
+import Reason from "components/Reason";
+import RoomDetail from "components/RoomDetail";
 import Services from "components/Services";
 import Similar from "components/Similar";
+import Transport from "components/Transport";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -37,6 +40,11 @@ export default function Detail() {
       <Navigation card={card} />
       <div className="detail">
         <div className="auto__container"></div>
+      </div>
+      <div className="main__wrapper">
+        <Reason />
+        <RoomDetail />
+        <Transport />
       </div>
       <Services />
       <HotelInfo />

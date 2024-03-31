@@ -1,0 +1,393 @@
+.transport {
+  padding: 30px 0;
+  &__inner {
+    &-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background-color: transparent;
+      cursor: pointer;
+      transition: 0.3s ease;
+      &:hover {
+        opacity: 0.8;
+      }
+      h4 {
+        width: calc(100% - 72px);
+        font-weight: 600;
+      }
+    }
+    &-icon {
+      border: 2px solid #eaeaf1;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+      border-radius: 50%;
+      svg {
+        width: 30px;
+        height: 21px;
+      }
+    }
+    &-row {
+      display: flex;
+      flex-direction: column;
+      padding: 22px 30px 28px 18px;
+      background: $white;
+      box-shadow: 0px 0px 50px rgba(171, 171, 171, 0.26);
+      border-radius: 20px;
+    }
+  }
+  &Item {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    &.active {
+      .transport {
+        &Item {
+          &__head {
+            &-price {
+              opacity: 1;
+              visibility: visible;
+            }
+            span {
+              border-color: transparent;
+              &::before {
+                opacity: 1;
+              }
+              &::after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+    &:last-child {
+      margin: 0;
+    }
+    &.red {
+      border-color: #f80b0b;
+      background-color: #fee7e7;
+      .transport {
+        &Item {
+          &__head {
+            span {
+              border-color: #f80b0b;
+              &::before {
+                background-color: #f80b0b;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.green {
+      border-color: #00aa00;
+      background-color: #ecf7ec;
+      .transport {
+        &Item {
+          &__head {
+            span {
+              border-color: #00aa00;
+              &::before {
+                background-color: #00aa00;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.purple {
+      border-color: $primary;
+      background-color: #eef1f7;
+      .transport {
+        &Item {
+          &__head {
+            span {
+              border-color: $primary;
+              &::before {
+                background-color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.orange {
+      border-color: $star;
+      background-color: #fffaf0;
+      .transport {
+        &Item {
+          &__head {
+            span {
+              border-color: $star;
+              &::before {
+                background-color: $star;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      &-title {
+        display: flex;
+        align-items: center;
+      }
+      &-price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: end;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease;
+        h4 {
+          font-weight: 600;
+          line-height: 100%;
+          text-transform: capitalize;
+          color: $star;
+          margin-bottom: 4px;
+        }
+        p {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 14px;
+          text-transform: capitalize;
+          color: $primary;
+        }
+      }
+      span {
+        width: 34px;
+        height: 34px;
+        display: flex;
+        border-radius: 50%;
+        transition: 0.3s ease;
+        position: relative;
+        margin-right: 14px;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          content: "";
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: 0.3s ease;
+        }
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          content: "";
+          transform: translate(-50%, -50%);
+          box-sizing: border-box;
+          border: 2px solid transparent;
+          opacity: 0;
+          transition: 0.3s ease;
+        }
+      }
+      h5 {
+        width: calc(100% - 48px);
+        font-weight: 500;
+        line-height: 50px;
+        b {
+          font-weight: 700;
+          text-transform: uppercase;
+        }
+        small {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 50px;
+          text-transform: capitalize;
+        }
+      }
+    }
+    &__body {
+      padding-top: 25px;
+      &-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -3px;
+      }
+    }
+  }
+  &Select {
+    background: $white;
+    border-radius: 5px;
+    padding: 12px 28px 8px 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 64px;
+    box-sizing: border-box;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid $black;
+      border-right: 1px solid $black;
+      transform: translateY(-60%) rotate(135deg);
+      transition: 0.3s ease;
+    }
+    &__outer {
+      width: 203px;
+      margin: 5px 3px;
+      display: flex;
+      flex-direction: column;
+      &.md {
+        width: 164px;
+      }
+      &.sm {
+        width: 145px;
+      }
+      &.xsm {
+        width: 130px;
+      }
+      label {
+        font-family: $mainFont;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+        text-transform: capitalize;
+        color: $black;
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+    h6 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: uppercase;
+      b {
+        font-weight: 600;
+        color: $primary;
+      }
+    }
+  }
+}
+@mixin transport-lg-xlg {
+  .transport {
+    &Item {
+      &__body {
+        padding-top: 14px;
+      }
+    }
+    &Select {
+      &__outer {
+        width: 185px;
+        &.xsm {
+          width: 110px;
+        }
+      }
+    }
+  }
+}
+@mixin transport-xsm-sm {
+  .transport {
+    padding: 36px 0;
+    &__inner {
+      &-title {
+        margin-bottom: 10px;
+        h4 {
+          font-size: 20px;
+        }
+      }
+      &-row {
+        padding: 25px 12px;
+      }
+    }
+    &Item {
+      position: relative;
+      padding: 14px 12px;
+      &.active {
+        padding-bottom: 70px;
+      }
+      &__head {
+        &-price {
+          position: absolute;
+          bottom: 10px;
+          left: 12px;
+        }
+        h5 {
+          width: calc(100% - 32px);
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 18px;
+          small {
+            line-height: 18px;
+          }
+        }
+        span {
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+          &::before {
+            width: 18px;
+            height: 18px;
+          }
+          &::after {
+            border-width: 1px;
+          }
+        }
+      }
+      &__body {
+        &-row {
+          margin: 0;
+          justify-content: space-between;
+        }
+      }
+    }
+    &Select {
+      &__outer {
+        width: 100%;
+        margin: 0 0 8px 0;
+        &.md {
+          width: 100%;
+        }
+        &.sm {
+          width: 100%;
+        }
+        &.xsm {
+          width: calc(50% - 11px);
+          margin: 0;
+        }
+      }
+    }
+  }
+}

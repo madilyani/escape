@@ -1,0 +1,127 @@
+.room {
+  padding-top: 30px;
+  &__inner {
+  }
+  &Head {
+    display: flex;
+    justify-content: space-between;
+    &__item {
+      width: calc(50% - 4px);
+      box-sizing: border-box;
+      background: $white;
+      border: 1px solid #c0cad5;
+      border-radius: 5px;
+      padding: 8px 16px 8px 48px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      & > svg {
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        width: 24px;
+        height: 24px;
+        color: $primary;
+        transform: translateY(-50%);
+      }
+      h6 {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 100%;
+        color: #607d9a;
+        margin-bottom: 4px;
+      }
+      input {
+        font-family: $mainFont;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+      }
+    }
+    .search {
+      &Pop {
+        &Dates {
+          width: 100%;
+
+          background-color: unset;
+          border-radius: unset;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          padding: 0;
+          border: unset;
+          &__content {
+            display: flex;
+            flex-direction: column;
+          }
+        }
+        &Acts {
+          width: 100%;
+          flex-direction: column;
+          background-color: unset;
+          border-radius: unset;
+          border: unset;
+
+          &__outer {
+            position: static;
+          }
+          & > svg {
+            display: none;
+          }
+        }
+      }
+      &Mob {
+        &__room {
+          width: 100%;
+          padding: 0;
+          position: static;
+        }
+      }
+    }
+    .calendar {
+      left: 0;
+    }
+  }
+}
+@mixin room-xsm-sm {
+  .room {
+    &Head {
+      flex-direction: column;
+      &__item {
+        width: 100%;
+        margin-bottom: 8px;
+        padding: 10px 38px 10px 32px;
+        &::before {
+          position: absolute;
+          top: 50%;
+          right: 12px;
+          content: "";
+          width: 8px;
+          height: 8px;
+          border-top: 2px solid $black;
+          border-right: 2px solid $black;
+          transform: translateY(-60%) rotate(135deg);
+          transition: 0.3s ease;
+        }
+        &:last-child {
+          margin: 0;
+        }
+        h6 {
+          font-size: 14px;
+          line-height: 100%;
+        }
+        input {
+          font-size: 14px;
+          line-height: 16px;
+        }
+        svg {
+          width: 16px;
+          height: 16px;
+          left: 8px;
+        }
+      }
+    }
+  }
+}

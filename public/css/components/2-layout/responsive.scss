@@ -103,6 +103,8 @@
   @include footer-lg-xlg;
   @include note-lg-xlg;
   // base end
+  @include reason-lg-xlg;
+  @include transport-lg-xlg;
   @include services-lg-xlg;
 }
 // 840px
@@ -248,6 +250,9 @@
   @include note-md-lg;
   @include placeholder;
   // result end
+  // detail start
+  @include detail-md-lg;
+  // detail end
 }
 // 700px
 @include sm-md {
@@ -321,6 +326,10 @@
   }
   .main {
     padding-top: 70.38px;
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
   }
   .filter {
     &Map {
@@ -427,10 +436,12 @@
 
   // result end
   // detail start
+  @include room-xsm-sm;
+  @include reason-xsm-sm;
+  @include transport-xsm-sm;
   @include services-xsm-sm;
   @include hotelInfo-xsm-sm;
   @include mapDetail-xsm-sm;
   @include similar-xsm-sm;
-
   // detail end
 }
