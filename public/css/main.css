@@ -8,6 +8,11 @@
 ====================================================================
 
 ***/
+*,
+html {
+  scroll-behavior: smooth !important;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -1237,6 +1242,15 @@ h6 {
   height: 100%;
   z-index: 2;
   background: rgba(27, 27, 27, 0.28);
+}
+
+.anchor {
+  position: relative;
+  top: -74px;
+}
+.anchors {
+  position: relative;
+  top: -74px;
 }
 
 .footer {
@@ -5216,7 +5230,7 @@ h6 {
   line-height: 28px;
   margin-bottom: 24px;
 }
-.reason__inner button {
+.reason__inner a {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -5227,7 +5241,7 @@ h6 {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
 }
-.reason__inner button:hover {
+.reason__inner a:hover {
   opacity: 0.8;
 }
 .reasonHead {
@@ -6297,7 +6311,6 @@ h6 {
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
-  display: none;
 }
 .editSearch__inner {
   padding: 15px 20px 12px;
@@ -6792,7 +6805,6 @@ h6 {
   z-index: 999;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: none;
 }
 .galleryModal__inner {
   height: 100%;

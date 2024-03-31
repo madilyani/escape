@@ -13,7 +13,7 @@ import {
 } from "Base/SVG";
 import React from "react";
 
-export default function Reason() {
+export default function Reason({ setGallerySlider }) {
   return (
     <section className="reason" id="startSticky">
       <div className="auto__container">
@@ -53,7 +53,7 @@ export default function Reason() {
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book.
               </p>
-              <button type="button">Vedi più info sull’hotel</button>
+              <a href="#info">Vedi più info sull’hotel</a>
             </div>
             <div className="reasonList">
               <h5>Le ragioni per cui Prenotare!</h5>
@@ -110,7 +110,10 @@ export default function Reason() {
                 <div className="servicesBtn">Vedi tutti</div>
               </div>
               <div className="reasonService__row">
-                <div className="servicesCard active">
+                <div
+                  className="servicesCard active"
+                  onClick={() => setGallerySlider(true)}
+                >
                   <div className="servicesCard__icon">
                     <img
                       src={
@@ -145,7 +148,7 @@ export default function Reason() {
                   <p>Pets Allowed</p>
                 </div>
               </div>
-              <button type="button">Vedi altri Servizi</button>
+              <a href="#services">Vedi altri Servizi</a>
             </div>
           </div>
         </div>

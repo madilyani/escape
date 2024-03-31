@@ -1,7 +1,9 @@
 import Calendar from "components/Calendar";
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import CalendarMobile from "components/CalendarMobile";
 
-export default function EditSearch() {
+export default function EditSearch({ setEditSearch }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
   const [form, setForm] = useState({
@@ -20,12 +22,22 @@ export default function EditSearch() {
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
+  const closeModal = (e) => {
+    if (e.target === e.currentTarget) setEditSearch(false);
+  };
   return (
-    <div className="editSearch">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="editSearch"
+      onClick={closeModal}
+    >
       <div className="editSearch__inner">
         <div className="editSearch__head">
           <h5>modifica ricerca</h5>
-          <div className="editSearch__close"></div>
+          <div className="editSearch__close" onClick={closeModal}></div>
         </div>
         <div className="editSearch__content">
           <div
@@ -45,7 +57,7 @@ export default function EditSearch() {
             </div>
           </div>
           {showCalendar && (
-            <Calendar
+            <CalendarMobile
               form={form}
               setActiveInput={setActiveInput}
               updateForm={updateForm}
@@ -55,16 +67,17 @@ export default function EditSearch() {
           <div className="editSearch__row">
             <div className="editSearch__room">
               <h6>Adults</h6>
-              <input type="text" placeholder="3" />
+              <input type="text" disabled={true} placeholder="3" />
             </div>
             <div className="editSearch__room">
               <h6>Children</h6>
-              <input type="text" placeholder="2" />
+              <input type="text" disabled={true} placeholder="2" />
             </div>
             <div className="editSearch__room">
               <h6>Room</h6>
-              <input type="text" placeholder="1" />
+              <input type="text" disabled={true} placeholder="1" />
             </div>
+            
           </div>
         </div>
         <div className="editSearch__foot">
@@ -73,6 +86,6 @@ export default function EditSearch() {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,4 @@
 import { hotelList } from "Base/hotelList";
-import EditSearch from "components/EditSearch";
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
 import GallerySlider from "components/GallerySlider/GallerySlider";
@@ -8,7 +7,6 @@ import MapDetail from "components/MapDetail";
 import Navigation from "components/Navigation";
 import Reason from "components/Reason";
 import RoomDetail from "components/RoomDetail";
-import RoomDetailPopUp from "components/RoomDetailPopUp";
 import Services from "components/Services";
 import Similar from "components/Similar";
 import Transport from "components/Transport";
@@ -20,7 +18,6 @@ export default function Detail() {
   const [card, setCard] = useState(null);
   const [roomSelected, setRoomSelected] = useState(null);
   const { cardId } = useParams();
-
   useEffect(() => {
     if (cardId) {
       setCard(hotelList?.filter((item) => item?.id === cardId)[0]);
@@ -64,19 +61,18 @@ export default function Detail() {
           </ul>
         </div>
       </div>
-      
+
       <div className="anchor" id="foto"></div>
 
-      <Gallery card={card} />
+      <Gallery card={card} setGallerySlider={setGallerySlider} />
       <Navigation card={card} roomSelected={roomSelected} />
       <div className="detail">
         <div className="auto__container"></div>
       </div>
 
       <div className="main__wrapper">
-        <Reason />
+        <Reason setGallerySlider={setGallerySlider} />
         <div className="anchor" id="stanze"></div>
-        {/* <EditSearch /> */}
         {/* <RoomDetailPopUp /> */}
         <RoomDetail
           roomSelected={roomSelected}
@@ -85,7 +81,8 @@ export default function Detail() {
         <div className="anchor" id="transporti"></div>
         <Transport />
       </div>
-      <Services />
+      <div className="anchors" id="services"></div>
+      <Services setGallerySlider={setGallerySlider} />
       <div className="anchor" id="info"></div>
 
       <HotelInfo />

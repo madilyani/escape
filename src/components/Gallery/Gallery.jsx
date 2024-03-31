@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { heart, heartEmp, shareIcon } from "Base/SVG";
 
-export default function Gallery({ card }) {
+export default function Gallery({ card, setGallerySlider }) {
   return (
     <>
       <div className="gallery">
@@ -12,6 +12,7 @@ export default function Gallery({ card }) {
               return (
                 <GalleryItem
                   {...item}
+                  setGallerySlider={setGallerySlider}
                   key={index}
                   index={index}
                   gallery={card?.gallery}
@@ -21,7 +22,6 @@ export default function Gallery({ card }) {
           </div>
         </div>
       </div>
-
     </>
   );
 }
@@ -49,7 +49,11 @@ const GalleryItem = (props) => {
         </div>
         {props?.index === 2 && props?.gallery?.length > 5 && (
           <>
-            <button type="button" className="galleryItem__over">
+            <button
+              type="button"
+              className="galleryItem__over"
+              onClick={() => props.setGallerySlider(true)}
+            >
               +{props?.gallery?.length} foto
             </button>
           </>

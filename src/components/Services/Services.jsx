@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { imageIcon, tickIcon } from "Base/SVG";
 
-export default function Services() {
+export default function Services({ setGallerySlider }) {
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     if (window.innerWidth < 541) {
@@ -30,7 +30,7 @@ export default function Services() {
               <div className="servicesItem">
                 <div className="servicesItem__title">
                   <h5>Servizi Stanze</h5>
-                  <button type="button">
+                  <button type="button" onClick={() => setGallerySlider(true)}>
                     <span>{imageIcon}</span>
                     (1)
                   </button>
@@ -87,7 +87,7 @@ export default function Services() {
               <div className="servicesItem">
                 <div className="servicesItem__title">
                   <h5>Servizi Stanze</h5>
-                  <button type="button">
+                  <button type="button" onClick={() => setGallerySlider(true)}>
                     <span>{imageIcon}</span>
                     (1)
                   </button>
@@ -150,7 +150,10 @@ export default function Services() {
                   <div className="servicesItem">
                     <div className="servicesItem__title">
                       <h5>Servizi Stanze</h5>
-                      <button type="button">
+                      <button
+                        type="button"
+                        onClick={() => setGallerySlider(true)}
+                      >
                         <span>{imageIcon}</span>
                         (1)
                       </button>
@@ -207,7 +210,10 @@ export default function Services() {
                   <div className="servicesItem">
                     <div className="servicesItem__title">
                       <h5>Servizi Stanze</h5>
-                      <button type="button">
+                      <button
+                        type="button"
+                        onClick={() => setGallerySlider(true)}
+                      >
                         <span>{imageIcon}</span>
                         (1)
                       </button>
@@ -307,7 +313,10 @@ export default function Services() {
                   <div className="servicesItem">
                     <div className="servicesItem__title">
                       <h5>Servizi Stanze</h5>
-                      <button type="button">
+                      <button
+                        type="button"
+                        onClick={() => setGallerySlider(true)}
+                      >
                         <span>{imageIcon}</span>
                         (1)
                       </button>
