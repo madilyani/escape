@@ -226,7 +226,7 @@ export default function Gallery({ card }) {
           </div>
         </div>
       </div>
-      <div className="galleryModal">
+      {/* <div className="galleryModal">
         <div className="galleryModal__close"></div>
         <div className="galleryModal__slider-wrapper">
           <Slider
@@ -252,7 +252,7 @@ export default function Gallery({ card }) {
             })}
           </Slider>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
