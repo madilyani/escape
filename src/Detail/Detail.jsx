@@ -14,8 +14,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function Detail() {
-  const [gallerySlider, setGallerySlider] = useState(true);
+  const [gallerySlider, setGallerySlider] = useState(false);
   const [card, setCard] = useState(null);
+  const [roomSelected, setRoomSelected] = useState(null);
   const { cardId } = useParams();
 
   useEffect(() => {
@@ -63,14 +64,17 @@ export default function Detail() {
       </div>
       <div className="anchor" id="foto"></div>
       <Gallery card={card} />
-      <Navigation card={card} />
+      <Navigation card={card} roomSelected={roomSelected} />
       <div className="detail">
         <div className="auto__container"></div>
       </div>
       <div className="main__wrapper">
         <Reason />
         <div className="anchor" id="stanze"></div>
-        <RoomDetail />
+        <RoomDetail
+          roomSelected={roomSelected}
+          setRoomSelected={setRoomSelected}
+        />
         <div className="anchor" id="transporti"></div>
         <Transport />
       </div>

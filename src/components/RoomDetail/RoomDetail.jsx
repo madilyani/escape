@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RoomMobile from "components/RoomMobile";
 import {
   bedIcon,
@@ -13,8 +13,9 @@ import CalendarMobile from "components/CalendarMobile";
 import moment from "moment";
 import Calendar from "components/Calendar";
 import Room from "components/Room/Room";
+import { roomModul } from "Base/roomModul";
 
-export default function RoomDetail() {
+export default function RoomDetail({ roomSelected, setRoomSelected }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
 
@@ -34,12 +35,32 @@ export default function RoomDetail() {
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
-
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 700) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 700) {
+        setMobile(true);
+      } else {
+        setMobile(false);
+      }
+    });
+  }, []);
   return (
     <section className="room">
       <div className="auto__container">
         <div className="room__inner">
-          <div className="roomHead">
+          <div
+            className="roomHead"
+            onClick={() => {
+              if (mobile) {
+              }
+            }}
+          >
             <div className="roomHead__item">
               {calendarIcon2}
               <div
@@ -84,252 +105,228 @@ export default function RoomDetail() {
               />
             </div>
           </div>
-          <div className="room__inner-content">
-            <div className="roomItem">
-              <div className="roomItem__main">
-                <div className="roomItem__main-top">
-                  <button type="button">Vedi immagini e Descrizione</button>
-                  <h4>Stanza Doppia</h4>
-                  <p>Cancellazione gratuita entro il 25/05/2024</p>
+          {mobile ? (
+            <>
+              <div className="room__inner-col">
+                <h4>Stanze e Trattamenti</h4>
+
+                <div className="roomSign">
+                  {userIcon2}
+                  <p>
+                    <b>Accedi</b>o <b>Iscriviti</b> per ottenere sconti e
+                    offerte esclusive
+                  </p>
                 </div>
-                <button type="button">Seleziona il viaggio</button>
-              </div>
-              <div className="roomItemInfo">
-                <div className="roomItemInfo__row">
-                  <div className="roomItemInfo__title">
-                    <h6>
-                      {foodIcon}
-                      Pensione Completa
-                    </h6>
-                    <div className="roomItemChecks">
-                      <label className="roomItemCheck">
-                        <div className="roomItemCheck__box">
-                          <input type="checkbox" />
-                          <span>{tickIcon}</span>
-                        </div>
-                        <p>
-                          Vista Mare <b>€ 70</b>{" "}
-                        </p>
-                      </label>
-                      <label className="roomItemCheck">
-                        <div className="roomItemCheck__box">
-                          <input type="checkbox" />
-                          <span> {tickIcon} </span>
-                        </div>
-                        <p>
-                          Culla <b>€ 25</b>{" "}
-                        </p>
-                      </label>
-                    </div>
+                <div className="roomCard">
+                  <div className="roomCard__top">
+                    <h6>Camera DUN Deluxe</h6>
+                    <button type="button">Vedi immagine e Descrizione</button>
+                    {infoIcon}
                   </div>
-                  <div className="roomItemInfo__side">
-                    <div className="roomItemInfo__prices">
-                      <h5>1.270€</h5>
-                      <p>Prezzo per 7 notti e per 2 adulti</p>
-                      <p>
-                        <b>A richiesta</b>
-                      </p>
-                    </div>
-                    <button type="button" className="button primary">
-                      SELEZIONA STANZA
-                    </button>
-                  </div>
-                </div>
-                <div className="roomItemInfo__row">
-                  <div className="roomItemInfo__title">
-                    <h6>
-                      {bedIcon2}
-                      solo pernottamento
-                    </h6>
-                  </div>
-                  <div className="roomItemInfo__side">
-                    <div className="roomItemInfo__prices">
-                      <h5>1.270€</h5>
-                      <p>Prezzo per 7 notti e per 2 adulti</p>
-                    </div>
-                    <div className="button__wrapper">
-                      <button type="button" className="button solid">
-                        SELEZIONATA - PROSEGUI
+                  <div className="roomCard__content">
+                    <h6>Solo Pernottamento</h6>
+                    <div className="roomCard__row">
+                      <h5>1.120€</h5>
+                      <button type="button" className="button primary">
+                        SELEZIONA
                       </button>
-                      <a href="#">invia preventivo per mail</a>
                     </div>
+                    <p>prezzo per 7 notti e per 2 adulti</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="roomItem">
-              <div className="roomItem__main">
-                <div className="roomItem__main-top">
-                  <button type="button">Vedi Descrizione</button>
-                  <h4>Stanza Deluxe</h4>
-                </div>
-                <button type="button">Seleziona il viaggio</button>
-              </div>
-              <div className="roomItemInfo">
-                <div className="roomItemInfo__row">
-                  <div className="roomItemInfo__title">
-                    <h6>
-                      {foodIcon}
-                      Pensione Completa
-                    </h6>
-                  </div>
-                  <div className="roomItemInfo__side">
-                    <div className="roomItemInfo__prices">
+                  <div className="roomCard__content">
+                    <h6>Pensione Completa</h6>
+                    <div className="roomCard__row">
                       <h5>1.270€</h5>
-                      <p>Prezzo per 7 notti e per 2 adulti</p>
-                      <p>
-                        <b>A richiesta</b>
-                      </p>
+                      <button type="button" className="button primary">
+                        SELEZIONA
+                      </button>
                     </div>
-                    <button type="button" className="button primary">
-                      SELEZIONA STANZA
-                    </button>
+                    <p>prezzo per 7 notti e per 2 adulti</p>
+                  </div>
+                  <div className="roomCard__content">
+                    <h6>Pensione Completa e Bevande incluse</h6>
+                    <div className="roomCard__row">
+                      <h5>1.570€</h5>
+                      <button type="button" className="button primary">
+                        SELEZIONA
+                      </button>
+                    </div>
+                    <p>prezzo per 7 notti e per 2 adulti</p>
+                    <div className="roomCard__more">
+                      Vedi 3 altra opzione per questa stanza
+                    </div>
+                  </div>
+                  <div className="roomCard__foot">
+                    <p>Cancellazione gratuita entro il 25/05/2024</p>
                   </div>
                 </div>
-                <div className="roomItemInfo__row">
-                  <div className="roomItemInfo__title">
-                    <h6>
-                      {bedIcon2}
-                      solo pernottamento
-                    </h6>
-                  </div>
-                  <div className="roomItemInfo__side">
-                    <div className="roomItemInfo__prices">
-                      <h5>1.270€</h5>
-                      <p>Prezzo per 7 notti e per 2 adulti</p>
-                      <p>
-                        <b>A richiesta</b>
-                      </p>
-                    </div>
-                    <button type="button" className="button primary">
-                      SELEZIONA STANZA
-                    </button>
-                  </div>
-                </div>
+                <button type="button" className="room__inner-more">
+                  Vedi il Resto delle Camere (3)
+                </button>
               </div>
+            </>
+          ) : (
+            <div className="room__inner-content">
+              {roomModul.map((item, index) => {
+                return (
+                  <RoomItem
+                    roomSelected={roomSelected}
+                    setRoomSelected={setRoomSelected}
+                    {...item}
+                    key={index}
+                  />
+                );
+              })}
             </div>
-          </div>
-          <div className="room__inner-col">
-            <h4>Stanze e Trattamenti</h4>
-            <div className="roomCard">
-              <div className="roomCard__top">
-                <h6>Camera DUN Deluxe</h6>
-                <button type="button">Vedi immagine e Descrizione</button>
-                {infoIcon}
-              </div>
-              <div className="roomCard__content">
-                <h6>Solo Pernottamento</h6>
-                <div className="roomCard__row">
-                  <h5>1.120€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-              </div>
-              <div className="roomCard__content">
-                <h6>Pensione Completa</h6>
-                <div className="roomCard__row">
-                  <h5>1.270€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-                <div className="roomItemChecks">
-                  <label className="roomItemCheck">
-                    <div className="roomItemCheck__box">
-                      <input type="checkbox" />
-                      <span>{tickIcon}</span>
-                    </div>
-                    <p>
-                      Vista Mare <b>€ 70</b>{" "}
-                    </p>
-                  </label>
-                  <label className="roomItemCheck">
-                    <div className="roomItemCheck__box">
-                      <input type="checkbox" />
-                      <span> {tickIcon} </span>
-                    </div>
-                    <p>
-                      Culla <b>€ 25</b>{" "}
-                    </p>
-                  </label>
-                </div>
-              </div>
-              <div className="roomCard__content">
-                <h6>Pensione Completa e Bevande incluse</h6>
-                <div className="roomCard__row">
-                  <h5>1.570€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-                <p>
-                  <b>A richiesta</b>
-                </p>
-              </div>
-              <div className="roomCard__foot">
-                <p>Cancellazione gratuita entro il 25/05/2024</p>
-              </div>
-            </div>
-            <div className="roomSign">
-              {userIcon2}
-              <p>
-                <b>Accedi</b>o <b>Iscriviti</b> per ottenere sconti e offerte
-                esclusive
-              </p>
-            </div>
-            <div className="roomCard">
-              <div className="roomCard__top">
-                <h6>Camera DUN Deluxe</h6>
-                <button type="button">Vedi immagine e Descrizione</button>
-                {infoIcon}
-              </div>
-              <div className="roomCard__content">
-                <h6>Solo Pernottamento</h6>
-                <div className="roomCard__row">
-                  <h5>1.120€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-              </div>
-              <div className="roomCard__content">
-                <h6>Pensione Completa</h6>
-                <div className="roomCard__row">
-                  <h5>1.270€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-              </div>
-              <div className="roomCard__content">
-                <h6>Pensione Completa e Bevande incluse</h6>
-                <div className="roomCard__row">
-                  <h5>1.570€</h5>
-                  <button type="button" className="button primary">
-                    SELEZIONA
-                  </button>
-                </div>
-                <p>prezzo per 7 notti e per 2 adulti</p>
-                <div className="roomCard__more">
-                  Vedi 3 altra opzione per questa stanza
-                </div>
-              </div>
-              <div className="roomCard__foot">
-                <p>Cancellazione gratuita entro il 25/05/2024</p>
-              </div>
-            </div>
-            <button type="button" className="room__inner-more">
-              Vedi il Resto delle Camere (3)
-            </button>
-          </div>
+          )}
         </div>
       </div>
     </section>
   );
 }
+export const RoomItem = (props) => {
+  return (
+    <div className="roomItem">
+      <div className="roomItem__main">
+        <div className="roomItem__main-top">
+          <button type="button">Vedi immagini e Descrizione</button>
+          <h4>{props.title}</h4>
+          {props.cancelation && (
+            <p>Cancellazione gratuita entro il 25/05/2024</p>
+          )}
+        </div>
+        <button type="button">Seleziona il viaggio</button>
+      </div>
+      <div className="roomItemInfo">
+        {props?.categories?.map((item, index) => {
+          return (
+            <div className="roomItemInfo__row" key={index}>
+              <div className="roomItemInfo__title">
+                <h6>
+                  {item.icon}
+                  {item.title}
+                </h6>
+                <div className="roomItemChecks">
+                  {item?.addons?.map((itemInner, index) => {
+                    return (
+                      <label className="roomItemCheck" key={index}>
+                        <div className="roomItemCheck__box">
+                          <input type="checkbox" />
+                          <span>{tickIcon}</span>
+                        </div>
+                        <p>
+                          {itemInner.value} <b>€ {itemInner.price}</b>{" "}
+                        </p>
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="roomItemInfo__side">
+                <div className="roomItemInfo__prices">
+                  <h5>{item.total}€</h5>
+                  <p>{item.info}</p>
+                  {item.demand && (
+                    <p>
+                      <b>A richiesta</b>
+                    </p>
+                  )}
+                </div>
+                {props?.roomSelected?.roomId === props?.id &&
+                props?.roomSelected?.categories === item?.id ? (
+                  <div className="button__wrapper">
+                    <button type="button" className="button solid">
+                      SELEZIONATA - PROSEGUI
+                    </button>
+                    <a href="#">invia preventivo per mail</a>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="button primary"
+                    onClick={() => {
+                      props.setRoomSelected({
+                        roomId: props.id,
+                        categories: item.id,
+                        total: item.total,
+                      });
+                    }}
+                  >
+                    SELEZIONA STANZA
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+export const RoomMobileItem = () => {
+  return (
+    <div className="roomCard">
+      <div className="roomCard__top">
+        <h6>Camera DUN Deluxe</h6>
+        <button type="button">Vedi immagine e Descrizione</button>
+        {infoIcon}
+      </div>
+      <div className="roomCard__content">
+        <h6>Solo Pernottamento</h6>
+        <div className="roomCard__row">
+          <h5>1.120€</h5>
+          <button type="button" className="button primary">
+            SELEZIONA
+          </button>
+        </div>
+        <p>prezzo per 7 notti e per 2 adulti</p>
+      </div>
+      <div className="roomCard__content">
+        <h6>Pensione Completa</h6>
+        <div className="roomCard__row">
+          <h5>1.270€</h5>
+          <button type="button" className="button primary">
+            SELEZIONA
+          </button>
+        </div>
+        <p>prezzo per 7 notti e per 2 adulti</p>
+        <div className="roomItemChecks">
+          <label className="roomItemCheck">
+            <div className="roomItemCheck__box">
+              <input type="checkbox" />
+              <span>{tickIcon}</span>
+            </div>
+            <p>
+              Vista Mare <b>€ 70</b>{" "}
+            </p>
+          </label>
+          <label className="roomItemCheck">
+            <div className="roomItemCheck__box">
+              <input type="checkbox" />
+              <span> {tickIcon} </span>
+            </div>
+            <p>
+              Culla <b>€ 25</b>{" "}
+            </p>
+          </label>
+        </div>
+      </div>
+      <div className="roomCard__content">
+        <h6>Pensione Completa e Bevande incluse</h6>
+        <div className="roomCard__row">
+          <h5>1.570€</h5>
+          <button type="button" className="button primary">
+            SELEZIONA
+          </button>
+        </div>
+        <p>prezzo per 7 notti e per 2 adulti</p>
+        <p>
+          <b>A richiesta</b>
+        </p>
+      </div>
+      <div className="roomCard__foot">
+        <p>Cancellazione gratuita entro il 25/05/2024</p>
+      </div>
+    </div>
+  );
+};
