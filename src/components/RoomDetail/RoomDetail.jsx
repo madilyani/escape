@@ -3,9 +3,12 @@ import RoomMobile from "components/RoomMobile";
 import { calendarIcon2, userIcon2 } from "Base/SVG";
 import CalendarMobile from "components/CalendarMobile";
 import moment from "moment";
+import Calendar from "components/Calendar";
+import Room from "components/Room/Room";
 
 export default function RoomDetail() {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [activeInput, setActiveInput] = useState(null);
 
   const [form, setForm] = useState({
     where: "",
@@ -23,6 +26,23 @@ export default function RoomDetail() {
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 840) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 840) {
+        setPosition(300);
+        setMobile(true);
+      } else {
+        setPosition(150);
+        setMobile(false);
+      }
+    });
+  }, []);
   return (
     <section className="room">
       <div className="auto__container">
@@ -54,8 +74,9 @@ export default function RoomDetail() {
                 </div>
               </div>
               {showCalendar && (
-                <CalendarMobile
+                <Calendar
                   form={form}
+                  setActiveInput={setActiveInput}
                   updateForm={updateForm}
                   setShowCalendar={setShowCalendar}
                 />
@@ -63,8 +84,9 @@ export default function RoomDetail() {
             </div>
             <div className="roomHead__item">
               {userIcon2}
-              <RoomMobile
+              <Room
                 form={form}
+                setActiveInput={setActiveInput}
                 updateForm={updateForm}
                 setShowCalendar={setShowCalendar}
               />
@@ -81,8 +103,7 @@ export default function RoomDetail() {
                 <button type="button">Seleziona il viaggio</button>
               </div>
               <div className="roomItemInfo">
-                    <div className="roomItemInfo__row">
-                    </div>
+                <div className="roomItemInfo__row"></div>
               </div>
             </div>
           </div>
