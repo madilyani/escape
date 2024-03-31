@@ -64,7 +64,9 @@ export default function Detail() {
           </ul>
         </div>
       </div>
+      
       <div className="anchor" id="foto"></div>
+
       <Gallery card={card} />
       <Navigation card={card} roomSelected={roomSelected} />
       <div className="detail">

@@ -6,6 +6,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
+  display: none;
   &__inner {
     padding: 15px 20px 12px;
     background-color: $white;
