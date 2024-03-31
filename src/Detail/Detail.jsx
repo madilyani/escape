@@ -1,6 +1,7 @@
 import { hotelList } from "Base/hotelList";
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
+import GallerySlider from "components/GallerySlider/GallerySlider";
 import HotelInfo from "components/HotelInfo";
 import MapDetail from "components/MapDetail";
 import Navigation from "components/Navigation";
@@ -13,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function Detail() {
+  const [gallerySlider, setGallerySlider] = useState(true);
   const [card, setCard] = useState(null);
   const { cardId } = useParams();
 
@@ -80,6 +82,7 @@ export default function Detail() {
       <div className="anchor" id="map"></div>
       <MapDetail />
       <Similar card={card} />
+      {gallerySlider && <GallerySlider setGallerySlider={setGallerySlider} />}
     </>
   );
 }
