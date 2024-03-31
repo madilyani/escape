@@ -442,6 +442,7 @@
       }
     }
   }
+
   // base end
   @include filter-xsm-sm;
   // result start
@@ -450,6 +451,7 @@
 
   // result end
   // detail start
+  @include detail-xsm-sm;
   @include room-xsm-sm;
   @include reason-xsm-sm;
   @include transport-xsm-sm;

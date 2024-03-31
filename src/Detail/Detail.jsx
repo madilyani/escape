@@ -1,4 +1,5 @@
 import { hotelList } from "Base/hotelList";
+import DetailHead from "components/DetailHead";
 import EditSearch from "components/EditSearch";
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
@@ -64,14 +65,17 @@ export default function Detail() {
           </ul>
         </div>
       </div>
-      
+      <div className="detail">
+        <div className="auto__container">
+          <div className="detail__inner">
+            <DetailHead />
+          </div>
+        </div>
+      </div>
       <div className="anchor" id="foto"></div>
 
       <Gallery card={card} />
       <Navigation card={card} roomSelected={roomSelected} />
-      <div className="detail">
-        <div className="auto__container"></div>
-      </div>
 
       <div className="main__wrapper">
         <Reason />
