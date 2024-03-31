@@ -7309,7 +7309,6 @@ h6 {
     font-size: 16px;
     line-height: 24px;
   }
-
   .navigation__inner-links {
     max-width: 650px;
   }
@@ -7411,7 +7410,6 @@ h6 {
   .roomItemInfo {
     width: calc(100% - 255px);
   }
-
   .navigation__inner-links {
     width: calc(100% - 340px);
     max-width: 540px;
@@ -8521,7 +8519,6 @@ h6 {
   .gallerySlide__content {
     display: none;
   }
-
   .navigation__outer {
     display: none;
   }

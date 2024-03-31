@@ -74,8 +74,8 @@ export default function Detail() {
       <div className="main__wrapper">
         <Reason />
         <div className="anchor" id="stanze"></div>
-        <EditSearch />
-        <RoomDetailPopUp />
+        {/* <EditSearch /> */}
+        {/* <RoomDetailPopUp /> */}
         <RoomDetail
           roomSelected={roomSelected}
           setRoomSelected={setRoomSelected}
