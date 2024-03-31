@@ -26,23 +26,7 @@ export default function RoomDetail() {
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
-  const [mobile, setMobile] = useState(false);
-  useEffect(() => {
-    if (window.innerWidth < 840) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 840) {
-        setPosition(300);
-        setMobile(true);
-      } else {
-        setPosition(150);
-        setMobile(false);
-      }
-    });
-  }, []);
+
   return (
     <section className="room">
       <div className="auto__container">
