@@ -35,16 +35,30 @@
       input {
         font-family: $mainFont;
         font-weight: 600;
-        font-size: 14px;
-        line-height: 16px;
+        font-size: 14px !important;
+        line-height: 16px !important;
         color: #000000;
       }
     }
     .search {
+      &Item {
+        position: static;
+        padding: 0 !important;
+        border: unset !important;
+        &__title {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 100%;
+          color: #607d9a;
+          margin-bottom: 4px;
+        }
+        &__input {
+          display: flex;
+        }
+      }
       &Pop {
         &Dates {
           width: 100%;
-
           background-color: unset;
           border-radius: unset;
           margin: 0;
@@ -82,6 +96,80 @@
     }
     .calendar {
       left: 0;
+      transform: translateX(0);
+    }
+  }
+  &Item {
+    display: flex;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;
+    &__main {
+      width: 324px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #d7d7d7;
+      padding: 10px 10px 20px 18px;
+      button {
+        font-family: $mainFont;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: $primary;
+        text-decoration: underline;
+        background-color: transparent;
+        transition: 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      h4 {
+        font-size: 28px;
+        line-height: 30px;
+        font-weight: 600;
+        margin: 2px 0;
+      }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: capitalize;
+        color: #00b086;
+      }
+    }
+    &Info {
+      &__row {
+        padding: 14px 10px 14px 16px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #d7d7d7;
+        &:last-child {
+          border: unset;
+        }
+      }
+      &__title {
+        display: flex;
+        flex-direction: column;
+        h6 {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          &:last-child {
+            margin: 0;
+          }
+          svg {
+            width: 24px;
+            height: 20px;
+            margin-right: 25px;
+          }
+        }
+      }
+    }
+    &Check {
+      display: flex;
+      align-items: center;
     }
   }
 }
