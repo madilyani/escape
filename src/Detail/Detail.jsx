@@ -1,4 +1,5 @@
 import { hotelList } from "Base/hotelList";
+import EditSearch from "components/EditSearch";
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
 import GallerySlider from "components/GallerySlider/GallerySlider";
@@ -7,6 +8,7 @@ import MapDetail from "components/MapDetail";
 import Navigation from "components/Navigation";
 import Reason from "components/Reason";
 import RoomDetail from "components/RoomDetail";
+import RoomDetailPopUp from "components/RoomDetailPopUp";
 import Services from "components/Services";
 import Similar from "components/Similar";
 import Transport from "components/Transport";
@@ -67,9 +69,12 @@ export default function Detail() {
       <div className="detail">
         <div className="auto__container"></div>
       </div>
+
       <div className="main__wrapper">
         <Reason />
         <div className="anchor" id="stanze"></div>
+        <EditSearch />
+        <RoomDetailPopUp />
         <RoomDetail />
         <div className="anchor" id="transporti"></div>
         <Transport />

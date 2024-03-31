@@ -9,7 +9,6 @@ import {
   tickIcon,
   userIcon2,
 } from "Base/SVG";
-import CalendarMobile from "components/CalendarMobile";
 import moment from "moment";
 import Calendar from "components/Calendar";
 import Room from "components/Room/Room";

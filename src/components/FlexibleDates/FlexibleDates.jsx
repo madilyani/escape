@@ -24,6 +24,7 @@ const flexibleDatesList = [
     save: "52€",
   },
 ];
+
 export default function FlexibleDates() {
   const [faq, setFaq] = useState(false);
 

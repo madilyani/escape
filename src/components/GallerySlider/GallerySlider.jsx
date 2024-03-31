@@ -220,15 +220,45 @@ export default function GallerySlider({ setGallerySlider }) {
       onClick={closeModal}
     >
       <div className="galleryModal__close" onClick={closeModal}></div>
-      <div className="galleryModal__slider-wrapper">
+      <div className="galleryModal__inner">
+        <div className="galleryModal__slider-wrapper">
+          <Slider
+            {...settings}
+            asNavFor={nav2}
+            ref={(slider1) => setNav1(slider1)}
+            className="galleryModal__slider"
+          >
+            <div className="gallerySlide">
+              <div className="gallerySlide__inner">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/hQ0n9gxAAmc?si=P2JubdjUUtFU4Ng_"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+            {gallerySlides.map((item, index) => {
+              return (
+                <>
+                  <GallerySlide {...item} key={index} />
+                </>
+              );
+            })}
+          </Slider>
+        </div>
         <Slider
-          {...settings}
-          asNavFor={nav2}
-          ref={(slider1) => setNav1(slider1)}
-          className="galleryModal__slider"
+          {...settings2}
+          asNavFor={nav1}
+          ref={(slider2) => setNav2(slider2)}
+          className="galleryModal__swiper"
         >
-          <div className="gallerySlide">
-            <div className="gallerySlide__inner">
+          <div className="gallerySwipe">
+            <div className="gallerySwipe__inner">
               <iframe
                 width="560"
                 height="315"
@@ -241,22 +271,6 @@ export default function GallerySlider({ setGallerySlider }) {
               ></iframe>
             </div>
           </div>
-          {gallerySlides.map((item, index) => {
-            return (
-              <>
-                <GallerySlide {...item} key={index} />
-              </>
-            );
-          })}
-        </Slider>
-      </div>
-      <div className="galleryModal__swiper">
-        <Slider
-          {...settings2}
-          asNavFor={nav1}
-          ref={(slider2) => setNav2(slider2)}
-          className="galleryModal__swiper"
-        >
           {gallerySwipes.map((item, index) => {
             return <GallerySwipe {...item} key={index} />;
           })}
