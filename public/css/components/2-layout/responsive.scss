@@ -62,6 +62,9 @@
       font-size: 16px;
       line-height: 26px;
     }
+    &.solid {
+      padding: 8px 24px;
+    }
   }
   .auto__container {
     max-width: 1040px;
@@ -81,6 +84,7 @@
   @include filter-xxlg-xxxlg;
   //   result end
   @include services-xxlg-xxxlg;
+  @include room-xxlg-xxxlg;
 }
 // 1120px
 @include xlg-xxlg {
@@ -106,6 +110,7 @@
   @include reason-lg-xlg;
   @include transport-lg-xlg;
   @include services-lg-xlg;
+  @include room-lg-xlg;
 }
 // 840px
 @include md-lg {
@@ -308,6 +313,7 @@
   // base start
   @include footer-sm-md;
   // base end
+  @include room-sm-md;
 }
 // 540px
 

@@ -963,6 +963,18 @@ h6 {
   line-height: 1;
   color: #000000;
 }
+.button.solid {
+  padding: 9px 40px;
+  background: transparent;
+  font-family: "Poppins", sans-serif;
+  border-radius: 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  border: 2px solid #26529c;
+  color: #26529c;
+}
 
 .mapCard {
   display: -webkit-box;
@@ -4679,6 +4691,7 @@ h6 {
   height: 14px;
   margin-right: 7px;
   margin-top: 5px;
+  color: #00EA25;
 }
 .servicesItem__list li p {
   width: calc(100% - 21px);
@@ -5464,6 +5477,7 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 14px;
 }
 .roomHead__item {
   width: calc(50% - 4px);
@@ -5581,6 +5595,10 @@ h6 {
   display: flex;
   border: 1px solid #d7d7d7;
   border-radius: 10px;
+  margin-bottom: 14px;
+}
+.roomItem:last-child {
+  margin: 0;
 }
 .roomItem__main {
   width: 324px;
@@ -5591,11 +5609,19 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-right: 1px solid #d7d7d7;
   padding: 10px 10px 20px 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.roomItem__main-top {
+  margin-bottom: 30px;
 }
 .roomItem__main button {
   font-family: "Poppins", sans-serif;
@@ -5626,7 +5652,13 @@ h6 {
   text-transform: capitalize;
   color: #00b086;
 }
+.roomItemInfo {
+  width: calc(100% - 324px);
+}
 .roomItemInfo__row {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 14px 10px 14px 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5634,6 +5666,9 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   border-bottom: 1px solid #d7d7d7;
 }
 .roomItemInfo__row:last-child {
@@ -5663,7 +5698,77 @@ h6 {
 .roomItemInfo__title h6 svg {
   width: 24px;
   height: 20px;
-  margin-right: 25px;
+  margin-right: 5px;
+}
+.roomItemInfo__side {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.roomItemInfo__side .button {
+  white-space: nowrap;
+}
+.roomItemInfo__side .button__wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.roomItemInfo__side .button__wrapper a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  text-align: center;
+  text-decoration: underline;
+  color: #faaf05;
+  margin-top: 4px;
+}
+.roomItemInfo__prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-align: end;
+  margin-right: 20px;
+}
+.roomItemInfo__prices h5 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #faaf05;
+  margin-bottom: 4px;
+}
+.roomItemInfo__prices p {
+  color: #26529c;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 14px;
+}
+.roomItemInfo__prices p:last-child {
+  margin: 0;
+}
+.roomItemInfo__prices p b {
+  font-weight: 600;
+  color: #faaf05;
 }
 .roomItemCheck {
   display: -webkit-box;
@@ -5672,6 +5777,165 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 5px;
+}
+.roomItemCheck:last-child {
+  margin: 0;
+}
+.roomItemCheck__box {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  margin-right: 6px;
+}
+.roomItemCheck__box input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+}
+.roomItemCheck__box input:checked ~ span {
+  background-color: #26529c;
+}
+.roomItemCheck__box input:checked ~ span svg {
+  opacity: 1;
+}
+.roomItemCheck__box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #26529c;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+}
+.roomItemCheck__box span svg {
+  width: 10px;
+  height: 10px;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.roomItemCheck p {
+  width: calc(100% - 26px);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: capitalize;
+  color: #26529c;
+}
+.roomItemCheck p b {
+  font-weight: 600;
+  color: #faaf05;
+}
+.roomCard {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+}
+.roomCard__top {
+  padding: 8px 44px 8px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  border: 1px solid #d4d4d4;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.roomCard__top svg {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  color: #26529c;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.roomCard__top button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: capitalize;
+  text-decoration: underline;
+  color: #26529c;
+  background-color: unset;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.roomCard__top button:hover {
+  opacity: 0.8;
+}
+.roomCard__content {
+  padding: 8px 10px 8px 12px;
+  border: 1px solid #d4d4d4;
+}
+.roomCard__content h6 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+.roomCard__content h5 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #faaf05;
+}
+.roomCard__content .button {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 9px 28px;
+}
+.roomCard__content p {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: capitalize;
+  color: #26529c;
+  margin-bottom: 8px;
+}
+.roomCard__content p:last-child {
+  margin: 0;
+}
+.roomCard__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 0;
 }
 
 .result {
@@ -6533,6 +6797,9 @@ h6 {
     font-size: 16px;
     line-height: 26px;
   }
+  .button.solid {
+    padding: 8px 24px;
+  }
 
   .auto__container {
     max-width: 1040px;
@@ -6603,6 +6870,13 @@ h6 {
     widows: 12px;
     height: 12px;
     margin-right: 5px;
+  }
+
+  .roomItem__main {
+    width: 255px;
+  }
+  .roomItemInfo {
+    width: calc(100% - 255px);
   }
 }
 @media (max-width: 1120px) {
@@ -7196,6 +7470,24 @@ h6 {
     margin-bottom: 30px;
     max-width: 340px;
   }
+
+  .roomItem {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .roomItem__main {
+    width: 100%;
+    border-bottom: 1px solid #d7d7d7;
+    padding: 10px 15px;
+  }
+  .roomItem__main-top {
+    margin-bottom: 18px;
+  }
+  .roomItemInfo {
+    width: 100%;
+  }
 }
 @media (max-width: 840px) {
   main {
@@ -7681,6 +7973,11 @@ h6 {
   }
   .footerNav__links {
     max-width: unset;
+  }
+
+  .room__inner-col h4 {
+    margin-bottom: 15px;
+    font-weight: 600;
   }
 }
 @media (max-width: 540px) {
