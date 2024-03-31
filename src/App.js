@@ -2,7 +2,6 @@ import Footer from "Base/Footer";
 import Header from "Base/Header";
 import Detail from "Detail";
 import React, { useEffect } from "react";
-import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Result from "Result";
 import ResultMap from "ResultMap";
@@ -13,7 +12,7 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
-    <HelmetProvider>
+    <>
       <Header />
       <main className="main">
         <Routes>
@@ -23,6 +22,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </HelmetProvider>
+    </>
   );
 }
