@@ -6079,6 +6079,19 @@ h6 {
 .navigation {
   border-bottom: 1px solid #d1d1d1;
 }
+.navigation.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-animation: 0.2s linear sticky;
+          animation: 0.2s linear sticky;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+}
+.navigation__outer {
+  min-height: 74px;
+}
 .navigation__inner {
   display: -webkit-box;
   display: -ms-flexbox;

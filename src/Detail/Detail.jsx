@@ -36,6 +36,7 @@ export default function Detail() {
           </ul>
         </div>
       </div>
+      <div className="anchor" id="foto"></div>
       <Gallery card={card} />
       <Navigation card={card} />
       <div className="detail">
@@ -43,12 +44,17 @@ export default function Detail() {
       </div>
       <div className="main__wrapper">
         <Reason />
+        <div className="anchor" id="stanze"></div>
         <RoomDetail />
+        <div className="anchor" id="transporti"></div>
         <Transport />
       </div>
       <Services />
+      <div className="anchor" id="info"></div>
+
       <HotelInfo />
       <FlexibleDates />
+      <div className="anchor" id="map"></div>
       <MapDetail />
       <Similar card={card} />
     </>
