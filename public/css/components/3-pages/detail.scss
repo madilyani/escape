@@ -417,7 +417,7 @@
     &__price {
       font-weight: 700;
       font-size: 38px;
-      line-height: 23px;
+      line-height: 1;
       color: $primary;
       span {
         font-size: 20px;
@@ -432,6 +432,72 @@
       font-size: 20px;
       line-height: 23px;
       color: #faaf05;
+    }
+  }
+}
+@mixin navigation-xxxlg-xxxxlg {
+  .navigation {
+    &__inner {
+      &-links {
+        max-width: 650px;
+      }
+    }
+    &Info {
+      &__price {
+        font-size: 30px;
+        span {
+          font-size: 18px;
+          line-height: 21px;
+        }
+        &s {
+          margin-right: 16px;
+        }
+      }
+      &__extra {
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+@mixin navigation-xxlg-xxxlg {
+  .navigation {
+    &__inner {
+      &-links {
+        width: calc(100% - 340px);
+        max-width: 540px;
+        a {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+    &Info {
+      width: 320px;
+      button {
+        font-size: 14px;
+        padding: 12px 6px;
+        width: 120px;
+      }
+      &__extra {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      &__price {
+        font-size: 24px;
+        line-height: 26px;
+        span {
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}
+@mixin navigation-md-lg {
+  .navigation {
+    &__outer {
+      display: none;
     }
   }
 }

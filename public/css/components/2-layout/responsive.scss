@@ -49,6 +49,10 @@
   @include card-xxxlg-xxxxlg;
 
   // result page end
+  // detail page start
+  @include navigation-xxxlg-xxxxlg;
+
+  // detail page end
 }
 // 1340px
 @include xxlg-xxxlg {
@@ -85,6 +89,7 @@
   //   result end
   @include services-xxlg-xxxlg;
   @include room-xxlg-xxxlg;
+  @include navigation-xxlg-xxxlg;
 }
 // 1120px
 @include xlg-xxlg {
@@ -257,6 +262,7 @@
   // result end
   // detail start
   @include detail-md-lg;
+  @include navigation-md-lg;
   // detail end
 }
 // 700px
