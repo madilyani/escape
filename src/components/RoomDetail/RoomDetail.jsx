@@ -4,6 +4,8 @@ import {
   bedIcon,
   bedIcon2,
   calendarIcon2,
+  cancel,
+  chevronBottom,
   foodIcon,
   infoIcon,
   tickIcon,
@@ -13,13 +15,16 @@ import CalendarMobile from "components/CalendarMobile";
 import moment from "moment";
 import Calendar from "components/Calendar";
 import Room from "components/Room/Room";
-import { roomModul } from "Base/roomModul";
+import { roomModul, roomModulMobile } from "Base/roomModul";
 import EditSearch from "components/EditSearch";
+import { motion } from "framer-motion";
+import RoomDetailPopUp from "components/RoomDetailPopUp";
 
 export default function RoomDetail({ roomSelected, setRoomSelected }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
   const [editSearch, setEditSearch] = useState(false);
+  const [mobileModul, setMobileModul] = useState(roomModulMobile.slice(1, 3));
   const [roomCardPopup, setRoomCardPopup] = useState(false);
   const [form, setForm] = useState({
     where: "",
@@ -52,6 +57,7 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
       }
     });
   }, []);
+  console.log(roomModulMobile?.length, " ", mobileModul?.length + 1);
   return (
     <>
       <section className="room">
@@ -113,16 +119,13 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
               <>
                 <div className="room__inner-col">
                   <h4>Stanze e Trattamenti</h4>
-                  {roomModul.map((item, index) => {
-                    return (
-                      <RoomMobileItem
-                        setRoomCardPopup={setRoomCardPopup}
-                        roomCardPopup={roomCardPopup}
-                        {...item}
-                        key={index}
-                      />
-                    );
-                  })}
+                  <RoomMobileItem
+                    roomSelected={roomSelected}
+                    setRoomSelected={setRoomSelected}
+                    setRoomCardPopup={setRoomCardPopup}
+                    roomCardPopup={roomCardPopup}
+                    {...roomModulMobile[0]}
+                  />
                   <div className="roomSign">
                     {userIcon2}
                     <p>
@@ -130,52 +133,32 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
                       offerte esclusive
                     </p>
                   </div>
-                  <div className="roomCard">
-                    <div className="roomCard__top">
-                      <h6>Camera DUN Deluxe</h6>
-                      <button type="button">Vedi immagine e Descrizione</button>
-                      {infoIcon}
-                    </div>
-                    <div className="roomCard__content">
-                      <h6>Solo Pernottamento</h6>
-                      <div className="roomCard__row">
-                        <h5>1.120€</h5>
-                        <button type="button" className="button primary">
-                          SELEZIONA
-                        </button>
-                      </div>
-                      <p>prezzo per 7 notti e per 2 adulti</p>
-                    </div>
-                    <div className="roomCard__content">
-                      <h6>Pensione Completa</h6>
-                      <div className="roomCard__row">
-                        <h5>1.270€</h5>
-                        <button type="button" className="button primary">
-                          SELEZIONA
-                        </button>
-                      </div>
-                      <p>prezzo per 7 notti e per 2 adulti</p>
-                    </div>
-                    <div className="roomCard__content">
-                      <h6>Pensione Completa e Bevande incluse</h6>
-                      <div className="roomCard__row">
-                        <h5>1.570€</h5>
-                        <button type="button" className="button primary">
-                          SELEZIONA
-                        </button>
-                      </div>
-                      <p>prezzo per 7 notti e per 2 adulti</p>
-                      <div className="roomCard__more">
-                        Vedi 3 altra opzione per questa stanza
-                      </div>
-                    </div>
-                    <div className="roomCard__foot">
-                      <p>Cancellazione gratuita entro il 25/05/2024</p>
-                    </div>
-                  </div>
-                  <button type="button" className="room__inner-more">
-                    Vedi il Resto delle Camere (3)
-                  </button>
+                  {mobileModul.map((item, index) => {
+                    return (
+                      <RoomMobileItem
+                        roomSelected={roomSelected}
+                        setRoomSelected={setRoomSelected}
+                        setRoomCardPopup={setRoomCardPopup}
+                        roomCardPopup={roomCardPopup}
+                        {...item}
+                        key={index}
+                      />
+                    );
+                  })}
+                  {mobileModul?.length + 3 <= roomModulMobile?.length && (
+                    <button
+                      type="button"
+                      className="room__inner-more"
+                      onClick={() => {
+                        setMobileModul(
+                          roomModulMobile.slice(1, mobileModul.length + 3)
+                        );
+                      }}
+                    >
+                      Vedi il Resto delle Camere (
+                      {roomModulMobile?.length - (mobileModul?.length + 1)})
+                    </button>
+                  )}
                 </div>
               </>
             ) : (
@@ -195,7 +178,22 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
           </div>
         </div>
       </section>
-      {editSearch && <EditSearch setEditSearch={setEditSearch} />}
+      {mobile && editSearch && (
+        <EditSearch
+          form={form}
+          setEditSearch={setEditSearch}
+          updateForm={updateForm}
+        />
+      )}
+      {mobile && roomCardPopup && (
+        <RoomDetailPopUp
+          roomSelected={roomSelected}
+          setRoomCardPopup={setRoomCardPopup}
+          form={form}
+          setEditSearch={setEditSearch}
+          updateForm={updateForm}
+        />
+      )}
     </>
   );
 }
@@ -279,22 +277,73 @@ export const RoomItem = (props) => {
   );
 };
 export const RoomMobileItem = (props) => {
+  const [descActive, setDescActive] = useState(false);
+  const [category, setCategory] = useState(props.categories.slice(0, 3));
   return (
     <div className="roomCard">
       <div className="roomCard__top">
         <h6>{props.title}</h6>
         <button type="button">Vedi immagine e Descrizione</button>
-        {infoIcon}
+        <div className="roomCard__not">
+          <div
+            className="roomCard__not-btn"
+            onClick={() => {
+              setDescActive(!descActive);
+            }}
+          >
+            {infoIcon}
+          </div>
+          {descActive && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0, height: 0 }}
+              className="roomCard__not-body"
+            >
+              <span
+                onClick={() => {
+                  setDescActive(false);
+                  // setPopWrap(false);
+                }}
+              >
+                {cancel}
+              </span>
+              Troverai ad accoglierti all'ingresso dell 'Av Club Terme Colella
+              un pergolato ricco di piante e fiori mediterranei. La struttura,
+              simile per estetica alle ville ischitane, e' un luogo familiare ed
+              ospitale.
+            </motion.div>
+          )}
+        </div>
       </div>
-      {props?.categories?.map((item, index) => {
+      {category?.map((item, index) => {
         return (
           <div className="roomCard__content" key={index}>
             <h6>{item.title}</h6>
             <div className="roomCard__row">
               <h5>{item.total}€</h5>
-              <button type="button" className="button primary">
-                SELEZIONA
-              </button>
+              {props?.roomSelected?.roomId === props?.id &&
+              props?.roomSelected?.categories === item?.id ? (
+                <button type="button" className="button solid">
+                  SELEZIONATO
+                </button>
+              ) : (
+                <a
+                  href="#transporti"
+                  className="button primary"
+                  onClick={() => {
+                    props.setRoomSelected({
+                      roomId: props.id,
+                      categories: item.id,
+                      total: item.total,
+                    });
+                    props.setRoomCardPopup(true);
+                  }}
+                >
+                  SELEZIONA
+                </a>
+              )}
             </div>
             <p>prezzo per 7 notti e per 2 adulti</p>
             {item.addons && (
@@ -319,11 +368,31 @@ export const RoomMobileItem = (props) => {
           </div>
         );
       })}
-
+      {props?.categories.length > 3 && (
+        <button
+          type="button"
+          className="roomCard__more"
+          onClick={() => {
+            if (category.length <= 3) {
+              setCategory(props.categories);
+            } else {
+              setCategory(props.categories.slice(0, 3));
+            }
+          }}
+        >
+          {category.length <= 3 ? (
+            <>
+              Vedi {props.categories.length - 3} altra opzione per questa stanza
+            </>
+          ) : (
+            <>Show less</>
+          )}
+        </button>
+      )}
       {props.cancelation && (
-        <div className="roomCard__foot">
+        <span className="roomCard__foot">
           <p>Cancellazione gratuita entro il 25/05/2024</p>
-        </div>
+        </span>
       )}
     </div>
   );

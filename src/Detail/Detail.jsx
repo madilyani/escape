@@ -79,7 +79,7 @@ export default function Detail() {
       <div className="main__wrapper">
         <Reason setGallerySlider={setGallerySlider} />
         <div className="anchor" id="stanze"></div>
-        {/* <RoomDetailPopUp /> */}
+      
         <RoomDetail
           roomSelected={roomSelected}
           setRoomSelected={setRoomSelected}

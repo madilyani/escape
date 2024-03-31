@@ -33,6 +33,20 @@
       animation-delay: 1s;
     }
   }
+  &Mob {
+    &__room {
+      &.editt {
+        padding: 0;
+        width: 100%;
+        .searchItem__room {
+          width: 100%;
+        }
+        .editSearch__row {
+          margin: 0;
+        }
+      }
+    }
+  }
   &.sticky {
     .search__inner {
       top: 20px;

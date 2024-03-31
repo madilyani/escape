@@ -2756,6 +2756,16 @@ h6 {
   -webkit-animation-delay: 1s;
           animation-delay: 1s;
 }
+.searchMob__room.editt {
+  padding: 0;
+  width: 100%;
+}
+.searchMob__room.editt .searchItem__room {
+  width: 100%;
+}
+.searchMob__room.editt .editSearch__row {
+  margin: 0;
+}
 .search.sticky .search__inner {
   top: 20px;
 }
@@ -5915,16 +5925,6 @@ h6 {
       -ms-flex-align: start;
           align-items: flex-start;
 }
-.roomCard__top svg {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  width: 35px;
-  height: 35px;
-  color: #26529c;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
 .roomCard__top button {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -5945,7 +5945,7 @@ h6 {
   padding: 8px 10px 8px 12px;
   border: 1px solid #d4d4d4;
 }
-.roomCard__content:last-child {
+.roomCard__content:last-of-type {
   border: unset;
 }
 .roomCard__content h6 {
@@ -6007,6 +6007,13 @@ h6 {
   border-radius: 2px;
   position: relative;
   margin-top: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: calc(100% - 20px);
+  margin: 3px 10px 10px 10px;
+}
+.roomCard__more:last-child {
+  margin-bottom: 0;
 }
 .roomCard__more::before {
   position: absolute;
@@ -6024,6 +6031,8 @@ h6 {
 }
 .roomCard__foot {
   padding: 10px 12px;
+  border-top: 1px solid #d4d4d4;
+  display: block;
 }
 .roomCard__foot p {
   font-size: 14px;
@@ -6031,6 +6040,82 @@ h6 {
   text-transform: capitalize;
   color: #00b086;
   text-align: center;
+}
+.roomCard__not {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 2;
+  right: 10px;
+}
+.roomCard__not-btn {
+  width: 32px;
+  height: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #26529c;
+}
+.roomCard__not-btn svg {
+  width: 100%;
+  height: 100%;
+}
+.roomCard__not-body {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 20px);
+  width: 200px;
+  -webkit-box-shadow: 0px 0px 150px #000000;
+          box-shadow: 0px 0px 150px #000000;
+  background: #ffffff;
+  border-radius: 10px;
+  z-index: 3;
+  padding: 5px 5px 5px 10px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.roomCard__not-body span {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  border-radius: 50%;
+  background: #fff;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: red;
+  cursor: pointer;
+}
+.roomCard__not-body span svg {
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+}
+.roomCard__not-body::before {
+  position: absolute;
+  width: 16px;
+  height: 15px;
+  bottom: 99%;
+  right: 8px;
+  background: #fff;
+  content: "";
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 .roomSign {
   padding: 12px 16px 12px 26px;
@@ -6062,27 +6147,30 @@ h6 {
 }
 .roomPop {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  width: calc(100% - 24px);
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background: #fff;
-  -webkit-box-shadow: 0px 0px 10.7px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 10.7px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
   z-index: 999;
-  padding: 18px 10px 10px;
-  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+}
+.roomPop__inner {
+  -webkit-box-shadow: 0px 0px 10.7px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10.7px rgba(0, 0, 0, 0.25);
+  padding: 18px 10px 10px;
+  background: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin: auto;
+  width: calc(100% - 24px);
+  border-radius: 20px;
 }
 .roomPop__row {
   width: 100%;
@@ -6092,9 +6180,68 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 15px;
+}
+.roomPop__item {
+  width: calc(45% - 5px);
+  position: relative;
+  pointer-events: unset;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 2px 20px 2px 25px;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #c0cad5;
+}
+.roomPop__item::before {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 5px;
+  height: 5px;
+  content: "";
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  -webkit-transform: translate(-40%, -50%) rotate(135deg);
+          transform: translate(-40%, -50%) rotate(135deg);
+}
+.roomPop__item:nth-child(1) {
+  width: calc(55% - 5px);
+}
+.roomPop__item h6 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: #607d9a;
+}
+.roomPop__item input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0;
+  color: #000000;
+}
+.roomPop__item svg {
+  width: 14px;
+  height: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  -moz-ransform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  left: 4px;
+  color: #26529c;
+  position: absolute;
 }
 .roomPop__price {
   margin-bottom: 13px;
+  text-align: center;
 }
 .roomPop__price h5 {
   font-weight: 700;
@@ -6310,7 +6457,7 @@ h6 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 999;
+  z-index: 1000;
 }
 .editSearch__inner {
   padding: 15px 20px 12px;

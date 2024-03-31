@@ -2,26 +2,12 @@ import Calendar from "components/Calendar";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CalendarMobile from "components/CalendarMobile";
+import EditSearchRoom from "components/EditSearchRoom";
 
-export default function EditSearch({ setEditSearch }) {
+export default function EditSearch({ setEditSearch, form, updateForm }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
-  const [form, setForm] = useState({
-    where: "",
-    rooms: [
-      {
-        id: "1",
-        adults: 2,
-        children: 0,
-        children_age: [],
-      },
-    ],
-    startDate: null,
-    endDate: null,
-  });
-  const updateForm = (data) => {
-    setForm((form) => ({ ...form, ...data }));
-  };
+
   const closeModal = (e) => {
     if (e.target === e.currentTarget) setEditSearch(false);
   };
@@ -64,24 +50,14 @@ export default function EditSearch({ setEditSearch }) {
               setShowCalendar={setShowCalendar}
             />
           )}
-          <div className="editSearch__row">
-            <div className="editSearch__room">
-              <h6>Adults</h6>
-              <input type="text" disabled={true} placeholder="3" />
-            </div>
-            <div className="editSearch__room">
-              <h6>Children</h6>
-              <input type="text" disabled={true} placeholder="2" />
-            </div>
-            <div className="editSearch__room">
-              <h6>Room</h6>
-              <input type="text" disabled={true} placeholder="1" />
-            </div>
-            
-          </div>
+          <EditSearchRoom form={form} updateForm={updateForm} />
         </div>
         <div className="editSearch__foot">
-          <button type="button" className="button primary">
+          <button
+            type="button"
+            className="button primary"
+            onClick={() => setEditSearch(false)}
+          >
             aggiorna ricerca
           </button>
         </div>
