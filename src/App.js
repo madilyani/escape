@@ -12,29 +12,7 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  useEffect(() => {
-    let startSticky = document.getElementById("startSticky");
-    let navi = document.getElementById("navi");
-    function scrollFunc() {
-      if (window.pageYOffset >= startSticky.offsetTop) {
-        navi.classList.add("sticky");
-      } else {
-        navi.classList.remove("sticky");
-      }
-    }
-    const links = document.querySelectorAll(".links");
-    const sections = document.querySelectorAll(".anchor");
-    function changeLinkState() {
-      let index = sections.length;
-      while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
-      links.forEach((link) => link.classList.remove("active"));
-      links[index]?.classList.add("active");
-    }
-    window.addEventListener("scroll", () => {
-      changeLinkState();
-      scrollFunc();
-    });
-  }, []);
+
 
   return (
     <>

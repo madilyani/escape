@@ -1,0 +1,128 @@
+.dropdown {
+  position: relative;
+  z-index: 2;
+  &__selected {
+    background: $white;
+    border-radius: 5px;
+    padding: 12px 28px 8px 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 64px;
+    box-sizing: border-box;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid $black;
+      border-right: 1px solid $black;
+      transform: translateY(-60%) rotate(135deg);
+      transition: 0.3s ease;
+    }
+    h6 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: uppercase;
+      b {
+        font-weight: 600;
+        color: $primary;
+      }
+    }
+  }
+  &.active {
+    .dropdown__options {
+      max-height: 240px;
+      overflow-y: auto;
+      opacity: 1;
+    }
+  }
+  &__option {
+    padding: 12px 28px 8px 12px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    &s {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      max-height: 0;
+      overflow-y: hidden;
+      opacity: 0;
+      background: $white;
+      border-radius: 5px;
+      @include transition;
+    }
+    h6 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: uppercase;
+      b {
+        font-weight: 600;
+        color: $primary;
+      }
+    }
+  }
+  &__outer {
+    width: 203px;
+    margin: 5px 3px;
+    display: flex;
+    flex-direction: column;
+    &.md {
+      width: 164px;
+    }
+    &.sm {
+      width: 145px;
+    }
+    &.xsm {
+      width: 130px;
+    }
+    label {
+      font-family: $mainFont;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: capitalize;
+      color: $black;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+  &Select {
+  }
+}
