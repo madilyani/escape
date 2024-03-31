@@ -1,6 +1,35 @@
 .room {
   padding-top: 30px;
   &__inner {
+    &-col {
+      h4 {
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+    }
+    &-more {
+      width: calc(100% - 20px);
+      font-family: $mainFont;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      color: $primary;
+      background-color: unset;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      border: 1px solid $primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      border-radius: 2px;
+      &:hover {
+        background-color: $primary;
+        color: $white;
+      }
+    }
   }
   &Head {
     display: flex;
@@ -395,10 +424,18 @@
       background: rgba(38, 82, 156, 0.1);
       border-radius: 2px;
       position: relative;
+      margin-top: 3px;
       &::before {
         position: absolute;
         top: 50%;
         right: 12px;
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid $black;
+        border-right: 1px solid $black;
+        transform: translateY(-60%) rotate(135deg);
+        transition: 0.3s ease;
       }
     }
     &__foot {
@@ -470,12 +507,6 @@
 @mixin room-sm-md {
   .room {
     &__inner {
-      &-col {
-        h4 {
-          margin-bottom: 15px;
-          font-weight: 600;
-        }
-      }
     }
   }
 }

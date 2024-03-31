@@ -306,26 +306,6 @@ export default function RoomDetail() {
                   </button>
                 </div>
                 <p>prezzo per 7 notti e per 2 adulti</p>
-                <div className="roomItemChecks">
-                  <label className="roomItemCheck">
-                    <div className="roomItemCheck__box">
-                      <input type="checkbox" />
-                      <span>{tickIcon}</span>
-                    </div>
-                    <p>
-                      Vista Mare <b>€ 70</b>{" "}
-                    </p>
-                  </label>
-                  <label className="roomItemCheck">
-                    <div className="roomItemCheck__box">
-                      <input type="checkbox" />
-                      <span> {tickIcon} </span>
-                    </div>
-                    <p>
-                      Culla <b>€ 25</b>{" "}
-                    </p>
-                  </label>
-                </div>
               </div>
               <div className="roomCard__content">
                 <h6>Pensione Completa e Bevande incluse</h6>
@@ -336,9 +316,6 @@ export default function RoomDetail() {
                   </button>
                 </div>
                 <p>prezzo per 7 notti e per 2 adulti</p>
-                <p>
-                  <b>A richiesta</b>
-                </p>
                 <div className="roomCard__more">
                   Vedi 3 altra opzione per questa stanza
                 </div>
@@ -347,6 +324,9 @@ export default function RoomDetail() {
                 <p>Cancellazione gratuita entro il 25/05/2024</p>
               </div>
             </div>
+            <button type="button" className="room__inner-more">
+              Vedi il Resto delle Camere (3)
+            </button>
           </div>
         </div>
       </div>
