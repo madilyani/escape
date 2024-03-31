@@ -6,7 +6,6 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   z-index: 999;
-  display: none;
   &__inner {
     padding: 15px 20px 12px;
     background-color: $white;
@@ -15,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     h5 {
       font-family: $balsamiq;
       font-weight: 700;
@@ -59,15 +58,75 @@
   }
   &__row {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background: #f5f5f5;
     border-radius: 100px;
     margin-bottom: 10px;
+    box-sizing: border-box;
+    &:last-child {
+      margin: 0;
+    }
     hr {
-
+      width: 2px;
+      height: 22px;
+      background-color: #d9d9d9;
+    }
+    h6 {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: capitalize;
+      margin-bottom: 4px;
+    }
+    input {
+      font-family: $mainFont;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      text-transform: capitalize;
+      color: $black;
+      background-color: transparent;
+      &::placeholder {
+        color: #b8b8b8;
+      }
     }
   }
   &__date {
-
+    width: calc(50% - 4px);
+    max-width: 110px;
+    padding: 8px 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__room {
+    width: 33.3%;
+    border-right: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    padding: 8px 20px;
+    display: flex;
+    flex-direction: column;
+    &:last-child {
+      border: unset;
+    }
+  }
+  &__foot {
+    display: flex;
+    padding: 14px 0 16px;
+    position: relative;
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 40px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: $primary;
+      transform: translateX(-50%);
+      content: "";
+    }
+    .button {
+      width: 100%;
+    }
   }
 }
