@@ -55,17 +55,27 @@ export default function Detail() {
         <title>{card?.title}</title>
         <meta name="description" content="description here" />
         <meta property="og:title" content={card?.title} />
+        <meta property="og:description" content="Description here" />
+
         <meta
           property="og:image"
           content={`https://escape-azure.vercel.app${card?.gallery[0].image}`}
         />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:image:alt" content="image" />
+
         <meta name="twitter:title" content={card?.title} />
         <meta name="twitter:description" content="description here" />
         <meta
           name="twitter:image"
           content={`https://escape-azure.vercel.app${card?.gallery[0].image}`}
         />
+        <meta name="twitter:image:width" content="800" />
+        <meta name="twitter:image:height" content="600" />
+        <meta name="twitter:image:alt" content="image" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="madilyani@gmail.com" />
       </Helmet>
       <div className="breadcrumb">
         <div className="auto__container">
