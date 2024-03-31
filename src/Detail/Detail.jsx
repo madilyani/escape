@@ -1,9 +1,6 @@
 import { hotelList } from "Base/hotelList";
-<<<<<<< HEAD
 import DetailHead from "components/DetailHead";
 import EditSearch from "components/EditSearch";
-=======
->>>>>>> cb891f4116567e129cf69a7aba1fda9016788860
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
 import GallerySlider from "components/GallerySlider/GallerySlider";
@@ -66,7 +63,6 @@ export default function Detail() {
           </ul>
         </div>
       </div>
-<<<<<<< HEAD
       <div className="detail">
         <div className="auto__container">
           <div className="detail__inner">
@@ -74,9 +70,7 @@ export default function Detail() {
           </div>
         </div>
       </div>
-=======
 
->>>>>>> cb891f4116567e129cf69a7aba1fda9016788860
       <div className="anchor" id="foto"></div>
 
       <Gallery card={card} setGallerySlider={setGallerySlider} />
