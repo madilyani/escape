@@ -5,7 +5,10 @@
 ====================================================================
 
 ***/
-
+*,
+html {
+  scroll-behavior: smooth !important;
+}
 * {
   margin: 0px;
   padding: 0px;

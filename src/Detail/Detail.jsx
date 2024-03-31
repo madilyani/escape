@@ -1,6 +1,9 @@
 import { hotelList } from "Base/hotelList";
+<<<<<<< HEAD
 import DetailHead from "components/DetailHead";
 import EditSearch from "components/EditSearch";
+=======
+>>>>>>> cb891f4116567e129cf69a7aba1fda9016788860
 import FlexibleDates from "components/FlexibleDates";
 import Gallery from "components/Gallery";
 import GallerySlider from "components/GallerySlider/GallerySlider";
@@ -9,7 +12,6 @@ import MapDetail from "components/MapDetail";
 import Navigation from "components/Navigation";
 import Reason from "components/Reason";
 import RoomDetail from "components/RoomDetail";
-import RoomDetailPopUp from "components/RoomDetailPopUp";
 import Services from "components/Services";
 import Similar from "components/Similar";
 import Transport from "components/Transport";
@@ -21,7 +23,6 @@ export default function Detail() {
   const [card, setCard] = useState(null);
   const [roomSelected, setRoomSelected] = useState(null);
   const { cardId } = useParams();
-
   useEffect(() => {
     if (cardId) {
       setCard(hotelList?.filter((item) => item?.id === cardId)[0]);
@@ -65,6 +66,7 @@ export default function Detail() {
           </ul>
         </div>
       </div>
+<<<<<<< HEAD
       <div className="detail">
         <div className="auto__container">
           <div className="detail__inner">
@@ -72,15 +74,17 @@ export default function Detail() {
           </div>
         </div>
       </div>
+=======
+
+>>>>>>> cb891f4116567e129cf69a7aba1fda9016788860
       <div className="anchor" id="foto"></div>
 
-      <Gallery card={card} />
+      <Gallery card={card} setGallerySlider={setGallerySlider} />
       <Navigation card={card} roomSelected={roomSelected} />
 
       <div className="main__wrapper">
-        <Reason />
+        <Reason setGallerySlider={setGallerySlider} />
         <div className="anchor" id="stanze"></div>
-        {/* <EditSearch /> */}
         {/* <RoomDetailPopUp /> */}
         <RoomDetail
           roomSelected={roomSelected}
@@ -89,7 +93,8 @@ export default function Detail() {
         <div className="anchor" id="transporti"></div>
         <Transport />
       </div>
-      <Services />
+      <div className="anchors" id="services"></div>
+      <Services setGallerySlider={setGallerySlider} />
       <div className="anchor" id="info"></div>
 
       <HotelInfo />
