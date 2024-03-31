@@ -10,8 +10,6 @@ import {
   transportTypes,
 } from "./transportModul";
 export default function Transport() {
-  const [faq, setFaq] = useState(true);
-
   return (
     <section className="transport">
       <div className="auto__container">

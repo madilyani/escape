@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navigation({ card }) {
+export default function Navigation({ card, roomSelected }) {
   return (
     <div className="navigation__outer">
       <div className="navigation" id="navi">
@@ -24,7 +24,7 @@ export default function Navigation({ card }) {
               </a>
             </div>
             <div className="navigationInfo">
-              {card?.selection ? (
+              {!roomSelected ? (
                 <>
                   <div className="navigationInfo__prices">
                     <div className="navigationInfo__price">
@@ -44,7 +44,7 @@ export default function Navigation({ card }) {
                   <div className="navigationInfo__prices">
                     <div className="navigationInfo__price">
                       <span>hotel </span>
-                      {card?.price}€
+                      {roomSelected?.total}€
                     </div>
                   </div>
                   <button type="button">prosegui</button>
