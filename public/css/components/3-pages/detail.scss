@@ -335,6 +335,18 @@
 }
 .navigation {
   border-bottom: 1px solid #d1d1d1;
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    animation: 0.2s linear sticky;
+    width: 100%;
+    background: $white;
+    z-index: 10;
+  }
+  &__outer {
+    min-height: 74px;
+  }
   &__inner {
     display: flex;
     align-items: center;

@@ -15,7 +15,7 @@ import React from "react";
 
 export default function Reason() {
   return (
-    <section className="reason">
+    <section className="reason" id="startSticky">
       <div className="auto__container">
         <div className="reason__inner">
           <div className="reasonHead">
