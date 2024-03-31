@@ -13,7 +13,7 @@ import Services from "components/Services";
 import Similar from "components/Similar";
 import Transport from "components/Transport";
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 
 export default function Detail() {
