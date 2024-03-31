@@ -1,7 +1,7 @@
 import { heartIcon, locationIcon, shareIcon, starIcon } from "Base/SVG";
 import React from "react";
 
-export default function DetailHead() {
+export default function DetailHead({ card }) {
   return (
     <div className="detailHead">
       <div className="detailHead__content">
@@ -18,7 +18,16 @@ export default function DetailHead() {
       <div className="detailHead__links">
         <a href="#">{locationIcon}</a>
         <a href="#">{heartIcon}</a>
-        <a href="#">{shareIcon}</a>
+        <button
+          type="button"
+          onClick={() => {
+            navigator.clipboard.writeText(
+              `https://escape-azure.vercel.app/detail/${card?.id}`
+            );
+          }}
+        >
+          {shareIcon}
+        </button>
       </div>
     </div>
   );

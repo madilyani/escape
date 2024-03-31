@@ -44,13 +44,15 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      a {
+      a,
+      button {
         width: 28px;
         height: 28px;
         color: $primary;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: transparent;
         margin-right: 7px;
         &:first-child {
           width: 31px;

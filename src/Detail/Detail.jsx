@@ -83,7 +83,7 @@ export default function Detail() {
       <div className="detail">
         <div className="auto__container">
           <div className="detail__inner">
-            <DetailHead />
+            <DetailHead card={card} />
           </div>
         </div>
       </div>
