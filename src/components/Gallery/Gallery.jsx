@@ -77,7 +77,6 @@ const gallerySlides = [
     text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
     image: "/images/cards/6.jpg",
   },
-
 ];
 const gallerySwipes = [
   {
@@ -140,7 +139,6 @@ const gallerySwipes = [
     id: "3",
     image: "/images/cards/6.jpg",
   },
-
 ];
 export default function Gallery({ card }) {
   const slider1 = useRef(null);
@@ -228,7 +226,7 @@ export default function Gallery({ card }) {
           </div>
         </div>
       </div>
-      {/* <div className="galleryModal">
+      <div className="galleryModal">
         <div className="galleryModal__close"></div>
         <div className="galleryModal__slider-wrapper">
           <Slider
@@ -254,7 +252,7 @@ export default function Gallery({ card }) {
             })}
           </Slider>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
@@ -296,6 +294,16 @@ const GallerySlide = (props) => {
     <div className="gallerySlide">
       <div className="gallerySlide__inner">
         <img src={props.image} alt="" />
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/hQ0n9gxAAmc?si=P2JubdjUUtFU4Ng_"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
         <div className="gallerySlide__content">
           <p>{props.text}</p>
         </div>

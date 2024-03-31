@@ -81,8 +81,7 @@ export default function RoomDetail() {
                 <button type="button">Seleziona il viaggio</button>
               </div>
               <div className="roomItemInfo">
-                    <div className="roomItemInfo__row">
-                    </div>
+                <div className="roomItemInfo__row"></div>
               </div>
             </div>
           </div>
