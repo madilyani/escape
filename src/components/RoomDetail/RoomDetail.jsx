@@ -37,13 +37,13 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
   };
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
-    if (window.innerWidth < 700) {
+    if (window.innerWidth < 840) {
       setMobile(true);
     } else {
       setMobile(false);
     }
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 700) {
+      if (window.innerWidth < 840) {
         setMobile(true);
       } else {
         setMobile(false);
