@@ -3,9 +3,12 @@ import RoomMobile from "components/RoomMobile";
 import { calendarIcon2, userIcon2 } from "Base/SVG";
 import CalendarMobile from "components/CalendarMobile";
 import moment from "moment";
+import Calendar from "components/Calendar";
+import Room from "components/Room/Room";
 
 export default function RoomDetail() {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [activeInput, setActiveInput] = useState(null);
 
   const [form, setForm] = useState({
     where: "",
@@ -23,6 +26,7 @@ export default function RoomDetail() {
   const updateForm = (data) => {
     setForm((form) => ({ ...form, ...data }));
   };
+
   return (
     <section className="room">
       <div className="auto__container">
@@ -54,8 +58,9 @@ export default function RoomDetail() {
                 </div>
               </div>
               {showCalendar && (
-                <CalendarMobile
+                <Calendar
                   form={form}
+                  setActiveInput={setActiveInput}
                   updateForm={updateForm}
                   setShowCalendar={setShowCalendar}
                 />
@@ -63,8 +68,9 @@ export default function RoomDetail() {
             </div>
             <div className="roomHead__item">
               {userIcon2}
-              <RoomMobile
+              <Room
                 form={form}
+                setActiveInput={setActiveInput}
                 updateForm={updateForm}
                 setShowCalendar={setShowCalendar}
               />
