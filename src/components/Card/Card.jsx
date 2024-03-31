@@ -212,7 +212,7 @@ export default function Card(props) {
                 <div className="cardInfo__tag">Comfort</div>
                 <div className="cardInfo__tag">Business Friendly</div>
               </div>
-              <h5 className="big cap">AV Isola Verde Hotel Thermal Spa</h5>
+              <h5 className="big cap">{props.title}</h5>
               <div className="rate">
                 <div className="rate__range">
                   <div

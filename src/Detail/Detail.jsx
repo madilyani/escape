@@ -13,6 +13,7 @@ import Services from "components/Services";
 import Similar from "components/Similar";
 import Transport from "components/Transport";
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useParams } from "react-router-dom";
 
 export default function Detail() {
@@ -50,6 +51,22 @@ export default function Detail() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>{card?.title}</title>
+        <meta name="description" content="description here" />
+        <meta property="og:title" content={card?.title} />
+        <meta
+          property="og:image"
+          content={`https://escape-azure.vercel.app${card?.gallery[0].image}`}
+        />
+        <meta name="twitter:title" content={card?.title} />
+        <meta name="twitter:description" content="description here" />
+        <meta
+          name="twitter:image"
+          content={`https://escape-azure.vercel.app${card?.gallery[0].image}`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="breadcrumb">
         <div className="auto__container">
           <ul className="breadcrumb__inner">
@@ -77,9 +94,9 @@ export default function Detail() {
       <Navigation card={card} roomSelected={roomSelected} />
 
       <div className="main__wrapper">
-        <Reason setGallerySlider={setGallerySlider} />
+        <Reason card={card} setGallerySlider={setGallerySlider} />
         <div className="anchor" id="stanze"></div>
-      
+
         <RoomDetail
           roomSelected={roomSelected}
           setRoomSelected={setRoomSelected}

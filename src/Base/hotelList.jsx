@@ -21,7 +21,7 @@ export const hotelList = [
         text: "Bloging",
       },
     ],
-    title: "AV Isola Verde Hotel Thermal Spa",
+    title: "Hotel Passo Tre Croci 1",
     location: "Veneto, Cortina d’Ampezzo",
     list: [
       {
@@ -66,7 +66,6 @@ export const hotelList = [
     date_start: "26 giugno 2024",
     date_end: "29 giugno 2024",
     camera: "Camera konfort Ceranda",
-
     food: "Pensione Completa con Bevande",
     price: 2.232,
     discount: 150,
@@ -91,7 +90,7 @@ export const hotelList = [
         text: "Comfort",
       },
     ],
-    title: "Hotel Terme Gran Paradiso Terme",
+    title: "Hotel Passo Tre Croci 2",
     location: "Veneto, Cortina d’Ampezzo",
     list: [
       {

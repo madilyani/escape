@@ -7,7 +7,7 @@ export default function Gallery({ card, setGallerySlider }) {
       <div className="gallery">
         <div className="auto__container">
           <div className="gallery__inner">
-            <GalleryItem {...card?.gallery[0]} btns={true} />
+            <GalleryItem {...card?.gallery[0]} btns={true} cardId={card?.id} />
             {card?.gallery?.slice(1, 5)?.map((item, index) => {
               return (
                 <GalleryItem
@@ -38,7 +38,15 @@ const GalleryItem = (props) => {
           >
             {isLiked ? heart : heartEmp}
           </button>
-          <button type="button" className="galleryItem__share">
+          <button
+            type="button"
+            className="galleryItem__share"
+            onClick={() => {
+              navigator.clipboard.writeText(
+                `https://escape-azure.vercel.app/detail/${props?.cardId}`
+              );
+            }}
+          >
             {shareIcon}
           </button>
         </div>

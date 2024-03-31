@@ -13,7 +13,7 @@ import {
 } from "Base/SVG";
 import React from "react";
 
-export default function Reason({ setGallerySlider }) {
+export default function Reason({ setGallerySlider, card }) {
   return (
     <section className="reason" id="startSticky">
       <div className="auto__container">
@@ -21,7 +21,7 @@ export default function Reason({ setGallerySlider }) {
           <div className="reasonHead">
             <div className="reasonHead__main">
               <div className="reasonHead__title">
-                <h4>Hotel Passo Tre Croci</h4>
+                <h4>{card?.title}</h4>
                 <div className="reasonHead__title-stars">
                   {starIcon} {starIcon} {starIcon}
                 </div>
