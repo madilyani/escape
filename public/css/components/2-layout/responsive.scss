@@ -116,6 +116,8 @@
   @include transport-lg-xlg;
   @include services-lg-xlg;
   @include room-lg-xlg;
+  @include gallery-lg-xlg;
+  @include breadcrumb-lg-xlg;
 }
 // 840px
 @include md-lg {
@@ -455,5 +457,7 @@
   @include hotelInfo-xsm-sm;
   @include mapDetail-xsm-sm;
   @include similar-xsm-sm;
+  @include gallery-xsm-sm;
+  @include breadcrumb-xsm-sm;
   // detail end
 }
