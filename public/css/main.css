@@ -5846,6 +5846,10 @@ h6 {
 .roomCard {
   border: 1px solid #d4d4d4;
   border-radius: 5px;
+  margin-bottom: 10px;
+}
+.roomCard:last-child {
+  margin: 0;
 }
 .roomCard__top {
   padding: 8px 44px 8px 12px;
@@ -5893,6 +5897,9 @@ h6 {
   padding: 8px 10px 8px 12px;
   border: 1px solid #d4d4d4;
 }
+.roomCard__content:last-child {
+  border: unset;
+}
 .roomCard__content h6 {
   font-weight: 400;
   font-size: 16px;
@@ -5923,6 +5930,10 @@ h6 {
 .roomCard__content p:last-child {
   margin: 0;
 }
+.roomCard__content p b {
+  font-weight: 500;
+  color: #faaf05;
+}
 .roomCard__row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5934,6 +5945,62 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   padding: 10px 0;
+}
+.roomCard__more {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: underline;
+  color: #26529c;
+  padding: 5px 30px 5px 10px;
+  background: rgba(38, 82, 156, 0.1);
+  border-radius: 2px;
+  position: relative;
+}
+.roomCard__more::before {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+}
+.roomCard__foot {
+  padding: 10px 12px;
+}
+.roomCard__foot p {
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #00b086;
+  text-align: center;
+}
+.roomSign {
+  padding: 12px 16px 12px 26px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.roomSign svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  stroke: #fff;
+  fill: transparent;
+  stroke-width: 2px;
+}
+.roomSign p {
+  width: calc(100% - 32px);
+  color: #fff;
+  line-height: 20px;
+}
+.roomSign p b {
+  font-weight: 700;
 }
 
 .dropdown {

@@ -257,6 +257,95 @@ export default function RoomDetail() {
                   </label>
                 </div>
               </div>
+              <div className="roomCard__content">
+                <h6>Pensione Completa e Bevande incluse</h6>
+                <div className="roomCard__row">
+                  <h5>1.570€</h5>
+                  <button type="button" className="button primary">
+                    SELEZIONA
+                  </button>
+                </div>
+                <p>prezzo per 7 notti e per 2 adulti</p>
+                <p>
+                  <b>A richiesta</b>
+                </p>
+              </div>
+              <div className="roomCard__foot">
+                <p>Cancellazione gratuita entro il 25/05/2024</p>
+              </div>
+            </div>
+            <div className="roomSign">
+              {userIcon2}
+              <p>
+                <b>Accedi</b>o <b>Iscriviti</b> per ottenere sconti e offerte
+                esclusive
+              </p>
+            </div>
+            <div className="roomCard">
+              <div className="roomCard__top">
+                <h6>Camera DUN Deluxe</h6>
+                <button type="button">Vedi immagine e Descrizione</button>
+                {infoIcon}
+              </div>
+              <div className="roomCard__content">
+                <h6>Solo Pernottamento</h6>
+                <div className="roomCard__row">
+                  <h5>1.120€</h5>
+                  <button type="button" className="button primary">
+                    SELEZIONA
+                  </button>
+                </div>
+                <p>prezzo per 7 notti e per 2 adulti</p>
+              </div>
+              <div className="roomCard__content">
+                <h6>Pensione Completa</h6>
+                <div className="roomCard__row">
+                  <h5>1.270€</h5>
+                  <button type="button" className="button primary">
+                    SELEZIONA
+                  </button>
+                </div>
+                <p>prezzo per 7 notti e per 2 adulti</p>
+                <div className="roomItemChecks">
+                  <label className="roomItemCheck">
+                    <div className="roomItemCheck__box">
+                      <input type="checkbox" />
+                      <span>{tickIcon}</span>
+                    </div>
+                    <p>
+                      Vista Mare <b>€ 70</b>{" "}
+                    </p>
+                  </label>
+                  <label className="roomItemCheck">
+                    <div className="roomItemCheck__box">
+                      <input type="checkbox" />
+                      <span> {tickIcon} </span>
+                    </div>
+                    <p>
+                      Culla <b>€ 25</b>{" "}
+                    </p>
+                  </label>
+                </div>
+              </div>
+              <div className="roomCard__content">
+                <h6>Pensione Completa e Bevande incluse</h6>
+                <div className="roomCard__row">
+                  <h5>1.570€</h5>
+                  <button type="button" className="button primary">
+                    SELEZIONA
+                  </button>
+                </div>
+                <p>prezzo per 7 notti e per 2 adulti</p>
+                <p>
+                  <b>A richiesta</b>
+                </p>
+                <div className="roomCard__more">
+                  Vedi 3 altra opzione per questa stanza
+                </div>
+              </div>
+              <div className="roomCard__foot">
+                <p>Cancellazione gratuita entro il 25/05/2024</p>
+              </div>
             </div>
           </div>
         </div>
