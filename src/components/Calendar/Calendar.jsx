@@ -21,6 +21,12 @@ export default function Calendar({
       setActiveInput("checkOut");
     }
   };
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return (
+      day !== 1 && day !== 2 && day !== 3 && day !== 4 && day !== 5 && day !== 6
+    );
+  };
   return (
     <div className="calendar">
       <div className="calendar__inner">
@@ -65,7 +71,9 @@ export default function Calendar({
                 endDate={form.endDate}
                 selectsRange
                 inline
+                filterDate={isWeekday}
                 monthsShown={2}
+                calendarStartDay={1}
               />
               <div className="calendar__foot">
                 <button type="button">
