@@ -14,6 +14,7 @@ export default function RoomDetail({
   setGallerySlider,
   form2,
 }) {
+  const [isLoading, setIsLoading] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
   const [editSearch, setEditSearch] = useState(false);
@@ -119,7 +120,6 @@ export default function RoomDetail({
                     roomCardPopup={roomCardPopup}
                     setGallerySlider={setGallerySlider}
                     {...roomModulMobile[0]}
-                    form2={form2}
                   />
                   <div className="roomSign">
                     {userIcon2}
@@ -138,7 +138,6 @@ export default function RoomDetail({
                         setGallerySlider={setGallerySlider}
                         {...item}
                         key={index}
-                        form2={form2}
                       />
                     );
                   })}
@@ -168,7 +167,6 @@ export default function RoomDetail({
                       setGallerySlider={setGallerySlider}
                       {...item}
                       key={index}
-                      form2={form2}
                     />
                   );
                 })}
