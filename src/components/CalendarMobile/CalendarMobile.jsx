@@ -15,6 +15,12 @@ export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
       updateForm({ startDate: start, endDate: end });
     }
   };
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return (
+      day !== 1 && day !== 2 && day !== 3 && day !== 4 && day !== 5 && day !== 6
+    );
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -59,13 +65,15 @@ export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
             <>
               <div className="calendar__content-inner">
                 <DatePicker
-                  selected={form.startDate}
+                  selected={""}
+                  filterDate={isWeekday}
                   onChange={onChange}
                   startDate={form.startDate}
                   endDate={form.endDate}
                   selectsRange
                   inline
                   monthsShown={1}
+                  calendarStartDay={1}
                 />
               </div>
               <div className="calendar__foot">

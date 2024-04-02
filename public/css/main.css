@@ -4334,13 +4334,9 @@ h6 {
 .calendar .react-datepicker__day--disabled {
   background: transparent;
 }
-.calendar .react-datepicker__day--range-start.react-datepicker__day--selected {
-  border-radius: 100px 0 0 100px !important;
-  background-color: #26529c !important;
-  color: #fff !important;
-}
-.calendar .react-datepicker__day--range-start.react-datepicker__day--selected:hover {
-  border-radius: 100px 0 0 100px !important;
+.calendar .react-datepicker__day--today {
+  background: transparent !important;
+  color: #000000 !important;
 }
 .calendar .react-datepicker__day--selected:hover {
   border-radius: 0 !important;
@@ -4381,6 +4377,14 @@ h6 {
   border-radius: 0 100px 100px 0 !important;
   background-color: #26529c !important;
   color: #fff !important;
+}
+.calendar .react-datepicker__day--range-start {
+  border-radius: 100px 0 0 100px !important;
+  background-color: #26529c !important;
+  color: #fff !important;
+}
+.calendar .react-datepicker__day--range-start:hover {
+  border-radius: 100px 0 0 100px !important;
 }
 
 .placeholder {
@@ -5595,6 +5599,15 @@ h6 {
           justify-content: space-between;
   margin-bottom: 14px;
 }
+.roomHead .button.primary {
+  width: 158px;
+  border-radius: 5px;
+  display: block;
+  padding: 15px 4px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
 .roomHead__item {
   width: calc(50% - 4px);
   -webkit-box-sizing: border-box;
@@ -5614,6 +5627,15 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.roomHead__items {
+  width: calc(100% - 162px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .roomHead__item > svg {
   position: absolute;
@@ -5638,6 +5660,15 @@ h6 {
   font-size: 14px !important;
   line-height: 16px !important;
   color: #000000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+}
+.roomHead__item .searchItem {
+  width: 100%;
+}
+.roomHead__item .searchItem__input {
+  width: 100%;
 }
 .roomHead .searchItem {
   position: static;
@@ -6495,6 +6526,47 @@ h6 {
   border-radius: 10px;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 30px;
+  padding: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #26529c;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  -webkit-animation: l3 1s infinite linear;
+          animation: l3 1s infinite linear;
+}
+.loader__outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100px;
+}
+
+@-webkit-keyframes l3 {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes l3 {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
 .dropdown {
   position: relative;
   z-index: 2;
@@ -9075,6 +9147,14 @@ h6 {
   }
   .footerNav__links {
     max-width: unset;
+  }
+  .roomHead .button.primary {
+    font-size: 12px;
+    line-height: 14px;
+    width: 120px;
+  }
+  .roomHead__items {
+    width: calc(100% - 124px);
   }
 }
 @media (max-width: 540px) {

@@ -65,7 +65,7 @@ export default function Calendar({
           {tab === "dates" && (
             <div className="calendar__content-inner">
               <DatePicker
-                selected={form.startDate}
+                selected={""}
                 onChange={onChange}
                 startDate={form.startDate}
                 endDate={form.endDate}
