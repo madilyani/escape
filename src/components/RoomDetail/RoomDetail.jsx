@@ -108,6 +108,17 @@ export default function RoomDetail({
                   setShowCalendar={setShowCalendar}
                 />
               </div>
+              <button
+                className="button primary"
+                onClick={() => {
+                  setIsLoading(true);
+                  setTimeout(() => {
+                    setIsLoading(false);
+                  }, 2000);
+                }}
+              >
+                Update search
+              </button>
             </div>
             {mobile ? (
               <>
