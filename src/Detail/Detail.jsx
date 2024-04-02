@@ -21,7 +21,15 @@ export default function Detail() {
   const [card, setCard] = useState(null);
   const [serviceShow, setServiceShow] = useState(false);
   const [roomSelected, setRoomSelected] = useState(null);
-
+  const [form, setForm] = useState({
+    type: null,
+    place: "",
+    transport_type: "",
+    price: "",
+  });
+  const updateForm = (data) => {
+    setForm((form) => ({ ...form, ...data }));
+  };
   const { cardId } = useParams();
   useEffect(() => {
     if (cardId) {
@@ -111,7 +119,7 @@ export default function Detail() {
       <div className="anchor" id="foto"></div>
 
       <Gallery card={card} setGallerySlider={setGallerySlider} />
-      <Navigation card={card} roomSelected={roomSelected} />
+      <Navigation card={card} roomSelected={roomSelected} form={form} />
 
       <div className="main__wrapper">
         <Reason
@@ -126,9 +134,10 @@ export default function Detail() {
           roomSelected={roomSelected}
           setRoomSelected={setRoomSelected}
           setGallerySlider={setGallerySlider}
+          form2={form}
         />
         <div className="anchor" id="transporti"></div>
-        <Transport />
+        <Transport form={form} updateForm={updateForm} />
       </div>
       <div className="anchors" id="services"></div>
       <Services

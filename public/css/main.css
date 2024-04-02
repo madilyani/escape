@@ -5734,6 +5734,7 @@ h6 {
 .roomItem__main-top {
   margin-bottom: 30px;
 }
+.roomItem__main a,
 .roomItem__main button {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
@@ -5747,6 +5748,7 @@ h6 {
   transition: 0.3s ease;
   cursor: pointer;
 }
+.roomItem__main a:hover,
 .roomItem__main button:hover {
   opacity: 0.8;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navigation({ card, roomSelected }) {
+export default function Navigation({ card, roomSelected, form }) {
   return (
     <div className="navigation__outer">
       <div className="navigation" id="navi">
@@ -31,9 +31,11 @@ export default function Navigation({ card, roomSelected }) {
                       <span>hotel </span>
                       {card?.price}€
                     </div>
-                    <div className="navigationInfo__extra">
-                      con viaggio da +{card?.discount}€
-                    </div>
+                    {form?.type !== null && form?.type !== "first" && (
+                      <div className="navigationInfo__extra">
+                        con viaggio da +{form?.price}€
+                      </div>
+                    )}
                   </div>
                   <button className="active" type="button">
                     vedi opzioni
@@ -46,6 +48,11 @@ export default function Navigation({ card, roomSelected }) {
                       <span>hotel </span>
                       {roomSelected?.total}€
                     </div>
+                    {form?.type !== null && form?.type !== "first" && (
+                      <div className="navigationInfo__extra">
+                        con viaggio da +{form?.price}€
+                      </div>
+                    )}
                   </div>
                   <button type="button">prosegui</button>
                 </>

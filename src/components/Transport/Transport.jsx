@@ -10,8 +10,7 @@ import {
   timeList,
   transportTypes,
 } from "./transportModul";
-export default function Transport() {
-  const [tab, setTab] = useState(null);
+export default function Transport({ form, updateForm }) {
   return (
     <section className="transport">
       <div className="auto__container">
@@ -23,17 +22,33 @@ export default function Transport() {
           <div className="transport__inner-row">
             <TransportItem
               id="first"
-              setTab={setTab}
-              tab={tab}
               addClass={"red"}
               title={"Nessun Viaggio incluso"}
+              form={form}
+              updateForm={updateForm}
+              onClick={() => {
+                updateForm({
+                  type: "first",
+                  transport_type: "",
+                  place: "",
+                  price: "",
+                });
+              }}
             />
             <TransportItem
               id="second"
-              setTab={setTab}
-              tab={tab}
-              price={true}
+              price={120}
               addClass={"green"}
+              form={form}
+              updateForm={updateForm}
+              onClick={() => {
+                updateForm({
+                  type: "second",
+                  transport_type: transportTypes[0],
+                  place: regioneList[1],
+                  price: 120,
+                });
+              }}
               title={
                 <>
                   {" "}
@@ -49,13 +64,22 @@ export default function Transport() {
                 </div>
                 <div className="dropdown__outer md">
                   <label htmlFor="">Città</label>
-                  <DropdownDuo list={regioneList} selected={regioneList[1]} />
+                  <DropdownDuo
+                    onChange={(data) => {
+                      updateForm({ place: data });
+                    }}
+                    list={regioneList}
+                    selected={regioneList[1]}
+                  />
                 </div>
                 <div className="dropdown__outer">
                   <label htmlFor="">Tipo di trasporto</label>
                   <DropdownDuo
                     list={transportTypes}
                     selected={transportTypes[0]}
+                    onChange={(data) => {
+                      updateForm({ transport_type: data });
+                    }}
                   />
                 </div>
                 <div className="dropdown__outer">
@@ -74,10 +98,18 @@ export default function Transport() {
             </TransportItem>
             <TransportItem
               id="third"
-              setTab={setTab}
-              tab={tab}
-              price={true}
+              price={140}
               addClass={"purple"}
+              form={form}
+              updateForm={updateForm}
+              onClick={() => {
+                updateForm({
+                  type: "third",
+                  transport_type: transportTypes[0],
+                  place: regioneList[1],
+                  price: 140,
+                });
+              }}
               title={
                 <>
                   Passaggio Marittimo <small> A/r</small>
@@ -90,6 +122,9 @@ export default function Transport() {
                   <DropdownDuo
                     list={transportTypes}
                     selected={transportTypes[0]}
+                    onChange={(data) => {
+                      updateForm({ transport_type: data });
+                    }}
                   />
                 </div>
                 <div className="dropdown__outer">
@@ -98,7 +133,13 @@ export default function Transport() {
                 </div>
                 <div className="dropdown__outer md">
                   <label htmlFor="">Porto di Arrivo</label>
-                  <DropdownDuo list={regioneList} selected={regioneList[1]} />
+                  <DropdownDuo
+                    onChange={(data) => {
+                      updateForm({ place: data });
+                    }}
+                    list={regioneList}
+                    selected={regioneList[1]}
+                  />
                 </div>
                 <div className="dropdown__outer sm">
                   <label htmlFor="">Dimensione Auto</label>
@@ -119,10 +160,17 @@ export default function Transport() {
             </TransportItem>
             <TransportItem
               id="fourth"
-              setTab={setTab}
-              tab={tab}
-              price={true}
+              price={160}
               addClass={"orange"}
+              form={form}
+              updateForm={updateForm}
+              onClick={() => {
+                updateForm({
+                  type: "fourth",
+                  place: airportList[0],
+                  price: 160,
+                });
+              }}
               title={
                 <>
                   Trasferimento Aeroporto/Stazione a hotel <small> A/r</small>
@@ -132,7 +180,13 @@ export default function Transport() {
               <div className="transportItem__body-row">
                 <div className="dropdown__outer">
                   <label htmlFor="">Aeroporto/Stazione</label>
-                  <DropdownDuo list={airportList} selected={airportList[0]} />
+                  <DropdownDuo
+                    onChange={(data) => {
+                      updateForm({ place: data });
+                    }}
+                    list={airportList}
+                    selected={airportList[0]}
+                  />
                 </div>
                 <div className="dropdown__outer xsm">
                   <label htmlFor="">Orario Andata</label>
@@ -155,19 +209,29 @@ export const TransportItem = ({
   addClass,
   title,
   price,
-  setTab,
-  tab,
+  form,
+  updateForm,
   id,
+  onClick,
 }) => {
   return (
-    <div className={`transportItem ${addClass} ${tab === id ? "active" : ""} `}>
+    <div
+      className={`transportItem ${addClass} ${
+        form?.type === id ? "active" : ""
+      } `}
+    >
       <div
         className="transportItem__head"
         onClick={() => {
-          if (tab === id) {
-            setTab(null);
+          if (form?.type === id) {
+            updateForm({
+              type: null,
+              place: "",
+              transport_type: "",
+              price: "",
+            });
           } else {
-            setTab(id);
+            onClick();
           }
         }}
       >
@@ -177,9 +241,8 @@ export const TransportItem = ({
         </div>
         {price ? (
           <>
-            {" "}
             <div className="transportItem__head-price">
-              <h4>120€</h4>
+              <h4>{price}€</h4>
               <p>a persona</p>
             </div>
           </>
@@ -187,7 +250,7 @@ export const TransportItem = ({
           ""
         )}
       </div>
-      {tab === id && (
+      {form?.type === id && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

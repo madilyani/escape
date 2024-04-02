@@ -12,6 +12,7 @@ export default function RoomDetail({
   roomSelected,
   setRoomSelected,
   setGallerySlider,
+  form2,
 }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
@@ -118,6 +119,7 @@ export default function RoomDetail({
                     roomCardPopup={roomCardPopup}
                     setGallerySlider={setGallerySlider}
                     {...roomModulMobile[0]}
+                    form2={form2}
                   />
                   <div className="roomSign">
                     {userIcon2}
@@ -136,6 +138,7 @@ export default function RoomDetail({
                         setGallerySlider={setGallerySlider}
                         {...item}
                         key={index}
+                        form2={form2}
                       />
                     );
                   })}
@@ -165,6 +168,7 @@ export default function RoomDetail({
                       setGallerySlider={setGallerySlider}
                       {...item}
                       key={index}
+                      form2={form2}
                     />
                   );
                 })}
@@ -237,7 +241,29 @@ export const RoomItem = (props) => {
             <p>Cancellazione gratuita entro il 25/05/2024</p>
           )}
         </div>
-        <button type="button">Seleziona il viaggio</button>
+        <a href="#transporti">
+          {props?.form2?.type === null && "Seleziona il viaggio"}
+          {props?.form2?.type === "first" && "Nessun Viaggio incluso"}
+          {props?.form2?.type === "second" &&
+            props?.form2?.transport_type?.value +
+              " da " +
+              props?.form2?.place?.value +
+              " +" +
+              props?.form2?.price +
+              "€ A Persona"}
+          {props?.form2?.type === "third" &&
+            props?.form2?.transport_type?.value +
+              " da " +
+              props?.form2?.place?.value +
+              " +" +
+              props?.form2?.price +
+              "€ A Persona"}
+          {props?.form2?.type === "fourth" &&
+            props?.form2?.place?.value +
+              " +" +
+              props?.form2?.price +
+              "€ A Persona"}
+        </a>
       </div>
       <div className="roomItemInfo">
         {props?.categories?.map((item, index) => {
@@ -283,8 +309,8 @@ export const RoomItem = (props) => {
                     <a href="#">invia preventivo per mail</a>
                   </div>
                 ) : (
-                  <button
-                    type="button"
+                  <a
+                    href="#transporti"
                     className="button primary"
                     onClick={() => {
                       props.setRoomSelected({
@@ -295,7 +321,7 @@ export const RoomItem = (props) => {
                     }}
                   >
                     SELEZIONA STANZA
-                  </button>
+                  </a>
                 )}
               </div>
             </div>
