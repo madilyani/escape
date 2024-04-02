@@ -125,6 +125,7 @@ export default function Detail() {
         <RoomDetail
           roomSelected={roomSelected}
           setRoomSelected={setRoomSelected}
+          setGallerySlider={setGallerySlider}
         />
         <div className="anchor" id="transporti"></div>
         <Transport />

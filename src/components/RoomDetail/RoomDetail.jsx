@@ -8,7 +8,11 @@ import EditSearch from "components/EditSearch";
 import { motion } from "framer-motion";
 import RoomDetailPopUp from "components/RoomDetailPopUp";
 
-export default function RoomDetail({ roomSelected, setRoomSelected }) {
+export default function RoomDetail({
+  roomSelected,
+  setRoomSelected,
+  setGallerySlider,
+}) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
   const [editSearch, setEditSearch] = useState(false);
@@ -112,6 +116,7 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
                     setRoomSelected={setRoomSelected}
                     setRoomCardPopup={setRoomCardPopup}
                     roomCardPopup={roomCardPopup}
+                    setGallerySlider={setGallerySlider}
                     {...roomModulMobile[0]}
                   />
                   <div className="roomSign">
@@ -128,6 +133,7 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
                         setRoomSelected={setRoomSelected}
                         setRoomCardPopup={setRoomCardPopup}
                         roomCardPopup={roomCardPopup}
+                        setGallerySlider={setGallerySlider}
                         {...item}
                         key={index}
                       />
@@ -156,6 +162,7 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
                     <RoomItem
                       roomSelected={roomSelected}
                       setRoomSelected={setRoomSelected}
+                      setGallerySlider={setGallerySlider}
                       {...item}
                       key={index}
                     />
@@ -182,11 +189,49 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
   );
 }
 export const RoomItem = (props) => {
+  const [descActive, setDescActive] = useState(false);
   return (
     <div className="roomItem">
       <div className="roomItem__main">
         <div className="roomItem__main-top">
-          <button type="button">Vedi immagini e Descrizione</button>
+          {props?.type === "1" && (
+            <button type="button" onClick={() => props.setGallerySlider(true)}>
+              Vedi immagini e Descrizione
+            </button>
+          )}
+          {props?.type === "2" && (
+            <div className="cardDesc">
+              <div
+                className="cardDesc__btn"
+                onClick={() => {
+                  setDescActive(!descActive);
+                }}
+              >
+                Vedi Descrizione
+              </div>
+              {descActive && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  transition={{ duration: 0.2 }}
+                  exit={{ opacity: 0, height: 0 }}
+                  className="cardDesc__body"
+                >
+                  <span
+                    onClick={() => {
+                      setDescActive(false);
+                    }}
+                  >
+                    {cancel}
+                  </span>
+                  Troverai ad accoglierti all'ingresso dell 'Av Club Terme
+                  Colella un pergolato ricco di piante e fiori mediterranei. La
+                  struttura, simile per estetica alle ville ischitane, e' un
+                  luogo familiare ed ospitale.
+                </motion.div>
+              )}
+            </div>
+          )}
           <h4>{props.title}</h4>
           {props.cancelation && (
             <p>Cancellazione gratuita entro il 25/05/2024</p>
@@ -262,12 +307,50 @@ export const RoomItem = (props) => {
 };
 export const RoomMobileItem = (props) => {
   const [descActive, setDescActive] = useState(false);
+  const [descActive2, setDescActive2] = useState(false);
   const [category, setCategory] = useState(props.categories.slice(0, 3));
   return (
     <div className="roomCard">
       <div className="roomCard__top">
         <h6>{props.title}</h6>
-        <button type="button">Vedi immagine e Descrizione</button>
+        {props?.type === "1" && (
+          <button type="button" onClick={() => props.setGallerySlider(true)}>
+            Vedi immagini e Descrizione
+          </button>
+        )}
+        {props?.type === "2" && (
+          <div className="cardDesc">
+            <div
+              className="cardDesc__btn"
+              onClick={() => {
+                setDescActive2(!descActive2);
+              }}
+            >
+              Vedi Descrizione
+            </div>
+            {descActive2 && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0, height: 0 }}
+                className="cardDesc__body"
+              >
+                <span
+                  onClick={() => {
+                    setDescActive2(false);
+                  }}
+                >
+                  {cancel}
+                </span>
+                Troverai ad accoglierti all'ingresso dell 'Av Club Terme Colella
+                un pergolato ricco di piante e fiori mediterranei. La struttura,
+                simile per estetica alle ville ischitane, e' un luogo familiare
+                ed ospitale.
+              </motion.div>
+            )}
+          </div>
+        )}
         <div className="roomCard__not">
           <div
             className="roomCard__not-btn"

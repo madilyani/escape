@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import { bedIcon, foodIcon } from "./SVG";
 
 export const roomModul = [
@@ -6,6 +7,7 @@ export const roomModul = [
     id: "1",
     title: "Stanza Doppia",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "1",
     categories: [
       {
         id: "1",
@@ -47,6 +49,7 @@ export const roomModul = [
     id: "2",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "2",
     categories: [
       {
         id: "1",
@@ -77,6 +80,7 @@ export const roomModulMobile = [
     id: "1",
     title: "Stanza Doppia",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "1",
     categories: [
       {
         id: "1",
@@ -130,6 +134,7 @@ export const roomModulMobile = [
     id: "2",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "2",
     categories: [
       {
         id: "1",
@@ -157,6 +162,7 @@ export const roomModulMobile = [
     id: "5",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "3",
     categories: [
       {
         id: "1",
@@ -184,6 +190,7 @@ export const roomModulMobile = [
     id: "6",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "1",
     categories: [
       {
         id: "1",
@@ -211,6 +218,7 @@ export const roomModulMobile = [
     id: "7",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "2",
     categories: [
       {
         id: "1",
@@ -238,6 +246,7 @@ export const roomModulMobile = [
     id: "8",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "3",
     categories: [
       {
         id: "1",
@@ -265,6 +274,7 @@ export const roomModulMobile = [
     id: "9",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "1",
     categories: [
       {
         id: "1",
@@ -292,6 +302,7 @@ export const roomModulMobile = [
     id: "10",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "2",
     categories: [
       {
         id: "1",
@@ -319,6 +330,7 @@ export const roomModulMobile = [
     id: "11",
     title: "Stanza Deluxe",
     note: "Cancellazione gratuita entro il 25/05/2024",
+    type: "3",
     categories: [
       {
         id: "1",
