@@ -65,48 +65,50 @@ export default function RoomDetail({
                 }
               }}
             >
-              <div className="roomHead__item">
-                {calendarIcon2}
-                <div
-                  className="searchPopDates"
-                  onClick={() => {
-                    setShowCalendar(true);
-                  }}
-                >
-                  <div className="searchPopDates__content">
-                    <h6>Check-ln Check-out</h6>
-                    <input
-                      placeholder="Select Date"
-                      type="text"
-                      readOnly
-                      value={
-                        (form?.startDate
-                          ? moment(form?.startDate).format("DD MMM") + " - "
-                          : "") +
-                        (form?.endDate
-                          ? moment(form?.endDate).format("DD MMM")
-                          : "")
-                      }
-                    />
+              <div className="roomHead__items">
+                <div className="roomHead__item">
+                  {calendarIcon2}
+                  <div
+                    className="searchPopDates"
+                    onClick={() => {
+                      setShowCalendar(true);
+                    }}
+                  >
+                    <div className="searchPopDates__content">
+                      <h6>Check-ln Check-out</h6>
+                      <input
+                        placeholder="Select Date"
+                        type="text"
+                        readOnly
+                        value={
+                          (form?.startDate
+                            ? moment(form?.startDate).format("DD MMM") + " - "
+                            : "") +
+                          (form?.endDate
+                            ? moment(form?.endDate).format("DD MMM")
+                            : "")
+                        }
+                      />
+                    </div>
                   </div>
+                  {showCalendar && (
+                    <Calendar
+                      form={form}
+                      setActiveInput={setActiveInput}
+                      updateForm={updateForm}
+                      setShowCalendar={setShowCalendar}
+                    />
+                  )}
                 </div>
-                {showCalendar && (
-                  <Calendar
+                <div className="roomHead__item">
+                  {userIcon2}
+                  <Room
                     form={form}
                     setActiveInput={setActiveInput}
                     updateForm={updateForm}
                     setShowCalendar={setShowCalendar}
                   />
-                )}
-              </div>
-              <div className="roomHead__item">
-                {userIcon2}
-                <Room
-                  form={form}
-                  setActiveInput={setActiveInput}
-                  updateForm={updateForm}
-                  setShowCalendar={setShowCalendar}
-                />
+                </div>
               </div>
               <button
                 className="button primary"
@@ -120,67 +122,73 @@ export default function RoomDetail({
                 Update search
               </button>
             </div>
-            {mobile ? (
-              <>
-                <div className="room__inner-col">
-                  <h4>Stanze e Trattamenti</h4>
-                  <RoomMobileItem
-                    roomSelected={roomSelected}
-                    setRoomSelected={setRoomSelected}
-                    setRoomCardPopup={setRoomCardPopup}
-                    roomCardPopup={roomCardPopup}
-                    setGallerySlider={setGallerySlider}
-                    {...roomModulMobile[0]}
-                  />
-                  <div className="roomSign">
-                    {userIcon2}
-                    <p>
-                      <b>Accedi</b>o <b>Iscriviti</b> per ottenere sconti e
-                      offerte esclusive
-                    </p>
+            {!isLoading ? (
+              mobile ? (
+                <>
+                  <div className="room__inner-col">
+                    <h4>Stanze e Trattamenti</h4>
+                    <RoomMobileItem
+                      roomSelected={roomSelected}
+                      setRoomSelected={setRoomSelected}
+                      setRoomCardPopup={setRoomCardPopup}
+                      roomCardPopup={roomCardPopup}
+                      setGallerySlider={setGallerySlider}
+                      {...roomModulMobile[0]}
+                    />
+                    <div className="roomSign">
+                      {userIcon2}
+                      <p>
+                        <b>Accedi</b>o <b>Iscriviti</b> per ottenere sconti e
+                        offerte esclusive
+                      </p>
+                    </div>
+                    {mobileModul.map((item, index) => {
+                      return (
+                        <RoomMobileItem
+                          roomSelected={roomSelected}
+                          setRoomSelected={setRoomSelected}
+                          setRoomCardPopup={setRoomCardPopup}
+                          roomCardPopup={roomCardPopup}
+                          setGallerySlider={setGallerySlider}
+                          {...item}
+                          key={index}
+                        />
+                      );
+                    })}
+                    {mobileModul?.length + 3 <= roomModulMobile?.length && (
+                      <button
+                        type="button"
+                        className="room__inner-more"
+                        onClick={() => {
+                          setMobileModul(
+                            roomModulMobile.slice(1, mobileModul.length + 3)
+                          );
+                        }}
+                      >
+                        Vedi il Resto delle Camere (
+                        {roomModulMobile?.length - (mobileModul?.length + 1)})
+                      </button>
+                    )}
                   </div>
-                  {mobileModul.map((item, index) => {
+                </>
+              ) : (
+                <div className="room__inner-content">
+                  {roomModul.map((item, index) => {
                     return (
-                      <RoomMobileItem
+                      <RoomItem
                         roomSelected={roomSelected}
                         setRoomSelected={setRoomSelected}
-                        setRoomCardPopup={setRoomCardPopup}
-                        roomCardPopup={roomCardPopup}
                         setGallerySlider={setGallerySlider}
                         {...item}
                         key={index}
                       />
                     );
                   })}
-                  {mobileModul?.length + 3 <= roomModulMobile?.length && (
-                    <button
-                      type="button"
-                      className="room__inner-more"
-                      onClick={() => {
-                        setMobileModul(
-                          roomModulMobile.slice(1, mobileModul.length + 3)
-                        );
-                      }}
-                    >
-                      Vedi il Resto delle Camere (
-                      {roomModulMobile?.length - (mobileModul?.length + 1)})
-                    </button>
-                  )}
                 </div>
-              </>
+              )
             ) : (
-              <div className="room__inner-content">
-                {roomModul.map((item, index) => {
-                  return (
-                    <RoomItem
-                      roomSelected={roomSelected}
-                      setRoomSelected={setRoomSelected}
-                      setGallerySlider={setGallerySlider}
-                      {...item}
-                      key={index}
-                    />
-                  );
-                })}
+              <div className="loader__outer">
+                <div className="loader"></div>
               </div>
             )}
           </div>
