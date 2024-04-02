@@ -197,6 +197,7 @@
     font-size: 13px;
     color: $black;
     font-weight: 400 !important;
+    margin: 0 !important;
     width: 35px !important;
     border-radius: 0 !important;
     line-height: 35px !important;
@@ -248,6 +249,10 @@
 
   .react-datepicker__day {
     margin: 0 !important;
+    background: rgba($color: #78d28c, $alpha: 0.3);
+  }
+  .react-datepicker__day--disabled {
+    background: transparent;
   }
   .react-datepicker__day--range-start.react-datepicker__day--selected {
     border-radius: 100px 0 0 100px !important;
