@@ -953,11 +953,54 @@
         }
       }
     }
+    .slick {
+      &-track {
+        display: flex !important;
+      }
+      &-slide {
+        padding: 0 15px !important;
+      }
+      &-arrow {
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        background-color: $primary !important;
+        z-index: 3;
+        &:hover {
+          opacity: 0.8;
+        }
+        &:focus {
+          opacity: 0.8;
+        }
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 5px;
+          height: 5px;
+          content: "";
+          border-top: 2px solid $white;
+          border-right: 2px solid $white;
+          transform: translate(-40%, -50%) rotate(-135deg);
+        }
+      }
+      &-prev {
+        left: 0;
+        &.slick-disabled {
+          opacity: 0;
+        }
+      }
+      &-next {
+        right: 0;
+        &::before {
+          transform: translate(-60%, -50%) rotate(45deg);
+        }
+      }
+    }
     &__body {
-      display: flex;
-      justify-content: space-between;
       padding-top: 30px;
       transition: 0.3s ease;
+      margin: 0 -15px;
     }
     &__item {
       background: $white;
@@ -965,11 +1008,15 @@
       border-radius: 5px;
       padding: 12px 20px;
       box-sizing: border-box;
-      width: calc(33.3% - 8px);
-      max-width: 433px;
-      display: flex;
+      display: flex !important;
       justify-content: space-between;
       align-items: center;
+      cursor: pointer;
+      @include transition;
+      &:hover {
+        border: 1px solid $primary;
+        background: rgba($color: $primary, $alpha: 0.1);
+      }
       &-col {
         display: flex;
         flex-direction: column;
@@ -983,25 +1030,52 @@
         line-height: 16px;
         color: #000000;
         margin-bottom: 8px;
+        &.placeholder {
+          width: 80px;
+          min-height: 16px;
+        }
       }
       h5 {
         font-weight: 600;
         font-size: 20px;
-        line-height: 14px;
+        line-height: 20px;
         color: $primary;
         margin-bottom: 8px;
+        &.placeholder {
+          width: 70px;
+          min-height: 20px;
+        }
       }
       p {
         font-weight: 400;
         font-size: 12px;
         line-height: 14px;
         color: rgba(0, 0, 0, 0.6);
+
+        &.placeholder {
+          width: 90px;
+          min-height: 14px;
+        }
         &.green {
           color: #00aa00;
         }
         b {
           font-size: 14px;
           font-weight: 700;
+        }
+      }
+    }
+  }
+}
+@mixin flexible-lg-xlg {
+  .flexible {
+    &Dates {
+      &__body {
+        margin: 0 -6px;
+      }
+      .slick {
+        &-slide {
+          padding: 0 6px !important;
         }
       }
     }

@@ -118,6 +118,7 @@
   @include room-lg-xlg;
   @include gallery-lg-xlg;
   @include breadcrumb-lg-xlg;
+  @include flexible-lg-xlg;
 }
 // 840px
 @include md-lg {
@@ -238,7 +239,6 @@
         padding-top: 20px;
       }
       &__item {
-        width: calc(33.3% - 4px);
         padding: 8px 10px;
         h6 {
           font-size: 12px;
@@ -288,10 +288,7 @@
         padding-top: 15px;
       }
       &__item {
-        width: 100%;
-        max-width: unset;
         padding: 12px 20px;
-        margin-bottom: 10px;
         &:last-child {
           margin: 0;
         }

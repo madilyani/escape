@@ -3913,16 +3913,57 @@ h6 {
   line-height: 16px;
   color: rgba(0, 0, 0, 0.6);
 }
+.flexibleDates .slick-track {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.flexibleDates .slick-slide {
+  padding: 0 15px !important;
+}
+.flexibleDates .slick-arrow {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: #26529c !important;
+  z-index: 3;
+}
+.flexibleDates .slick-arrow:hover {
+  opacity: 0.8;
+}
+.flexibleDates .slick-arrow:focus {
+  opacity: 0.8;
+}
+.flexibleDates .slick-arrow::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  content: "";
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: translate(-40%, -50%) rotate(-135deg);
+          transform: translate(-40%, -50%) rotate(-135deg);
+}
+.flexibleDates .slick-prev {
+  left: 0;
+}
+.flexibleDates .slick-prev.slick-disabled {
+  opacity: 0;
+}
+.flexibleDates .slick-next {
+  right: 0;
+}
+.flexibleDates .slick-next::before {
+  -webkit-transform: translate(-60%, -50%) rotate(45deg);
+          transform: translate(-60%, -50%) rotate(45deg);
+}
 .flexibleDates__body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   padding-top: 30px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  margin: 0 -15px;
 }
 .flexibleDates__item {
   background: #fff;
@@ -3931,17 +3972,23 @@ h6 {
   padding: 12px 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: calc(33.3% - 8px);
-  max-width: 433px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+}
+.flexibleDates__item:hover {
+  border: 1px solid #26529c;
+  background: rgba(38, 82, 156, 0.1);
 }
 .flexibleDates__item-col {
   display: -webkit-box;
@@ -3962,18 +4009,30 @@ h6 {
   color: #000000;
   margin-bottom: 8px;
 }
+.flexibleDates__item h6.placeholder {
+  width: 80px;
+  min-height: 16px;
+}
 .flexibleDates__item h5 {
   font-weight: 600;
   font-size: 20px;
-  line-height: 14px;
+  line-height: 20px;
   color: #26529c;
   margin-bottom: 8px;
+}
+.flexibleDates__item h5.placeholder {
+  width: 70px;
+  min-height: 20px;
 }
 .flexibleDates__item p {
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   color: rgba(0, 0, 0, 0.6);
+}
+.flexibleDates__item p.placeholder {
+  width: 90px;
+  min-height: 14px;
 }
 .flexibleDates__item p.green {
   color: #00aa00;
@@ -8371,6 +8430,12 @@ h6 {
     font-size: 20px;
     line-height: 24px;
   }
+  .flexibleDates__body {
+    margin: 0 -6px;
+  }
+  .flexibleDates .slick-slide {
+    padding: 0 6px !important;
+  }
 }
 @media (max-width: 840px) {
   main {
@@ -8497,7 +8562,6 @@ h6 {
     padding-top: 20px;
   }
   .flexibleDates__item {
-    width: calc(33.3% - 4px);
     padding: 8px 10px;
   }
   .flexibleDates__item h6 {
@@ -8828,10 +8892,7 @@ h6 {
     padding-top: 15px;
   }
   .flexibleDates__item {
-    width: 100%;
-    max-width: unset;
     padding: 12px 20px;
-    margin-bottom: 10px;
   }
   .flexibleDates__item:last-child {
     margin: 0;
