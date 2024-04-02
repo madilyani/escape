@@ -20,6 +20,20 @@ export const regioneList = [
     price: "12,99€",
   },
 ];
+export const regioneListSolo = [
+  {
+    id: "1",
+    value: "Lombardia",
+  },
+  {
+    id: "2",
+    value: "Milano",
+  },
+  {
+    id: "3",
+    value: "Pozzuoli",
+  },
+];
 export const transportTypes = [
   {
     id: "1",

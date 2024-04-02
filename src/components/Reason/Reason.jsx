@@ -13,7 +13,7 @@ import {
 } from "Base/SVG";
 import React from "react";
 
-export default function Reason({ setGallerySlider, card }) {
+export default function Reason({ setGallerySlider, card, setServiceShow }) {
   return (
     <section className="reason" id="startSticky">
       <div className="auto__container">
@@ -31,7 +31,7 @@ export default function Reason({ setGallerySlider, card }) {
                   {locationIcon}
                   <p>Veneto, Cortina d’Ampezzo</p>
                 </div>
-                <button type="button">Vedi Mappa</button>
+                <a href="#map">Vedi Mappa</a>
               </div>
             </div>
             <div className="reasonHead__row">
@@ -107,7 +107,12 @@ export default function Reason({ setGallerySlider, card }) {
             <div className="reasonService">
               <div className="reasonService__title">
                 <h5>Servizi</h5>
-                <div className="servicesBtn">Vedi tutti</div>
+                <div
+                  className="servicesBtn"
+                  onClick={() => setServiceShow(true)}
+                >
+                  Vedi tutti
+                </div>
               </div>
               <div className="reasonService__row">
                 <div

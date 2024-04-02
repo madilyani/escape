@@ -6,10 +6,12 @@ import {
   airportList,
   dimensionList,
   regioneList,
+  regioneListSolo,
   timeList,
   transportTypes,
 } from "./transportModul";
 export default function Transport() {
+  const [tab, setTab] = useState(null);
   return (
     <section className="transport">
       <div className="auto__container">
@@ -19,8 +21,17 @@ export default function Transport() {
             <h4>Trasporto</h4>
           </button>
           <div className="transport__inner-row">
-            <TransportItem addClass={"red"} title={"Nessun Viaggio incluso"} />
             <TransportItem
+              id="first"
+              setTab={setTab}
+              tab={tab}
+              addClass={"red"}
+              title={"Nessun Viaggio incluso"}
+            />
+            <TransportItem
+              id="second"
+              setTab={setTab}
+              tab={tab}
               price={true}
               addClass={"green"}
               title={
@@ -62,6 +73,9 @@ export default function Transport() {
               </div>
             </TransportItem>
             <TransportItem
+              id="third"
+              setTab={setTab}
+              tab={tab}
               price={true}
               addClass={"purple"}
               title={
@@ -104,6 +118,9 @@ export default function Transport() {
               </div>
             </TransportItem>
             <TransportItem
+              id="fourth"
+              setTab={setTab}
+              tab={tab}
               price={true}
               addClass={"orange"}
               title={
@@ -133,11 +150,27 @@ export default function Transport() {
     </section>
   );
 }
-export const TransportItem = ({ children, addClass, title, price }) => {
-  const [tab, setTab] = useState(false);
+export const TransportItem = ({
+  children,
+  addClass,
+  title,
+  price,
+  setTab,
+  tab,
+  id,
+}) => {
   return (
-    <div className={`transportItem ${addClass} ${tab ? "active" : ""} `}>
-      <div className="transportItem__head" onClick={() => setTab(!tab)}>
+    <div className={`transportItem ${addClass} ${tab === id ? "active" : ""} `}>
+      <div
+        className="transportItem__head"
+        onClick={() => {
+          if (tab === id) {
+            setTab(null);
+          } else {
+            setTab(id);
+          }
+        }}
+      >
         <div className="transportItem__head-title">
           <span></span>
           <h5>{title}</h5>
@@ -154,7 +187,7 @@ export const TransportItem = ({ children, addClass, title, price }) => {
           ""
         )}
       </div>
-      {tab && (
+      {tab === id && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

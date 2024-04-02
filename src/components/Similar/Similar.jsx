@@ -50,11 +50,6 @@ export default function Similar({ card }) {
     <section className="similar">
       <div className="auto__container">
         <div className="similar__inner">
-          <div className="similar__inner-stars">
-            {starIcon}
-            {starIcon}
-            {starIcon}
-          </div>
           <div className="similar__inner-title">
             <h4>Hotel simili</h4>
           </div>

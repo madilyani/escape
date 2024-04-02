@@ -42,6 +42,7 @@
         background: unset;
         margin-left: 11px;
         display: flex;
+
         align-items: center;
         font-family: $mainFont;
         font-weight: 600;
@@ -84,7 +85,7 @@
           height: 14px;
           margin-right: 7px;
           margin-top: 5px;
-          color: #00EA25;
+          color: #00ea25;
         }
         p {
           width: calc(100% - 21px);
@@ -98,9 +99,9 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: .3s ease;
+    transition: 0.3s ease;
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
     &.active {
       p {
@@ -167,9 +168,6 @@
     height: 100%;
     z-index: 999;
     background-color: $white;
-    visibility: hidden;
-    opacity: 0;
-    transition: .3s ease;
     &__title {
       display: flex;
       align-items: center;
@@ -264,7 +262,6 @@
 }
 @mixin services-xsm-sm {
   .services {
-    display: none;
     &__inner {
       &-title {
         display: flex;
@@ -294,12 +291,6 @@
     }
     &Card {
       &__icon {
-        span {
-          display: none;
-        }
-        img {
-          display: none;
-        }
       }
     }
     &Btn {

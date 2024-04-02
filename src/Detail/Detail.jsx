@@ -19,7 +19,9 @@ import { Link, useParams } from "react-router-dom";
 export default function Detail() {
   const [gallerySlider, setGallerySlider] = useState(false);
   const [card, setCard] = useState(null);
+  const [serviceShow, setServiceShow] = useState(false);
   const [roomSelected, setRoomSelected] = useState(null);
+
   const { cardId } = useParams();
   useEffect(() => {
     if (cardId) {
@@ -49,6 +51,14 @@ export default function Detail() {
       scrollFunc();
     });
   }, []);
+  useEffect(() => {
+    if (serviceShow) {
+      document.body.classList.add("active");
+    } else {
+      document.body.classList.remove("active");
+    }
+  }, [serviceShow]);
+
   return (
     <>
       <Helmet>
@@ -104,7 +114,12 @@ export default function Detail() {
       <Navigation card={card} roomSelected={roomSelected} />
 
       <div className="main__wrapper">
-        <Reason card={card} setGallerySlider={setGallerySlider} />
+        <Reason
+          card={card}
+          setGallerySlider={setGallerySlider}
+          setServiceShow={setServiceShow}
+          serviceShow={serviceShow}
+        />
         <div className="anchor" id="stanze"></div>
 
         <RoomDetail
@@ -115,7 +130,11 @@ export default function Detail() {
         <Transport />
       </div>
       <div className="anchors" id="services"></div>
-      <Services setGallerySlider={setGallerySlider} />
+      <Services
+        setGallerySlider={setGallerySlider}
+        setServiceShow={setServiceShow}
+        serviceShow={serviceShow}
+      />
       <div className="anchor" id="info"></div>
 
       <HotelInfo />

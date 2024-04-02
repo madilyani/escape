@@ -3,11 +3,27 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import CalendarMobile from "components/CalendarMobile";
 import EditSearchRoom from "components/EditSearchRoom";
+import moment from "moment";
 
-export default function EditSearch({ setEditSearch, form, updateForm }) {
+export default function EditSearch({ setEditSearch, setForm }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
-
+  const [pos, setPos] = useState({
+    where: "",
+    rooms: [
+      {
+        id: "1",
+        adults: 2,
+        children: 0,
+        children_age: [],
+      },
+    ],
+    startDate: null,
+    endDate: null,
+  });
+  const updatePos = (data) => {
+    setPos((pos) => ({ ...pos, ...data }));
+  };
   const closeModal = (e) => {
     if (e.target === e.currentTarget) setEditSearch(false);
   };
@@ -34,29 +50,47 @@ export default function EditSearch({ setEditSearch, form, updateForm }) {
           >
             <div className="editSearch__date">
               <h6>check in</h6>
-              <input type="text" placeholder="Seleziona Data" />
+              <input
+                type="text"
+                value={
+                  pos?.startDate ? moment(pos?.startDate).format("DD MMM") : ""
+                }
+                readOnly
+                placeholder="Seleziona Data"
+              />
             </div>
             <hr />
             <div className="editSearch__date">
               <h6>check Out</h6>
-              <input type="text" placeholder="Seleziona Data" />
+              <input
+                type="text"
+                readOnly
+                placeholder="Seleziona Data"
+                value={
+                  pos?.endDate ? moment(pos?.endDate).format("DD MMM") : ""
+                }
+              />
             </div>
           </div>
           {showCalendar && (
             <CalendarMobile
-              form={form}
+              form={pos}
               setActiveInput={setActiveInput}
-              updateForm={updateForm}
+              updateForm={updatePos}
               setShowCalendar={setShowCalendar}
             />
           )}
-          <EditSearchRoom form={form} updateForm={updateForm} />
+          <EditSearchRoom form={pos} updateForm={updatePos} />
         </div>
         <div className="editSearch__foot">
           <button
             type="button"
             className="button primary"
-            onClick={() => setEditSearch(false)}
+            onClick={() => {
+              setForm(pos);
+
+              setEditSearch(false);
+            }}
           >
             aggiorna ricerca
           </button>

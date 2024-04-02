@@ -1,17 +1,5 @@
 import React, { useEffect, useState } from "react";
-import RoomMobile from "components/RoomMobile";
-import {
-  bedIcon,
-  bedIcon2,
-  calendarIcon2,
-  cancel,
-  chevronBottom,
-  foodIcon,
-  infoIcon,
-  tickIcon,
-  userIcon2,
-} from "Base/SVG";
-import CalendarMobile from "components/CalendarMobile";
+import { calendarIcon2, cancel, infoIcon, tickIcon, userIcon2 } from "Base/SVG";
 import moment from "moment";
 import Calendar from "components/Calendar";
 import Room from "components/Room/Room";
@@ -179,11 +167,7 @@ export default function RoomDetail({ roomSelected, setRoomSelected }) {
         </div>
       </section>
       {mobile && editSearch && (
-        <EditSearch
-          form={form}
-          setEditSearch={setEditSearch}
-          updateForm={updateForm}
-        />
+        <EditSearch setForm={setForm} setEditSearch={setEditSearch} />
       )}
       {mobile && roomCardPopup && (
         <RoomDetailPopUp

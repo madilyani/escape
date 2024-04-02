@@ -4715,7 +4715,7 @@ h6 {
   height: 14px;
   margin-right: 7px;
   margin-top: 5px;
-  color: #00EA25;
+  color: #00ea25;
 }
 .servicesItem__list li p {
   width: calc(100% - 21px);
@@ -4814,10 +4814,6 @@ h6 {
   height: 100%;
   z-index: 999;
   background-color: #fff;
-  visibility: hidden;
-  opacity: 0;
-  -webkit-transition: 0.3s ease;
-  transition: 0.3s ease;
 }
 .servicesMob__title {
   display: -webkit-box;
@@ -5304,7 +5300,7 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
 }
-.reasonHead__info button {
+.reasonHead__info a {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -6358,6 +6354,9 @@ h6 {
   font-weight: 600;
   color: #26529c;
 }
+.dropdown.active {
+  z-index: 3;
+}
 .dropdown.active .dropdown__options {
   max-height: 240px;
   overflow-y: auto;
@@ -6860,8 +6859,8 @@ h6 {
 .detailHead__links a,
 .detailHead__links button {
   width: 28px;
-  height: 28px;
   color: #26529c;
+  height: 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6890,6 +6889,21 @@ h6 {
   width: 100%;
   height: 100%;
   color: #26529c;
+}
+.detailHead__like svg {
+  color: #26529c !important;
+}
+.detailHead__like.active svg {
+  color: red !important;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+.detailHead__like svg {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
 }
 
 .breadcrumb {
@@ -7014,6 +7028,11 @@ h6 {
   font-size: 30px;
   line-height: 28px;
   text-decoration-line: underline;
+}
+.galleryItem__over svg {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 .galleryItem:nth-child(1) {
   position: absolute;
@@ -8317,6 +8336,10 @@ h6 {
     line-height: 26px;
     border-radius: 0;
   }
+  .galleryItem__over svg {
+    width: 30px;
+    height: 30px;
+  }
   .galleryItem__btns button {
     width: 24px;
     height: 24px;
@@ -9313,12 +9336,33 @@ h6 {
     display: -ms-flexbox;
     display: flex;
   }
+  .room {
+    padding-top: 0;
+  }
+  .room__inner {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #d4d4d4;
+  }
   .roomHead {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
+    padding: 6px 0;
+  }
+  .roomHead::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: 100%;
+    background: #f5fbfb;
   }
   .roomHead__item {
     width: 100%;
@@ -9355,6 +9399,9 @@ h6 {
     width: 16px;
     height: 16px;
     left: 8px;
+  }
+  .reason__inner a {
+    display: none;
   }
   .reasonHead {
     display: none;
@@ -9446,9 +9493,6 @@ h6 {
   .transport .dropdown__outer.xsm {
     width: 100%;
   }
-  .services {
-    display: none;
-  }
   .services__inner-title {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9483,12 +9527,6 @@ h6 {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     margin: 0 -6px;
-  }
-  .servicesCard__icon span {
-    display: none;
-  }
-  .servicesCard__icon img {
-    display: none;
   }
   .servicesBtn {
     display: -webkit-box;
@@ -9592,16 +9630,16 @@ h6 {
     padding: 0 0 0 50%;
   }
   .galleryItem {
-    width: calc(100% - 4px);
-    margin: 2px;
+    width: calc(100% - 2px);
+    margin: 1px;
   }
   .galleryItem:nth-child(2) {
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(50% - 14px);
-    height: calc(100% - 4px);
-    margin: 2px;
+    width: calc(50% - 12px);
+    height: calc(100% - 2px);
+    margin: 1px;
   }
   .galleryItem:nth-child(2) .galleryItem__inner {
     position: static;
@@ -9611,6 +9649,14 @@ h6 {
   }
   .galleryItem:nth-child(5) {
     display: none;
+  }
+  .galleryItem__over {
+    text-decoration: unset;
+  }
+  .galleryItem__over svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
   }
   .breadcrumb {
     display: none;
