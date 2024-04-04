@@ -5600,6 +5600,9 @@ h6 {
   line-height: 20px;
   font-weight: 500;
 }
+.roomHead .button.primary:disabled {
+  background: #dfdfdf;
+}
 .roomHead__item {
   width: calc(50% - 4px);
   -webkit-box-sizing: border-box;

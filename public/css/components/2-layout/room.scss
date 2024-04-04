@@ -43,6 +43,9 @@
       font-size: 16px;
       line-height: 20px;
       font-weight: 500;
+      &:disabled {
+        background: #dfdfdf;
+      }
     }
     &__item {
       width: calc(50% - 4px);
