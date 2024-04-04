@@ -3012,6 +3012,7 @@ h6 {
   top: calc(100% + 4px);
   background: #fff;
   border-radius: 12px;
+  overflow: hidden;
   -webkit-box-shadow: 0px 10px 55px rgba(42, 45, 131, 0.13);
           box-shadow: 0px 10px 55px rgba(42, 45, 131, 0.13);
   z-index: 5;
