@@ -142,6 +142,7 @@ export default function RoomDetail({
                       roomCardPopup={roomCardPopup}
                       setGallerySlider={setGallerySlider}
                       {...roomModulMobile[0]}
+                      form2={form2}
                     />
                     <div className="roomSign">
                       {userIcon2}
@@ -159,6 +160,7 @@ export default function RoomDetail({
                           roomCardPopup={roomCardPopup}
                           setGallerySlider={setGallerySlider}
                           {...item}
+                          form2={form2}
                           key={index}
                         />
                       );
@@ -188,6 +190,7 @@ export default function RoomDetail({
                         setRoomSelected={setRoomSelected}
                         setGallerySlider={setGallerySlider}
                         {...item}
+                        form2={form2}
                         key={index}
                       />
                     );
