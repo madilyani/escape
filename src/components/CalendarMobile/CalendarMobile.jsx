@@ -51,67 +51,92 @@ export default function CalendarMobile({
             {cancel}
           </div>
         </div>
-        <div className="calendar__tabs">
-          <button
-            type="button"
-            className={"calendar__tab " + (tab === "dates" ? "active" : "")}
-            onClick={() => setTab("dates")}
-          >
-            Dates
-          </button>
-          <button
-            type="button"
-            className={"calendar__tab " + (tab === "flexible" ? "active" : "")}
-            onClick={() => setTab("flexible")}
-          >
-            Flexible
-          </button>
-        </div>
+        {!isDetail && (
+          <div className="calendar__tabs">
+            <button
+              type="button"
+              className={"calendar__tab " + (tab === "dates" ? "active" : "")}
+              onClick={() => setTab("dates")}
+            >
+              Dates
+            </button>
+            <button
+              type="button"
+              className={
+                "calendar__tab " + (tab === "flexible" ? "active" : "")
+              }
+              onClick={() => setTab("flexible")}
+            >
+              Flexible
+            </button>
+          </div>
+        )}
+
         <div className="calendar__content">
-          {tab === "dates" && (
+          {isDetail ? (
+            <div className="calendar__content-inner">
+              <DatePicker
+                selected={""}
+                filterDate={isDetail && isWeekday}
+                onChange={onChange}
+                startDate={form.startDate}
+                endDate={form.endDate}
+                minDate={moment().toDate()}
+                maxDate={moment().add(1, "years").calendar()}
+                selectsRange
+                inline
+                monthsShown={1}
+                calendarStartDay={1}
+              />
+            </div>
+          ) : (
             <>
-              <div className="calendar__content-inner">
-                <DatePicker
-                  selected={""}
-                  filterDate={isDetail && isWeekday}
-                  onChange={onChange}
-                  startDate={form.startDate}
-                  endDate={form.endDate}
-                  minDate={moment().toDate()}
-                  maxDate={moment().add(1, "years").calendar()}
-                  selectsRange
-                  inline
-                  monthsShown={1}
-                  calendarStartDay={1}
-                />
-              </div>
-              {!isDetail && (
-                <div className="calendar__foot">
-                  <button type="button">
-                    <input type="radio" name="exactDates" />
-                    <span> Exact dates</span>
-                  </button>
-                  <button type="button">
-                    <input type="radio" name="exactDates" />
-                    <span>{plusMinus} 1 day</span>
-                  </button>
-                  <button type="button">
-                    <input type="radio" name="exactDates" />
-                    <span>{plusMinus} 2 day</span>
-                  </button>
-                  <button type="button">
-                    <input type="radio" name="exactDates" />
-                    <span>{plusMinus} 3 day</span>
-                  </button>
-                  <button type="button">
-                    <input type="radio" name="exactDates" />
-                    <span>{plusMinus} 7 day</span>
-                  </button>
-                </div>
+              {tab === "dates" && (
+                <>
+                  <div className="calendar__content-inner">
+                    <DatePicker
+                      selected={""}
+                      filterDate={isDetail && isWeekday}
+                      onChange={onChange}
+                      startDate={form.startDate}
+                      endDate={form.endDate}
+                      minDate={moment().toDate()}
+                      maxDate={moment().add(1, "years").calendar()}
+                      selectsRange
+                      inline
+                      monthsShown={1}
+                      calendarStartDay={1}
+                    />
+                  </div>
+                  {!isDetail && (
+                    <div className="calendar__foot">
+                      <button type="button">
+                        <input type="radio" name="exactDates" />
+                        <span> Exact dates</span>
+                      </button>
+                      <button type="button">
+                        <input type="radio" name="exactDates" />
+                        <span>{plusMinus} 1 day</span>
+                      </button>
+                      <button type="button">
+                        <input type="radio" name="exactDates" />
+                        <span>{plusMinus} 2 day</span>
+                      </button>
+                      <button type="button">
+                        <input type="radio" name="exactDates" />
+                        <span>{plusMinus} 3 day</span>
+                      </button>
+                      <button type="button">
+                        <input type="radio" name="exactDates" />
+                        <span>{plusMinus} 7 day</span>
+                      </button>
+                    </div>
+                  )}
+                </>
               )}
+              {tab === "flexible" && <FlexibleMobile />}
             </>
           )}
-          {tab === "flexible" && <FlexibleMobile />}
         </div>
       </div>
     </motion.div>
