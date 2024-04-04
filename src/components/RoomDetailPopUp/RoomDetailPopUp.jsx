@@ -45,27 +45,6 @@ export default function RoomDetailPopUp({
       onClick={closeModal}
     >
       <div className="roomPop__inner">
-        <div className="roomPop__row" onClick={() => setEditSearch(true)}>
-          <div className="roomPop__item">
-            {calendarIcon2}
-            <h6>Check-ln Check-out</h6>
-            <input
-              placeholder="Select Date"
-              type="text"
-              readOnly
-              value={
-                (form?.startDate
-                  ? moment(form?.startDate).format("DD MMM") + " - "
-                  : "") +
-                (form?.endDate ? moment(form?.endDate).format("DD MMM") : "")
-              }
-            />
-          </div>
-          <div className="roomPop__item">
-            <h6>Stanze</h6>
-            <input placeholder="Add guests" type="text" readOnly value={text} />
-          </div>
-        </div>
         <div className="roomPop__price">
           <h5>
             <small>hotel</small> 3.270€

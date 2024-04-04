@@ -6402,14 +6402,9 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  top: 0;
+  bottom: 20px;
   left: 0;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.25);
 }
 .roomPop__inner {
   -webkit-box-shadow: 0px 0px 10.7px rgba(0, 0, 0, 0.25);
