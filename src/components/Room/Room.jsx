@@ -7,6 +7,8 @@ export default function Room({
   updateForm,
   setShowCalendar,
   setActiveInput,
+  disableFunc,
+  setIsDisabled,
 }) {
   const wrapper = useRef(null);
   const dropdownRef = useRef(null);
@@ -97,6 +99,9 @@ export default function Room({
                       },
                     ],
                   });
+                  if (disableFunc) {
+                    setIsDisabled(false);
+                  }
                 }}
               >
                 Reset
@@ -117,6 +122,9 @@ export default function Room({
                         },
                       ],
                     });
+                    if (disableFunc) {
+                      setIsDisabled(false);
+                    }
                   }
                 }}
               >
@@ -144,6 +152,9 @@ export default function Room({
                             updateForm({
                               rooms: arr,
                             });
+                            if (disableFunc) {
+                              setIsDisabled(false);
+                            }
                           }, 50);
                         }}
                       >
@@ -172,6 +183,9 @@ export default function Room({
                                 updateForm({
                                   rooms: arr,
                                 });
+                                if (disableFunc) {
+                                  setIsDisabled(false);
+                                }
                               }
                             }}
                           >
@@ -198,6 +212,9 @@ export default function Room({
                                 updateForm({
                                   rooms: arr,
                                 });
+                                if (disableFunc) {
+                                  setIsDisabled(false);
+                                }
                               }
                             }}
                           >
@@ -229,6 +246,9 @@ export default function Room({
                                 updateForm({
                                   rooms: arr,
                                 });
+                                if (disableFunc) {
+                                  setIsDisabled(false);
+                                }
                               }
                             }}
                           >
@@ -256,6 +276,9 @@ export default function Room({
                                 updateForm({
                                   rooms: arr,
                                 });
+                                if (disableFunc) {
+                                  setIsDisabled(false);
+                                }
                               }
                             }}
                           >
@@ -286,6 +309,9 @@ export default function Room({
                                     updateForm({
                                       rooms: arr,
                                     });
+                                    if (disableFunc) {
+                                      setIsDisabled(false);
+                                    }
                                   }}
                                 >
                                   {[

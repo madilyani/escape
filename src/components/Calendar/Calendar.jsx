@@ -10,14 +10,22 @@ export default function Calendar({
   setActiveInput,
   setShowCalendar,
   isDetail,
+  setIsDisabled,
+  disableFunc,
 }) {
   const [tab, setTab] = useState("dates");
   const onChange = (dates) => {
     const [start, end] = dates;
     if (new Date(start).toISOString() === new Date(end).toISOString()) {
       updateForm({ startDate: start, endDate: null });
+      if (disableFunc && start && end) {
+        setIsDisabled(false);
+      }
     } else {
       updateForm({ startDate: start, endDate: end });
+      if (disableFunc && start && end) {
+        setIsDisabled(false);
+      }
     }
     if (start && !end) {
       setActiveInput("checkOut");
@@ -76,7 +84,7 @@ export default function Calendar({
                 onChange={onChange}
                 startDate={form.startDate}
                 endDate={form.endDate}
-                maxDate={moment(new Date()).add("years", 1)}
+                maxDate={moment().add(1, "years").calendar()}
                 selectsRange
                 inline
                 filterDate={isDetail && isWeekday}

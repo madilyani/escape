@@ -1,40 +1,8 @@
-import { calendarIcon2, userIcon2 } from "Base/SVG";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+import { telegramIcon } from "Base/SVG";
+import React from "react";
 import { motion } from "framer-motion";
 
-export default function RoomDetailPopUp({
-  form,
-  setRoomCardPopup,
-  setEditSearch,
-}) {
-  const [text, setText] = useState("");
-  useEffect(() => {
-    let totalAdults = 0;
-    let totalChildren = 0;
-    form?.rooms.forEach((element) => {
-      totalAdults = totalAdults + element.adults;
-      totalChildren = totalChildren + element.children;
-    });
-
-    let text =
-      (form?.rooms.length > 0
-        ? form?.rooms.length === 1
-          ? `${form?.rooms.length} Stanza`
-          : `${form?.rooms.length} Stanze`
-        : ``) +
-      (totalAdults > 0 ? `, ${totalAdults} Ad.` : ``) +
-      (totalChildren > 0
-        ? totalChildren === 1
-          ? `, ${totalChildren} bambino`
-          : `, ${totalChildren} bambini`
-        : ``);
-
-    setText(text);
-  }, [form?.rooms]);
-  const closeModal = (e) => {
-    if (e.target === e.currentTarget) setRoomCardPopup(false);
-  };
+export default function RoomDetailPopUp({ roomSelected, form2 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -42,20 +10,37 @@ export default function RoomDetailPopUp({
       transition={{ duration: 0.2 }}
       exit={{ opacity: 0, y: 10 }}
       className="roomPop"
-      onClick={closeModal}
     >
       <div className="roomPop__inner">
         <div className="roomPop__price">
-          <h5>
-            <small>hotel</small> 3.270€
-          </h5>
-          <h6>con viaggio +240€</h6>
+          <h5>{roomSelected ? roomSelected?.total + "€" : "163€"}</h5>
+          {roomSelected ? <p>prezzo totale</p> : <p>prezzo per notte</p>}
+          {roomSelected &&
+            form2?.type !== "" &&
+            form2?.type !== null &&
+            form2?.type !== "first" && <h6>con viaggio +{form2?.price}€</h6>}
         </div>
         <div className="roomPop__foot">
-          <button className="button primary">Prosegui</button>
-          <a href="#" className="roomPop__link">
-            invia preventivo per mail
-          </a>
+          {roomSelected ? (
+            <div className="roomPop__foot-btns">
+              <button className="roomPop__foot-btn">{telegramIcon}</button>
+              <button className="button primary">Prosegui</button>
+            </div>
+          ) : (
+            <button
+              className="button primary"
+              onClick={() => {
+                const roomOuter = document.getElementById("roomOuter");
+                const roomSection = document.getElementById("roomSection");
+                window.scrollTo(
+                  0,
+                  roomOuter.offsetTop + roomSection?.offsetTop - 70.38
+                );
+              }}
+            >
+              Scegli Stanza
+            </button>
+          )}
         </div>
       </div>
     </motion.div>

@@ -14,12 +14,13 @@ export default function RoomDetail({
   setGallerySlider,
   form2,
 }) {
+  const [isDisabled, setIsDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
   const [activeInput, setActiveInput] = useState(null);
   const [editSearch, setEditSearch] = useState(false);
   const [mobileModul, setMobileModul] = useState(roomModulMobile.slice(1, 3));
-  const [roomCardPopup, setRoomCardPopup] = useState(false);
+  const [roomCardPopup, setRoomCardPopup] = useState(null);
   const [form, setForm] = useState({
     where: "",
     rooms: [
@@ -58,10 +59,29 @@ export default function RoomDetail({
       document.body.classList.remove("active");
     }
   }, [editSearch]);
-
+  useEffect(() => {
+    const scrollFunc = () => {
+      const roomOuter = document.getElementById("roomOuter");
+      const roomSection = document.getElementById("roomSection");
+      if (
+        window.scrollY >=
+          roomOuter?.offsetTop +
+            roomSection?.offsetTop -
+            window.innerHeight / 2 &&
+        window.scrollY <=
+          roomOuter?.offsetTop +
+            roomOuter?.offsetHeight -
+            window.innerHeight / 2
+      ) {
+        setRoomCardPopup(false);
+      } else setRoomCardPopup(true);
+    };
+    scrollFunc();
+    window.addEventListener("scroll", scrollFunc);
+  }, []);
   return (
     <>
-      <section className="room">
+      <section className="room" id="roomOuter">
         <div className="auto__container">
           <div className="room__inner">
             <div
@@ -105,6 +125,8 @@ export default function RoomDetail({
                       setActiveInput={setActiveInput}
                       updateForm={updateForm}
                       setShowCalendar={setShowCalendar}
+                      setIsDisabled={setIsDisabled}
+                      disableFunc={true}
                     />
                   )}
                 </div>
@@ -115,13 +137,17 @@ export default function RoomDetail({
                     setActiveInput={setActiveInput}
                     updateForm={updateForm}
                     setShowCalendar={setShowCalendar}
+                    setIsDisabled={setIsDisabled}
+                    disableFunc={true}
                   />
                 </div>
               </div>
               <button
                 className="button primary"
+                disabled={isDisabled}
                 onClick={() => {
                   setIsLoading(true);
+                  setIsDisabled(true);
                   setTimeout(() => {
                     setIsLoading(false);
                   }, 2000);
@@ -133,13 +159,11 @@ export default function RoomDetail({
             {!isLoading ? (
               mobile ? (
                 <>
-                  <div className="room__inner-col">
+                  <div className="room__inner-col" id="roomSection">
                     <h4>Stanze e Trattamenti</h4>
                     <RoomMobileItem
                       roomSelected={roomSelected}
                       setRoomSelected={setRoomSelected}
-                      setRoomCardPopup={setRoomCardPopup}
-                      roomCardPopup={roomCardPopup}
                       setGallerySlider={setGallerySlider}
                       {...roomModulMobile[0]}
                       form2={form2}
@@ -156,8 +180,6 @@ export default function RoomDetail({
                         <RoomMobileItem
                           roomSelected={roomSelected}
                           setRoomSelected={setRoomSelected}
-                          setRoomCardPopup={setRoomCardPopup}
-                          roomCardPopup={roomCardPopup}
                           setGallerySlider={setGallerySlider}
                           {...item}
                           form2={form2}
@@ -209,13 +231,7 @@ export default function RoomDetail({
         <EditSearch setForm={setForm} setEditSearch={setEditSearch} />
       )}
       {mobile && roomCardPopup && (
-        <RoomDetailPopUp
-          roomSelected={roomSelected}
-          setRoomCardPopup={setRoomCardPopup}
-          form={form}
-          setEditSearch={setEditSearch}
-          updateForm={updateForm}
-        />
+        <RoomDetailPopUp roomSelected={roomSelected} form2={form2} />
       )}
     </>
   );
@@ -459,7 +475,6 @@ export const RoomMobileItem = (props) => {
                       categories: item.id,
                       total: item.total,
                     });
-                    props.setRoomCardPopup(true);
                   }}
                 >
                   SELEZIONA

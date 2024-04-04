@@ -78,6 +78,7 @@ export default function CalendarMobile({
                   startDate={form.startDate}
                   endDate={form.endDate}
                   minDate={moment().toDate()}
+                  maxDate={moment().add(1, "years").calendar()}
                   selectsRange
                   inline
                   monthsShown={1}
