@@ -132,6 +132,7 @@
   .react-datepicker__day--in-range {
     background-color: rgba(38, 81, 156, 0.25) !important;
     color: $black !important;
+    border-radius: 0 !important;
   }
   .react-datepicker__day--range-start {
     border-radius: 100px 0 0 100px !important;
