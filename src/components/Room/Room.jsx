@@ -50,7 +50,7 @@ export default function Room({
   }, [active]);
   const clickHandler = (e) => {
     if (!dropdownRef?.current?.contains(e.target)) {
-      setActive(true);
+      setActive(!active);
       setShowCalendar(false);
       setActiveInput(null);
     }

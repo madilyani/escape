@@ -39,7 +39,7 @@ export default function RoomMobile({ form, updateForm, setShowCalendar }) {
   }, [active]);
   const clickHandler = (e) => {
     if (!dropdownRef?.current?.contains(e.target)) {
-      setActive(true);
+      setActive(!active);
       setShowCalendar(false);
     }
   };

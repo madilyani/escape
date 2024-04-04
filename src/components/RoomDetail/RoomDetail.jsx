@@ -14,6 +14,7 @@ export default function RoomDetail({
   setGallerySlider,
   form2,
 }) {
+  const [popWrap, setPopWrap] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -21,6 +22,10 @@ export default function RoomDetail({
   const [editSearch, setEditSearch] = useState(false);
   const [mobileModul, setMobileModul] = useState(roomModulMobile.slice(1, 3));
   const [roomCardPopup, setRoomCardPopup] = useState(null);
+  const [descActive, setDescActive] = useState(false);
+  const [descActive2, setDescActive2] = useState(false);
+  const [descActive3, setDescActive3] = useState(null);
+
   const [form, setForm] = useState({
     where: "",
     rooms: [
@@ -79,6 +84,13 @@ export default function RoomDetail({
     scrollFunc();
     window.addEventListener("scroll", scrollFunc);
   }, []);
+  const closePop = (e) => {
+    setDescActive(false);
+    setDescActive2(false);
+    setDescActive3(null);
+    setPopWrap(false);
+    // }
+  };
   return (
     <>
       <section className="room" id="roomOuter">
@@ -166,6 +178,12 @@ export default function RoomDetail({
                       roomSelected={roomSelected}
                       setRoomSelected={setRoomSelected}
                       setGallerySlider={setGallerySlider}
+                      descActive2={descActive2}
+                      setDescActive2={setDescActive2}
+                      descActive3={descActive3}
+                      setDescActive3={setDescActive3}
+                      setPopWrap={setPopWrap}
+                      popWrap={popWrap}
                       {...roomModulMobile[0]}
                       form2={form2}
                     />
@@ -182,6 +200,12 @@ export default function RoomDetail({
                           roomSelected={roomSelected}
                           setRoomSelected={setRoomSelected}
                           setGallerySlider={setGallerySlider}
+                          descActive2={descActive2}
+                          setDescActive2={setDescActive2}
+                          descActive3={descActive3}
+                          setDescActive3={setDescActive3}
+                          setPopWrap={setPopWrap}
+                          popWrap={popWrap}
                           {...item}
                           form2={form2}
                           key={index}
@@ -215,6 +239,10 @@ export default function RoomDetail({
                         {...item}
                         form2={form2}
                         key={index}
+                        descActive={descActive}
+                        setDescActive={setDescActive}
+                        setPopWrap={setPopWrap}
+                        popWrap={popWrap}
                       />
                     );
                   })}
@@ -227,6 +255,10 @@ export default function RoomDetail({
             )}
           </div>
         </div>
+        <div
+          className={"popWrap " + (popWrap ? "active" : "")}
+          onClick={closePop}
+        ></div>
       </section>
       <AnimatePresence>
         {mobile && editSearch && (
@@ -240,7 +272,6 @@ export default function RoomDetail({
   );
 }
 export const RoomItem = (props) => {
-  const [descActive, setDescActive] = useState(false);
   return (
     <div className="roomItem">
       <div className="roomItem__main">
@@ -255,12 +286,13 @@ export const RoomItem = (props) => {
               <div
                 className="cardDesc__btn"
                 onClick={() => {
-                  setDescActive(!descActive);
+                  props.setDescActive(!props.descActive);
+                  props.setPopWrap(!props.popWrap);
                 }}
               >
                 Vedi Descrizione
               </div>
-              {descActive && (
+              {props.descActive && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
@@ -270,7 +302,8 @@ export const RoomItem = (props) => {
                 >
                   <span
                     onClick={() => {
-                      setDescActive(false);
+                      props.setDescActive(false);
+                      props.setPopWrap(false);
                     }}
                   >
                     {cancel}
@@ -379,8 +412,6 @@ export const RoomItem = (props) => {
   );
 };
 export const RoomMobileItem = (props) => {
-  const [descActive, setDescActive] = useState(false);
-  const [descActive2, setDescActive2] = useState(false);
   const [category, setCategory] = useState(props.categories.slice(0, 3));
   return (
     <div className="roomCard">
@@ -396,12 +427,13 @@ export const RoomMobileItem = (props) => {
             <div
               className="cardDesc__btn"
               onClick={() => {
-                setDescActive2(!descActive2);
+                props.setDescActive2(!props.descActive2);
+                props.setPopWrap(!props.popWrap);
               }}
             >
               Vedi Descrizione
             </div>
-            {descActive2 && (
+            {props.descActive2 && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
@@ -411,7 +443,8 @@ export const RoomMobileItem = (props) => {
               >
                 <span
                   onClick={() => {
-                    setDescActive2(false);
+                    props.setDescActive2(false);
+                    props.setPopWrap(false);
                   }}
                 >
                   {cancel}
@@ -428,12 +461,13 @@ export const RoomMobileItem = (props) => {
           <div
             className="roomCard__not-btn"
             onClick={() => {
-              setDescActive(!descActive);
+              props.setDescActive3(props.id);
+              props.setPopWrap(!props?.popWrap);
             }}
           >
             {infoIcon}
           </div>
-          {descActive && (
+          {props.descActive3 === props?.id && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
@@ -443,8 +477,8 @@ export const RoomMobileItem = (props) => {
             >
               <span
                 onClick={() => {
-                  setDescActive(false);
-                  // setPopWrap(false);
+                  props.setDescActive3(null);
+                  props.setPopWrap(false);
                 }}
               >
                 {cancel}
