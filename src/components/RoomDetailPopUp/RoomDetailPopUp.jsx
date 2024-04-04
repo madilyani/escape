@@ -18,7 +18,16 @@ export default function RoomDetailPopUp({ roomSelected, form2 }) {
           {roomSelected &&
             form2?.type !== "" &&
             form2?.type !== null &&
-            form2?.type !== "first" && <h6>con viaggio +{form2?.price}€</h6>}
+            form2?.type !== "first" && (
+              <motion.h6
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                exit={{ opacity: 0, y: 10 }}
+              >
+                <span>+{form2?.price}€</span> con viaggio
+              </motion.h6>
+            )}
         </div>
         <div className="roomPop__foot">
           {roomSelected ? (

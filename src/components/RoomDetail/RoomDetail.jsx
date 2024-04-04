@@ -148,6 +148,7 @@ export default function RoomDetail({
                 onClick={() => {
                   setIsLoading(true);
                   setIsDisabled(true);
+                  setShowCalendar(false);
                   setTimeout(() => {
                     setIsLoading(false);
                   }, 2000);

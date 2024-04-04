@@ -110,6 +110,9 @@
         &::after {
           color: #26529c;
           content: "/";
+          font-weight: 700;
+          margin: 0 5px;
+          display: inline-block;
         }
       }
     }
@@ -497,7 +500,7 @@
   .gallery {
     margin: 0 -20px;
     width: calc(100% + 40px);
-   
+
     &__inner {
       padding: 0 0 0 50%;
     }
