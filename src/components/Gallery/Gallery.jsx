@@ -62,7 +62,7 @@ const GalleryItem = (props) => {
               className="galleryItem__over"
               onClick={() => props.setGallerySlider(true)}
             >
-              {cameraIcon} +{props?.gallery?.length} foto
+              {cameraIcon} Galerria ({props?.gallery?.length}) 
             </button>
           </>
         )}

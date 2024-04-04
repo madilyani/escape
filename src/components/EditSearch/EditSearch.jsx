@@ -1,5 +1,5 @@
 import Calendar from "components/Calendar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import CalendarMobile from "components/CalendarMobile";
 import EditSearchRoom from "components/EditSearchRoom";
@@ -27,6 +27,12 @@ export default function EditSearch({ setEditSearch, setForm }) {
   const closeModal = (e) => {
     if (e.target === e.currentTarget) setEditSearch(false);
   };
+  useEffect(() => {
+    if (pos.startDate !== null && pos.endDate !== null) {
+      setShowCalendar(false);
+    }
+  }, [pos.startDate, pos.endDate]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -74,6 +80,7 @@ export default function EditSearch({ setEditSearch, setForm }) {
           </div>
           {showCalendar && (
             <CalendarMobile
+              isDetail={true}
               form={pos}
               setActiveInput={setActiveInput}
               updateForm={updatePos}

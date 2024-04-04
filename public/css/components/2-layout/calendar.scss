@@ -247,17 +247,11 @@
     border-radius: 50% !important;
   }
 
-  .react-datepicker__day {
-    margin: 0 !important;
-    background: rgba($color: #78d28c, $alpha: 0.3);
-  }
+
   .react-datepicker__day--disabled {
     background: transparent;
   }
-  .react-datepicker__day--today {
-    background: transparent !important;
-    color: #000000 !important;
-  }
+
 
   .react-datepicker__day--selected:hover {
     border-radius: 0 !important;

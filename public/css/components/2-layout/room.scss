@@ -151,6 +151,29 @@
       left: 0;
       transform: translateX(0);
     }
+    .react-datepicker__day {
+      margin: 0 !important;
+      background: rgba($color: #78d28c, $alpha: 0.3);
+      border-radius: 100px !important;
+    }
+    .react-datepicker__day--disabled {
+      background: transparent !important;
+      color: #dbdde1 !important;
+    }
+    .react-datepicker__day--in-range {
+      background-color: rgba(38, 81, 156, 0.25) !important;
+      color: $black !important;
+      border-radius: 0 !important;
+    }
+    .react-datepicker__day--range-start {
+      border-radius: 100px 0 0 100px !important;
+      background-color: $primary !important;
+      color: $white !important;
+    }
+    .react-datepicker__day--today {
+      background: transparent !important;
+      color: $primary !important;
+    }
   }
   &Item {
     display: flex;
@@ -425,7 +448,7 @@
       padding: 8px 44px 8px 12px;
       display: flex;
       position: relative;
-      border: 1px solid #d4d4d4;
+      border-bottom: 1px solid #d4d4d4;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -448,7 +471,7 @@
     }
     &__content {
       padding: 8px 10px 8px 12px;
-      border: 1px solid #d4d4d4;
+      border-bottom: 1px solid #d4d4d4;
       &:last-of-type {
         border: unset;
       }
@@ -878,6 +901,13 @@
       position: relative;
       z-index: 1;
       padding: 6px 0;
+      &__items {
+        width: 100%;
+        flex-direction: column;
+      }
+      .button.primary {
+        display: none;
+      }
       &::before {
         z-index: -1;
         position: absolute;

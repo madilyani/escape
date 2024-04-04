@@ -51,7 +51,14 @@ export default function RoomDetail({
       }
     });
   }, []);
-  console.log(roomModulMobile?.length, " ", mobileModul?.length + 1);
+  useEffect(() => {
+    if (editSearch) {
+      document.body.classList.add("active");
+    } else {
+      document.body.classList.remove("active");
+    }
+  }, [editSearch]);
+
   return (
     <>
       <section className="room">
@@ -93,6 +100,7 @@ export default function RoomDetail({
                   </div>
                   {showCalendar && (
                     <Calendar
+                      isDetail={true}
                       form={form}
                       setActiveInput={setActiveInput}
                       updateForm={updateForm}

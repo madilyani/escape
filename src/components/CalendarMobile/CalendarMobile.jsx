@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import "react-datepicker/dist/react-datepicker.css";
 import FlexibleMobile from "components/FlexibleMobile";
 import { cancel, plusMinus } from "Base/SVG";
-export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
+import moment from "moment";
+export default function CalendarMobile({
+  form,
+  updateForm,
+  setShowCalendar,
+  isDetail,
+}) {
   const [tab, setTab] = useState("dates");
   const onChange = (dates) => {
     const [start, end] = dates;
@@ -21,6 +27,7 @@ export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
       day !== 1 && day !== 2 && day !== 3 && day !== 4 && day !== 5 && day !== 6
     );
   };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -66,38 +73,41 @@ export default function CalendarMobile({ form, updateForm, setShowCalendar }) {
               <div className="calendar__content-inner">
                 <DatePicker
                   selected={""}
-                  filterDate={isWeekday}
+                  filterDate={isDetail && isWeekday}
                   onChange={onChange}
                   startDate={form.startDate}
                   endDate={form.endDate}
+                  minDate={moment().toDate()}
                   selectsRange
                   inline
                   monthsShown={1}
                   calendarStartDay={1}
                 />
               </div>
-              <div className="calendar__foot">
-                <button type="button">
-                  <input type="radio" name="exactDates" />
-                  <span> Exact dates</span>
-                </button>
-                <button type="button">
-                  <input type="radio" name="exactDates" />
-                  <span>{plusMinus} 1 day</span>
-                </button>
-                <button type="button">
-                  <input type="radio" name="exactDates" />
-                  <span>{plusMinus} 2 day</span>
-                </button>
-                <button type="button">
-                  <input type="radio" name="exactDates" />
-                  <span>{plusMinus} 3 day</span>
-                </button>
-                <button type="button">
-                  <input type="radio" name="exactDates" />
-                  <span>{plusMinus} 7 day</span>
-                </button>
-              </div>
+              {!isDetail && (
+                <div className="calendar__foot">
+                  <button type="button">
+                    <input type="radio" name="exactDates" />
+                    <span> Exact dates</span>
+                  </button>
+                  <button type="button">
+                    <input type="radio" name="exactDates" />
+                    <span>{plusMinus} 1 day</span>
+                  </button>
+                  <button type="button">
+                    <input type="radio" name="exactDates" />
+                    <span>{plusMinus} 2 day</span>
+                  </button>
+                  <button type="button">
+                    <input type="radio" name="exactDates" />
+                    <span>{plusMinus} 3 day</span>
+                  </button>
+                  <button type="button">
+                    <input type="radio" name="exactDates" />
+                    <span>{plusMinus} 7 day</span>
+                  </button>
+                </div>
+              )}
             </>
           )}
           {tab === "flexible" && <FlexibleMobile />}
