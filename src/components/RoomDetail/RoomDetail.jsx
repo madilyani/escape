@@ -5,7 +5,7 @@ import Calendar from "components/Calendar";
 import Room from "components/Room/Room";
 import { roomModul, roomModulMobile } from "Base/roomModul";
 import EditSearch from "components/EditSearch";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import RoomDetailPopUp from "components/RoomDetailPopUp";
 
 export default function RoomDetail({
@@ -228,12 +228,14 @@ export default function RoomDetail({
           </div>
         </div>
       </section>
-      {mobile && editSearch && (
-        <EditSearch setForm={setForm} setEditSearch={setEditSearch} />
-      )}
-      {mobile && roomCardPopup && (
-        <RoomDetailPopUp roomSelected={roomSelected} form2={form2} />
-      )}
+      <AnimatePresence>
+        {mobile && editSearch && (
+          <EditSearch setForm={setForm} setEditSearch={setEditSearch} />
+        )}
+        {mobile && roomCardPopup && (
+          <RoomDetailPopUp roomSelected={roomSelected} form2={form2} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
